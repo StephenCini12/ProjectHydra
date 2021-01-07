@@ -10,6 +10,7 @@ public class Pause : MonoBehaviour
 
     [SerializeField] 
     GameObject pauseMenu;
+    
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class Pause : MonoBehaviour
         }
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;

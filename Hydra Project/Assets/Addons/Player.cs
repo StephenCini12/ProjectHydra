@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class Player : MonoBehaviour
     public bool HealthSystem = true;
     public int PlayerElement = 0;
     public int NextPlayerElement = 0;
-    Renderer rend;
+    public Renderer rend;
     public Material[] material;
     public ElementTimer ElementTimerScript;
     public int TriggerColorChange = 0;
@@ -75,6 +76,11 @@ public class Player : MonoBehaviour
         }else if(_lives <3)
         {
             Destroy(hearts[2].gameObject);
+        }
+
+        if (_lives <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
 
@@ -147,9 +153,11 @@ public class Player : MonoBehaviour
     void Damage()
     {
         _lives-= 1;
-        if(_lives < 1)
+        if(_lives <= 0)
         {
-            Destroy(this.gameObject);
+            Debug.Log("You died...GAME OVER");
+            //yield return new WaitForSeconds (3);
+            rend.enabled = false;
         }
     }
 }

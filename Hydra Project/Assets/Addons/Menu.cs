@@ -17,6 +17,7 @@ public class Menu : MonoBehaviour
         if(menu == 1)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Time.timeScale = 1f;
         }
     
     }
@@ -47,6 +48,11 @@ public class Menu : MonoBehaviour
         {
             buttons.gameObject.SetActive(true);
         }
+    }
+
+    public void Score()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
 

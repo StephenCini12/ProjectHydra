@@ -16,17 +16,66 @@ public class Player : MonoBehaviour
     private float jumpTimeCounter;
     public float jumpTime;
     private bool isJumping;
-    private int _lives = 3;
+    public int _lives = 3;
+    public GameObject[] hearts;
+    public bool HealthSystem = true;
+    public int PlayerElement = 0;
+    public int NextPlayerElement = 0;
+    Renderer rend;
+    public Material[] material;
+    public ElementTimer ElementTimerScript;
+    public int TriggerColorChange = 0;
+
 
     void Start()
     {
-            _RB = GetComponent<Rigidbody2D>();
+        PlayerElement = 1;
+        NextPlayerElement = 1;
+        _RB = GetComponent<Rigidbody2D>();
+        TriggerColorChange = 0;
+        rend = GetComponent<Renderer>();
+        rend.enabled =true;
+        ElementTimerScript = GameObject.Find("ElementTimer").GetComponent<ElementTimer>();
     }
 
     void Update()
     {
-       CalculateMovement();
-       FixedUpdate();
+        rend.sharedMaterial = material[PlayerElement]; 
+        CalculateMovement();
+        FixedUpdate();
+        if (HealthSystem)
+        {
+            Health();
+        }
+
+        if (TriggerColorChange == 1)
+        {
+            ElementTimerScript.nextElement = NextPlayerElement;
+            ElementTimerScript.setElement = PlayerElement;
+            rend.sharedMaterial = material[PlayerElement];
+        }
+    }
+    public void SetElement()
+    {
+    }
+    void ElementDetector()
+    {
+
+    }
+    void Health()
+    {
+        Player player = GetComponent<Player>();
+
+        if (_lives < 1)
+        {
+            Destroy(hearts[0].gameObject);
+        } else if (_lives < 2)
+        {
+            Destroy(hearts[1].gameObject);
+        }else if(_lives <3)
+        {
+            Destroy(hearts[2].gameObject);
+        }
     }
 
     void CalculateMovement()
@@ -83,10 +132,24 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Player Move
-        //GetAxisRaw" to make it snappy
         moveInput = Input.GetAxis("Horizontal");   
         _RB.velocity = new Vector2(moveInput * _Speed, _RB.velocity.y);
-        
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        //Debug.Log("Hit: " + transform.name);
+        if (coll.gameObject.tag == "Lava")
+        {
+           Damage();
+        }
+    }      
+    void Damage()
+    {
+        _lives-= 1;
+        if(_lives < 1)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -5,37 +5,60 @@ using UnityEngine.UI;
 
 public class ElementTimer : MonoBehaviour
 {
-    private float timeRemaining;
+    public bool isSlider = true;
+    public float timeRemaining = 5f;
+    [SerializeField]
     private const float timerMax = 5f;
     public Slider slider;
-    int element;  
-    Renderer m_Renderer;
-    public SpriteRenderer spriteRenderer;
-
-    public Material[] material;
-    Renderer rend;
-    public Image _color;
+    public int nextElement = Random.Range (0,3);
+    public int setElement = 0;
+    Image rend;
+    public Color[] color;
+    public Player playerScript;
 
 
     void Start()
     {
-        element=0;
-        rend = GetComponent<Renderer>();
+        rend = GetComponent<Image>();
         rend.enabled =true;
-        rend.sharedMaterial = material[element];
-
-        element = Random.Range (0,3);
-
+        playerScript = GameObject.Find("Player").GetComponent<Player>();
+        if (isSlider)
+        {
+            playerScript.PlayerElement = 0;
+            playerScript.NextPlayerElement = 1;
+            rend.color = color[setElement];
+        }
+        else
+        {
+            playerScript.PlayerElement = 0;
+            playerScript.NextPlayerElement = 1;
+            rend.color = color[nextElement];
+        }
     }
 
     void Update()
     {
-       SliderTimer();  
-
-       _color.GetComponent<Image>().color = new Color32(145,214,215,100);    
+        if (isSlider)
+        {
+            ColorChange();
+            SliderTimer();
+        }
+        else
+        {
+            nextElement = playerScript.NextPlayerElement;
+            setElement = playerScript.PlayerElement;
+            BackElement();
+        }
     }
-
-    void SliderTimer()
+    public void ColorChange()
+    {
+        if (playerScript.TriggerColorChange == 1)
+        {
+            rend.color = color[setElement];
+            playerScript.TriggerColorChange = 0;
+        }
+    }   
+    public void SliderTimer()
        {
             slider.value = CalculateSliderValue();
 
@@ -47,28 +70,30 @@ public class ElementTimer : MonoBehaviour
             if(timeRemaining <= 0)
             {
                 timeRemaining = timerMax;
+                playerScript.PlayerElement = playerScript.NextPlayerElement;
+                playerScript.NextPlayerElement = Random.Range(0,3);
+                playerScript.TriggerColorChange = 1;
+                //Debug.Log("Next Element " + playerElement);
             }
-
             else if(timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
             }
-
-            if(spriteRenderer != null)
+            else if(timeRemaining == timerMax)
             {
-                Color newColor = new Color 
-                (Random.value,
-                Random.value,
-                Random.value);
-
-                spriteRenderer.color = newColor;
+                //playerScript.NextPlayerElement = Random.Range(0,3);
+                //rend.color = color[nextElement];
             }
         }
-
-
     float CalculateSliderValue()
     {
         return(timeRemaining / timerMax);
     }
-
+    public void BackElement()
+    {
+        if (playerScript.TriggerColorChange == 1)
+        {
+            rend.color = color[nextElement];
+        }
+    }
 }

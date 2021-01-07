@@ -10,14 +10,14 @@ public class GameUI : MonoBehaviour
     public Text scoreText;
     public GameObject[] hearts;
     public int _lives = 3;
-    public int _coinSpeed = 5;
+    [SerializeField] GameObject optionsMenu;
+    
+    //public int _coinSpeed = 5;
 
     
     void Start()
     {
         scoreValue = 0;
-        scoreText.text = "Score: " + scoreValue;
-
     }
 
     void Update()
@@ -45,4 +45,17 @@ public class GameUI : MonoBehaviour
             Destroy(hearts[2].gameObject);
         }
     }
+
+   
+    public void Options()
+    {
+        optionsMenu.SetActive(true);
+    }
+
+     public void Back()
+    {
+        optionsMenu.SetActive(false);
+    }
+
+
 }

@@ -8,7 +8,7 @@ public class MovingPlatform : MonoBehaviour
     public bool isOnMovingPlatform = false;
     public GameObject Player;
     public bool isMovingLeft = true;
-    public int element = Random.Range (0,3);
+    public int element = 0;
     public float speed;
     public Material[] material;
     Renderer rend;

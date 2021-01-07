@@ -10,7 +10,7 @@ public class ElementTimer : MonoBehaviour
     [SerializeField]
     private const float timerMax = 5f;
     public Slider slider;
-    public int nextElement = Random.Range (0,3);
+    public int nextElement = 0;
     public int setElement = 0;
     Image rend;
     public Color[] color;
@@ -20,7 +20,7 @@ public class ElementTimer : MonoBehaviour
     void Start()
     {
         rend = GetComponent<Image>();
-        rend.enabled =true;
+        //rend.enabled =true;
         playerScript = GameObject.Find("Player").GetComponent<Player>();
         if (isSlider)
         {

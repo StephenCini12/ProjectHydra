@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public ElementTimer ElementTimerScript;
     public int TriggerColorChange = 0;
     public bool setMovingPlatform = false;
+    public BoxCollider2D playerCollider;
 
 
     void Start()
@@ -38,6 +39,8 @@ public class Player : MonoBehaviour
         rend = GetComponent<Renderer>();
         rend.enabled =true;
         ElementTimerScript = GameObject.Find("ElementTimer").GetComponent<ElementTimer>();
+
+        playerCollider = playerCollider.GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -128,6 +131,17 @@ public class Player : MonoBehaviour
         {
             isJumping = false;
         }
+
+
+        //if(Input.GetKey(KeyCode.DownArrow) && isGrounded)
+        //{
+            //Debug.Log("Go Down");
+            //playerCollider.isTrigger = true;
+        //}
+        //if(Input.GetKeyUp(KeyCode.DownArrow))
+        //{
+            //playerCollider.isTrigger = false;
+        //}        
     }
 
     void FixedUpdate()
@@ -145,17 +159,7 @@ public class Player : MonoBehaviour
            Damage();
         }
     }  
-    // void OnTriggerEnter2D(Collider2D other) 
-    // {
-    //     if (other.tag == "Platform" && isGrounded == true)
-    //     {
-    //         MovingPlatform Platform = other.GetComponent<MovingPlatform>();
-    //         if (PlayerElement == Platform.element)
-    //         {
-    //             Debug.Log("You're Gay");
-    //         }
-    //     }
-    // }
+
     public void Damage()
     {
         _lives-= 1;

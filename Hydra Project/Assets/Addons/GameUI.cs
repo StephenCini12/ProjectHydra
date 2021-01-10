@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameUI : MonoBehaviour
 {
     public bool HealthSystem = true;
-    public int scoreValue = 0;
+    public float scoreValue = 0;
     public Text scoreText;
     public GameObject[] hearts;
     public int _lives = 3;
@@ -19,12 +19,14 @@ public class GameUI : MonoBehaviour
     void Start()
     {
         scoreValue = 0;
+
     }
 
     void Update()
     {
-        scoreText.text = "Score: " + scoreValue;
-
+    scoreValue += 1 * Time.deltaTime;
+    scoreText.text = "Score: " + (int)scoreValue;
+    
      if (HealthSystem)
         {
             Health();

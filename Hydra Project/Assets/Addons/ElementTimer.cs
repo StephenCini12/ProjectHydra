@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ElementTimer : MonoBehaviour
 {
     public bool isSlider = true;
-    public float timeRemaining = 5f;
+    private float timeRemaining = 5f;
     [SerializeField]
     private const float timerMax = 5f;
     public Slider slider;
@@ -62,11 +62,6 @@ public class ElementTimer : MonoBehaviour
        {
             slider.value = CalculateSliderValue();
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                timeRemaining = timerMax;
-            }
-
             if(timeRemaining <= 0)
             {
                 timeRemaining = timerMax;
@@ -85,7 +80,7 @@ public class ElementTimer : MonoBehaviour
                 //rend.color = color[nextElement];
             }
         }
-    float CalculateSliderValue()
+    private float CalculateSliderValue()
     {
         return(timeRemaining / timerMax);
     }

@@ -12,6 +12,7 @@ public class MovingPlatform : MonoBehaviour
     public float speed;
     public Material[] material;
     Renderer rend;
+    public Player playerScript;
     
 
     void Start()
@@ -20,7 +21,7 @@ public class MovingPlatform : MonoBehaviour
         rend = GetComponent<Renderer>();
         rend.enabled =true;
         rend.sharedMaterial = material[element];
-
+        playerScript = GameObject.Find("Player").GetComponent<Player>();
 
     }
 
@@ -55,8 +56,15 @@ public class MovingPlatform : MonoBehaviour
         {
             isOnMovingPlatform = true;
         }
+        
+        if (other.gameObject.CompareTag("Player") && playerScript.isGrounded == true)
+        {
+            if (element != playerScript.PlayerElement)
+            {
+                playerScript.Damage();
+            }
+        }
     }
-
     private void OnCollisionExit2D(Collision2D other) 
     {
         if (other.gameObject.CompareTag("Player"))

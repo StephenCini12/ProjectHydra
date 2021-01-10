@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public Material[] material;
     public ElementTimer ElementTimerScript;
     public int TriggerColorChange = 0;
+    public bool setMovingPlatform = false;
 
 
     void Start()
@@ -55,13 +56,6 @@ public class Player : MonoBehaviour
             ElementTimerScript.setElement = PlayerElement;
             rend.sharedMaterial = material[PlayerElement];
         }
-    }
-    public void SetElement()
-    {
-    }
-    void ElementDetector()
-    {
-
     }
     void Health()
     {
@@ -144,13 +138,25 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
+        setMovingPlatform = true;
         //Debug.Log("Hit: " + transform.name);
         if (coll.gameObject.tag == "Lava")
         {
            Damage();
         }
-    }      
-    void Damage()
+    }  
+    // void OnTriggerEnter2D(Collider2D other) 
+    // {
+    //     if (other.tag == "Platform" && isGrounded == true)
+    //     {
+    //         MovingPlatform Platform = other.GetComponent<MovingPlatform>();
+    //         if (PlayerElement == Platform.element)
+    //         {
+    //             Debug.Log("You're Gay");
+    //         }
+    //     }
+    // }
+    public void Damage()
     {
         _lives-= 1;
         if(_lives <= 0)

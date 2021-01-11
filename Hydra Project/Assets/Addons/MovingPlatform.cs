@@ -30,6 +30,11 @@ public class MovingPlatform : MonoBehaviour
         if (isOnMovingPlatform)
         {
             Player.transform.SetParent(this.transform);
+            if (element != playerScript.PlayerElement && playerScript.IsDamage == false)
+            {
+                playerScript.IsDamage = true;
+                playerScript.Damage();               
+            }
         }
         else
         {
@@ -45,7 +50,6 @@ public class MovingPlatform : MonoBehaviour
         {
             right ();
         }
-
     }
 
 

@@ -1194,6 +1194,7 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   hearts: []
   _lives: 3
+  ElementTimerScript: {fileID: 0}
   optionsMenu: {fileID: 473756998}
 --- !u!224 &473757003
 RectTransform:
@@ -1956,6 +1957,7 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.99158764, a: 1}
   - {r: 0.37215927, g: 0.7169812, b: 0.21982914, a: 1}
   playerScript: {fileID: 2004446134}
+  giveScore: 0
 --- !u!1 &854642585
 GameObject:
   m_ObjectHideFlags: 0
@@ -3000,6 +3002,7 @@ MonoBehaviour:
   scoreText: {fileID: 1216254706}
   hearts: []
   _lives: 3
+  ElementTimerScript: {fileID: 1847423324}
   optionsMenu: {fileID: 0}
 --- !u!1 &1232405288
 GameObject:
@@ -4431,6 +4434,7 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   hearts: []
   _lives: 3
+  ElementTimerScript: {fileID: 0}
   optionsMenu: {fileID: 473756998}
 --- !u!1 &1699899949
 GameObject:
@@ -5503,6 +5507,7 @@ MonoBehaviour:
   setElement: 0
   color: []
   playerScript: {fileID: 2004446134}
+  giveScore: 0
 --- !u!1 &1910072599
 GameObject:
   m_ObjectHideFlags: 0
@@ -5801,6 +5806,7 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.99158764, a: 1}
   - {r: 0.37215927, g: 0.7169812, b: 0.21982914, a: 1}
   playerScript: {fileID: 0}
+  giveScore: 0
 --- !u!1 &2034708662
 GameObject:
   m_ObjectHideFlags: 0

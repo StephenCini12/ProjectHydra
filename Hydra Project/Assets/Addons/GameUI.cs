@@ -11,6 +11,7 @@ public class GameUI : MonoBehaviour
     public Text scoreText;
     public GameObject[] hearts;
     public int _lives = 3;
+    public ElementTimer ElementTimerScript;
     [SerializeField] GameObject optionsMenu;
     
     //public int _coinSpeed = 5;
@@ -19,18 +20,26 @@ public class GameUI : MonoBehaviour
     void Start()
     {
         scoreValue = 0;
-
+        ElementTimerScript = GameObject.Find("ElementTimer").GetComponent<ElementTimer>();
+        ElementTimerScript.giveScore = false;
     }
 
     void Update()
     {
-    scoreValue += 1 * Time.deltaTime;
-    scoreText.text = "Score: " + (int)scoreValue;
+        scoreValue += 1 * Time.deltaTime;
+        scoreText.text = "Score: " + (int)scoreValue;
     
-     if (HealthSystem)
-        {
-            Health();
-        }
+    if (HealthSystem)
+    {
+        Health();
+    }
+
+    if (ElementTimerScript.giveScore == true)
+    {
+        //Debug.Log("cringe bro");
+        scoreValue = 10 + (int)scoreValue;
+        ElementTimerScript.giveScore = false;
+    }
     }
 
     void Health()
@@ -65,7 +74,7 @@ public class GameUI : MonoBehaviour
         optionsMenu.SetActive(false);
     }   
 
- public void backToMenu()
+    public void backToMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }  

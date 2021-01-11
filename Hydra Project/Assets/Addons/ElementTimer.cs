@@ -15,6 +15,7 @@ public class ElementTimer : MonoBehaviour
     Image rend;
     public Color[] color;
     public Player playerScript;
+    public bool giveScore = false;
 
 
     void Start()
@@ -67,6 +68,11 @@ public class ElementTimer : MonoBehaviour
                 timeRemaining = timerMax;
                 playerScript.PlayerElement = playerScript.NextPlayerElement;
                 playerScript.NextPlayerElement = Random.Range(0,3);
+                if (playerScript.IsDamage == false)
+                {
+                    giveScore = true;
+                    //Debug.Log("lol you got points");
+                }
                 playerScript.TriggerColorChange = 1;
                 //Debug.Log("Next Element " + playerElement);
             }
@@ -74,11 +80,11 @@ public class ElementTimer : MonoBehaviour
             {
                 timeRemaining -= Time.deltaTime;
             }
-            else if(timeRemaining == timerMax)
-            {
-                //playerScript.NextPlayerElement = Random.Range(0,3);
-                //rend.color = color[nextElement];
-            }
+            // else if(timeRemaining == timerMax)
+            // {
+            //     //playerScript.NextPlayerElement = Random.Range(0,3);
+            //     //rend.color = color[nextElement];
+            // }
         }
     private float CalculateSliderValue()
     {

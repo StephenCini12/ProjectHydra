@@ -75,7 +75,6 @@ public class Player : MonoBehaviour
                 {
                     visabletimer = 0f;
                     rend.enabled = false;
-                    visabletimer = 0f;
                 }
             }
             else
@@ -85,10 +84,9 @@ public class Player : MonoBehaviour
                 {
                     visabletimer = 0f;
                     rend.enabled = true;
-                    visabletimer = 0f;
                 }
             }
-            if (_immune >= 3f)
+            if (_immune >= 2.5f)
             {
                 IsDamage = false;
                 _immune = 0f;
@@ -122,47 +120,46 @@ public class Player : MonoBehaviour
     {
         //Player Collissions      
         //if the player's y position is smaller or equal to -3.8f
-            if(transform.position.x <= -8.5f)
-            {
-                //stop the player from going lower then -3.8f
-                transform.position = new Vector2(-8.5f,transform.position.y);
-            }
+        if(transform.position.x <= -8.5f)
+        {
+            //stop the player from going lower then -3.8f
+            transform.position = new Vector2(-8.5f,transform.position.y);
+        }
 
-            else if(transform.position.x >= 8.5f)
-            {
-                transform.position = new Vector2(8.5f,transform.position.y);
-            }
+        else if(transform.position.x >= 8.5f)
+        {
+            transform.position = new Vector2(8.5f,transform.position.y);
+        }
 
         //Player Jump
         isGrounded = Physics2D.OverlapArea(new Vector2(transform.position.x -0.5f, transform.position.y - 0.5f),
         new Vector2(transform.position.x + 0.5f, transform.position.y - 0.51f), whatIsGround);
 
-       if (Input.GetKeyDown (KeyCode.UpArrow) && isGrounded)
-       {
+        if (Input.GetKeyDown (KeyCode.UpArrow) && isGrounded)
+        {
           _RB.AddForce (Vector2.up * _Jump, ForceMode2D.Impulse);
-       }
+        }
 
 
-       if(isGrounded == true && Input.GetKeyDown(KeyCode.UpArrow))
-       {
-           isJumping = true;
-           jumpTimeCounter = jumpTime;
-           _RB.velocity = Vector2.up * _Jump;
-       }
+        if(isGrounded == true && Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
+            _RB.velocity = Vector2.up * _Jump;
+        }
 
-       if(Input.GetKey(KeyCode.UpArrow) && isJumping == true)
-       {
-           if(jumpTimeCounter > 0)
+        if(Input.GetKey(KeyCode.UpArrow) && isJumping == true)
+        {
+            if(jumpTimeCounter > 0)
             {
                 _RB.velocity = Vector2.up * _Jump;
                 jumpTimeCounter -= Time.deltaTime;
             } 
         }
-
-           else 
-           {
-               isJumping = false;
-           }
+        else 
+        {
+            isJumping = false;
+        }
        
         if(Input.GetKeyUp(KeyCode.UpArrow))
         {
@@ -170,14 +167,14 @@ public class Player : MonoBehaviour
         }
 
 
-        if(Input.GetKey(KeyCode.DownArrow) && isGrounded)
+        if(Input.GetKeyDown(KeyCode.DownArrow) && isGrounded || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Debug.Log("Go Down");
-            playerCollider.isTrigger = true;
+            //Debug.Log("Go Down");
+            playerCollider.enabled = false;
         }
-        if(Input.GetKeyUp(KeyCode.DownArrow))
+        else if(Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.UpArrow))
         {
-            playerCollider.isTrigger = false;
+            playerCollider.enabled = true;
         }        
     }
 

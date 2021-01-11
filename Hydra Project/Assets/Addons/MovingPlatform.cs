@@ -57,10 +57,11 @@ public class MovingPlatform : MonoBehaviour
             isOnMovingPlatform = true;
         }
         
-        if (other.gameObject.CompareTag("Player") && playerScript.isGrounded == true)
+        if (other.gameObject.CompareTag("Player") && playerScript.isGrounded == true && playerScript.IsDamage == false)
         {
-            if (element != playerScript.PlayerElement)
+            if (element != playerScript.PlayerElement && playerScript.IsDamage == false)
             {
+                playerScript.IsDamage = true;
                 playerScript.Damage();
             }
         }

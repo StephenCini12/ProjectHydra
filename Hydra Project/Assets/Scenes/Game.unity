@@ -5651,9 +5651,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Speed: 8
   _Jump: 6
+  visabletimer: 0
   _RB: {fileID: 2004446130}
   isOnPlatform: 0
   isGrounded: 1
+  IsDamage: 0
   feetPos: {fileID: 1910072600}
   checkRadius: 0.2
   whatIsGround:

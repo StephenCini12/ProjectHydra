@@ -7,33 +7,37 @@ public class Player : MonoBehaviour
 {
     public float _Speed = 5f;
     public float _Jump = 8f;
+    public float visabletimer;
     public Rigidbody2D _RB;
     public bool isOnPlatform;
     private float moveInput;
     public bool isGrounded;
+    private bool isJumping;
+    public bool IsDamage = false;
     public Transform feetPos;    
     public float checkRadius;
     public LayerMask whatIsGround;
     private float jumpTimeCounter;
     public float jumpTime;
-    private bool isJumping;
     public int _lives = 3;
     public GameObject[] hearts;
     public bool HealthSystem = true;
-    public int PlayerElement = 0;
-    public int NextPlayerElement = 0;
+    public int PlayerElement;
+    public int NextPlayerElement;
     public Renderer rend;
     public Material[] material;
     public ElementTimer ElementTimerScript;
     public int TriggerColorChange = 0;
     public bool setMovingPlatform = false;
     public BoxCollider2D playerCollider;
+    private float _immune = 0f;
 
 
     void Start()
     {
-        PlayerElement = 1;
+        PlayerElement = 0;
         NextPlayerElement = 1;
+        _immune = 0f;
         _RB = GetComponent<Rigidbody2D>();
         TriggerColorChange = 0;
         rend = GetComponent<Renderer>();
@@ -58,6 +62,39 @@ public class Player : MonoBehaviour
             ElementTimerScript.nextElement = NextPlayerElement;
             ElementTimerScript.setElement = PlayerElement;
             rend.sharedMaterial = material[PlayerElement];
+        }
+
+        if (IsDamage == true)
+        {
+            _immune += Time.deltaTime;
+            //rend.enabled = false;
+            if (rend.enabled == true)
+            {
+                visabletimer += Time.deltaTime;
+                if (visabletimer >= 0.2f)
+                {
+                    visabletimer = 0f;
+                    rend.enabled = false;
+                    visabletimer = 0f;
+                }
+            }
+            else
+            {
+                visabletimer += Time.deltaTime;
+                if (visabletimer >= 0.09f)
+                {
+                    visabletimer = 0f;
+                    rend.enabled = true;
+                    visabletimer = 0f;
+                }
+            }
+            if (_immune >= 3f)
+            {
+                IsDamage = false;
+                _immune = 0f;
+                visabletimer = 0f;
+                rend.enabled = true;
+            }
         }
     }
     void Health()
@@ -133,15 +170,15 @@ public class Player : MonoBehaviour
         }
 
 
-        //if(Input.GetKey(KeyCode.DownArrow) && isGrounded)
-        //{
-            //Debug.Log("Go Down");
-            //playerCollider.isTrigger = true;
-        //}
-        //if(Input.GetKeyUp(KeyCode.DownArrow))
-        //{
-            //playerCollider.isTrigger = false;
-        //}        
+        if(Input.GetKey(KeyCode.DownArrow) && isGrounded)
+        {
+            Debug.Log("Go Down");
+            playerCollider.isTrigger = true;
+        }
+        if(Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            playerCollider.isTrigger = false;
+        }        
     }
 
     void FixedUpdate()
@@ -156,7 +193,7 @@ public class Player : MonoBehaviour
         //Debug.Log("Hit: " + transform.name);
         if (coll.gameObject.tag == "Lava")
         {
-           Damage();
+            Damage();
         }
     }  
 

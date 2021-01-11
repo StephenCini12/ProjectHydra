@@ -10,8 +10,8 @@ public class ElementTimer : MonoBehaviour
     [SerializeField]
     private const float timerMax = 5f;
     public Slider slider;
-    public int nextElement = 0;
-    public int setElement = 0;
+    public int nextElement;
+    public int setElement;
     Image rend;
     public Color[] color;
     public Player playerScript;
@@ -25,14 +25,14 @@ public class ElementTimer : MonoBehaviour
         if (isSlider)
         {
             playerScript.PlayerElement = 0;
-            playerScript.NextPlayerElement = 1;
+            playerScript.NextPlayerElement = 0;
             rend.color = color[setElement];
         }
         else
         {
             playerScript.PlayerElement = 0;
             playerScript.NextPlayerElement = 1;
-            rend.color = color[nextElement];
+            rend.color = color[playerScript.NextPlayerElement];
         }
     }
 

@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 521}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 521}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_MinSize: {x: 708, y: 471}
   m_MaxSize: {x: 18003, y: 14021}
   vertical: 0
-  controlID: 79
+  controlID: 142
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,8 +161,8 @@ MonoBehaviour:
     y: 0
     width: 1251
     height: 465
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -452,9 +452,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.25598752, y: -0.061920844, z: -0.76388466}
+    m_Target: {x: 0.16442919, y: -1.8816867, z: 0.23279238}
     speed: 2
-    m_Value: {x: 0.25598752, y: -0.061920844, z: -0.76388466}
+    m_Value: {x: 0.16442919, y: -1.8816867, z: 0.23279238}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -500,13 +500,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.018236035, y: 0.08896436, z: -0.0016291252, w: -0.9958666}
+    m_Target: {x: -0.10219168, y: 0.3241161, z: -0.03524289, w: -0.93982154}
     speed: 2
-    m_Value: {x: -0.018236035, y: 0.08896436, z: -0.0016291252, w: -0.9958666}
+    m_Value: {x: -0.10219163, y: 0.32411596, z: -0.03524287, w: -0.93982106}
   m_Size:
-    m_Target: 5.3970175
+    m_Target: 1.9069469
     speed: 2
-    m_Value: 5.3970175
+    m_Value: 1.9069469
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -562,7 +562,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 6cfbffff
+      m_ExpandedIDs: 7088ffff228cffff2a9affffc8f3ffff28f5ffff6cfbffff2e340000ee340000ac350000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -630,14 +630,14 @@ MonoBehaviour:
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\Apps\GitHub\ProjectHydra\Hydra Project
+  m_LastProjectPath: D:\GitHub\ProjectHydra\Hydra Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: d03c0000
     m_LastClickedID: 15568
-    m_ExpandedIDs: 0000000000360000323600003436000036360000383600003a3600003c3600003e360000
+    m_ExpandedIDs: 00000000003600002e36000030360000323600003436000036360000383600003a360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -665,7 +665,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff0000000000360000323600003436000036360000383600003a3600003c3600003e360000
+    m_ExpandedIDs: ffffffff00000000003600002e36000030360000323600003436000036360000383600003a360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

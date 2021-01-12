@@ -26,7 +26,7 @@ public class GameUI : MonoBehaviour
 
     void Update()
     {
-        scoreValue += 1 * Time.deltaTime;
+        scoreValue += 1.5f * Time.deltaTime;
         scoreText.text = "Score: " + (int)scoreValue;
     
     if (HealthSystem)

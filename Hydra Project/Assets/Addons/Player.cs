@@ -31,6 +31,10 @@ public class Player : MonoBehaviour
     public bool setMovingPlatform = false;
     public BoxCollider2D playerCollider;
     private float _immune = 0f;
+    public float dashDistance = 15f;
+    bool isDashing;
+    float doubleTapTime;
+    KeyCode lastKeyCode;
 
 
     void Start()
@@ -175,13 +179,47 @@ public class Player : MonoBehaviour
         else if(Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.UpArrow))
         {
             playerCollider.enabled = true;
-        }        
+        }
+        
+         else if(Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            playerCollider.enabled = true;
+        }
+
+    //     //Dash left
+    //     if (Input.GetKeyDown(KeyCode.LeftArrow))
+    //     {
+    //         if (doubleTapTime > Time.time && lastKeyCode == KeyCode.LeftArrow){
+    //             StartCoroutine(Dash(1f));
+    //         } else {
+    //             doubleTapTime = Time.time + 0.5f;
+    //         }
+            
+    //         lastKeyCode = KeyCode.LeftArrow;
+    //     }
+
+    //     //Dash right
+    //     if (Input.GetKeyDown(KeyCode.RightArrow))
+    //     {
+    //         if (doubleTapTime > Time.time && lastKeyCode == KeyCode.RightArrow){
+    //             StartCoroutine(Dash(1f));
+    //         } else {
+    //             doubleTapTime = Time.time + 0.5f;
+    //         }
+            
+    //         lastKeyCode = KeyCode.RightArrow;
+    //     }         
     }
 
     void FixedUpdate()
     {
         moveInput = Input.GetAxis("Horizontal");   
         _RB.velocity = new Vector2(moveInput * _Speed, _RB.velocity.y);
+
+        //if (!isDashing)
+        //{
+            //_RB.velocity = new Vector2(mx *_Speed, _RB.velocity.y);
+       //}
     }
 
     void OnCollisionEnter2D(Collision2D coll)
@@ -190,7 +228,8 @@ public class Player : MonoBehaviour
         //Debug.Log("Hit: " + transform.name);
         if (coll.gameObject.tag == "Lava")
         {
-            Damage();
+            _lives = 0;
+            //Damage();
         }
     }  
 
@@ -204,4 +243,16 @@ public class Player : MonoBehaviour
             rend.enabled = false;
         }
     }
+
+    // IEnumerator Dash (float direction)
+    // {
+    //     isDashing = true;
+    //     _RB.velocity = new Vector2(_RB.velocity.x, 0f);
+    //     _RB.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
+    //     float gravity = _RB.gravityScale;
+    //     _RB.gravityScale = 0f;
+    //     yield return new WaitForSeconds(0.4f);
+    //     isDashing = false;
+    //     _RB.gravityScale = gravity;
+    // }
 }

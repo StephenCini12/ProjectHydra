@@ -13,11 +13,20 @@ public class MovingPlatform : MonoBehaviour
     public Material[] material;
     Renderer rend;
     public Player playerScript;
+    public bool isSpawnPlatform = false;
     
 
     void Start()
     {
-        element = Random.Range (0,3);
+        if(!isSpawnPlatform)
+        {
+            element = Random.Range (0,3);
+        }
+        else
+        {
+            element = 0;
+        }
+        
         rend = GetComponent<Renderer>();
         rend.enabled =true;
         rend.sharedMaterial = material[element];

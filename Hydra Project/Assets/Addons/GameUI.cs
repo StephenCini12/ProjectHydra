@@ -12,6 +12,7 @@ public class GameUI : MonoBehaviour
     public GameObject[] hearts;
     public int _lives = 3;
     public ElementTimer ElementTimerScript;
+    public Player playerScript;
     [SerializeField] GameObject optionsMenu;
     
     //public int _coinSpeed = 5;
@@ -21,6 +22,7 @@ public class GameUI : MonoBehaviour
     {
         scoreValue = 0;
         ElementTimerScript = GameObject.Find("ElementTimer").GetComponent<ElementTimer>();
+        playerScript = GameObject.Find("Player").GetComponent<Player>();
         ElementTimerScript.giveScore = false;
     }
 
@@ -34,11 +36,17 @@ public class GameUI : MonoBehaviour
         Health();
     }
 
-    if (ElementTimerScript.giveScore == true)
+    if (ElementTimerScript.giveScore == true && playerScript.IsDamage == false)
     {
         //Debug.Log("cringe bro");
         scoreValue = 10 + (int)scoreValue;
         ElementTimerScript.giveScore = false;
+    }
+    if (ElementTimerScript.giveDiamond == true)
+    {
+        //Debug.Log("cringe bro");
+        scoreValue = 100 + (int)scoreValue;
+        ElementTimerScript.giveDiamond = false;
     }
     }
 

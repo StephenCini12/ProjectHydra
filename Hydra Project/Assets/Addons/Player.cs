@@ -186,29 +186,31 @@ public class Player : MonoBehaviour
             playerCollider.enabled = true;
         }
 
-    //     //Dash left
-    //     if (Input.GetKeyDown(KeyCode.LeftArrow))
-    //     {
-    //         if (doubleTapTime > Time.time && lastKeyCode == KeyCode.LeftArrow){
-    //             StartCoroutine(Dash(1f));
-    //         } else {
-    //             doubleTapTime = Time.time + 0.5f;
-    //         }
+        // //Dash left
+        // if (Input.GetKeyDown(KeyCode.LeftArrow))
+        // {
+        //     if (doubleTapTime > Time.time && lastKeyCode == KeyCode.LeftArrow){
+        //         StartCoroutine(Dash(1f));
+        //     } 
+        //     else {
+        //         doubleTapTime = Time.time + 0.5f;
+        //     }
             
-    //         lastKeyCode = KeyCode.LeftArrow;
-    //     }
+        //     lastKeyCode = KeyCode.LeftArrow;
+        // }
 
-    //     //Dash right
-    //     if (Input.GetKeyDown(KeyCode.RightArrow))
-    //     {
-    //         if (doubleTapTime > Time.time && lastKeyCode == KeyCode.RightArrow){
-    //             StartCoroutine(Dash(1f));
-    //         } else {
-    //             doubleTapTime = Time.time + 0.5f;
-    //         }
+        // //Dash right
+        // if (Input.GetKeyDown(KeyCode.RightArrow))
+        // {
+        //     if (doubleTapTime > Time.time && lastKeyCode == KeyCode.RightArrow){
+        //         StartCoroutine(Dash(1f));
+        //     } 
+        //     else {
+        //         doubleTapTime = Time.time + 0.5f;
+        //     }
             
-    //         lastKeyCode = KeyCode.RightArrow;
-    //     }         
+        //     lastKeyCode = KeyCode.RightArrow;
+        // }         
     }
 
     void FixedUpdate()
@@ -254,5 +256,5 @@ public class Player : MonoBehaviour
     //     yield return new WaitForSeconds(0.4f);
     //     isDashing = false;
     //     _RB.gravityScale = gravity;
-    // }
+    //}
 }

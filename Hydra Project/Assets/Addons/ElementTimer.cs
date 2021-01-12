@@ -16,6 +16,7 @@ public class ElementTimer : MonoBehaviour
     public Color[] color;
     public Player playerScript;
     public bool giveScore = false;
+    public bool giveDiamond = false;
 
 
     void Start()
@@ -67,7 +68,19 @@ public class ElementTimer : MonoBehaviour
             {
                 timeRemaining = timerMax;
                 playerScript.PlayerElement = playerScript.NextPlayerElement;
-                playerScript.NextPlayerElement = Random.Range(0,3);
+                playerScript.NextPlayerElement = playerScript.NextPlayerElement + Random.Range(-1 , +2);
+                if (playerScript.NextPlayerElement <= -1)
+                {
+                    playerScript.NextPlayerElement = 2;
+                }
+                if (playerScript.NextPlayerElement == playerScript.PlayerElement)
+                {
+                    playerScript.NextPlayerElement = playerScript.NextPlayerElement + 1;
+                }
+                if (playerScript.NextPlayerElement >= 3)
+                {
+                    playerScript.NextPlayerElement = 0;
+                }
                 if (playerScript.IsDamage == false)
                 {
                     giveScore = true;

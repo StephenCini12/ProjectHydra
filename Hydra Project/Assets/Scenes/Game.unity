@@ -1249,8 +1249,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.6, y: 0.95}
-  m_SizeDelta: {x: 422.66595, y: 154.6632}
+  m_AnchoredPosition: {x: -0.47, y: 0.82}
+  m_SizeDelta: {x: 1769.866, y: 227.20198}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &410503832
 MonoBehaviour:
@@ -1293,13 +1293,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 140
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 0.7
-  m_Text: 'Your score:'
+  m_Text: 
 --- !u!222 &410503834
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1317,7 +1317,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 473757003}
-  - component: {fileID: 473757002}
   - component: {fileID: 473757001}
   - component: {fileID: 473757000}
   - component: {fileID: 473756999}
@@ -1388,26 +1387,6 @@ Canvas:
   m_SortingLayerID: 1228501863
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &473757002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473756998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c945aacde7bd4489349bb49944a4cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HealthSystem: 1
-  scoreValue: 0
-  scoreText: {fileID: 0}
-  hearts: []
-  _lives: 3
-  ElementTimerScript: {fileID: 0}
-  playerScript: {fileID: 0}
-  optionsMenu: {fileID: 473756998}
 --- !u!224 &473757003
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1795,7 +1774,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 0}
   buttons: {fileID: 0}
-  menu: 0
+  howToPlay: {fileID: 0}
+  scoreMenu: {fileID: 0}
 --- !u!114 &631426655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3570,6 +3550,7 @@ MonoBehaviour:
   HealthSystem: 0
   scoreValue: 0
   scoreText: {fileID: 1216254706}
+  highscoreText: {fileID: 410503833}
   hearts: []
   _lives: 3
   ElementTimerScript: {fileID: 1847423324}
@@ -5272,7 +5253,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1697842474}
-  - component: {fileID: 1697842478}
   - component: {fileID: 1697842477}
   - component: {fileID: 1697842476}
   - component: {fileID: 1697842475}
@@ -5363,26 +5343,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1697842478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697842473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c945aacde7bd4489349bb49944a4cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HealthSystem: 1
-  scoreValue: 0
-  scoreText: {fileID: 0}
-  hearts: []
-  _lives: 3
-  ElementTimerScript: {fileID: 0}
-  playerScript: {fileID: 0}
-  optionsMenu: {fileID: 473756998}
 --- !u!1 &1699899949
 GameObject:
   m_ObjectHideFlags: 0
@@ -7197,7 +7157,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2086403596}
-  - component: {fileID: 2086403595}
   - component: {fileID: 2086403594}
   - component: {fileID: 2086403593}
   - component: {fileID: 2086403592}
@@ -7268,26 +7227,6 @@ Canvas:
   m_SortingLayerID: 1228501863
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &2086403595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2086403591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c945aacde7bd4489349bb49944a4cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HealthSystem: 1
-  scoreValue: 0
-  scoreText: {fileID: 0}
-  hearts: []
-  _lives: 3
-  ElementTimerScript: {fileID: 0}
-  playerScript: {fileID: 0}
-  optionsMenu: {fileID: 473756998}
 --- !u!224 &2086403596
 RectTransform:
   m_ObjectHideFlags: 0

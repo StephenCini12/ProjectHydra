@@ -9,13 +9,12 @@ public class GameUI : MonoBehaviour
     public bool HealthSystem = true;
     public float scoreValue = 0;
     public Text scoreText;
+    public Text highscoreText;
     public GameObject[] hearts;
     public int _lives = 3;
     public ElementTimer ElementTimerScript;
     public Player playerScript;
     [SerializeField] GameObject optionsMenu;
-    
-    //public int _coinSpeed = 5;
 
     
     void Start()
@@ -29,6 +28,7 @@ public class GameUI : MonoBehaviour
 
     void Update()
     {
+        highscoreText.text = "Your score: " + (int)scoreValue;
         scoreValue += 1.5f * Time.deltaTime;
         scoreText.text = "Score: " + (int)scoreValue;
 

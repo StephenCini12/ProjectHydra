@@ -9,13 +9,20 @@ public class ElementTimer : MonoBehaviour
     private float timeRemaining = 5f;
     [SerializeField]
     private const float timerMax = 5f;
-    public Slider slider;
-    public int nextElement;
-    public int setElement;
+    [SerializeField]
+    private Slider slider;
+    [SerializeField]
+    public int nextElement = 0;
+    [SerializeField]
+    public int setElement = 1;
+    [SerializeField]
     Image rend;
+    [SerializeField]
     public Color[] color;
     public Player playerScript;
+    [SerializeField]
     public bool giveScore = false;
+    [SerializeField]
     public bool giveDiamond = false;
 
 
@@ -23,17 +30,16 @@ public class ElementTimer : MonoBehaviour
     {
         rend = GetComponent<Image>();
         //rend.enabled =true;
-        playerScript = GameObject.Find("Player").GetComponent<Player>();
         if (isSlider)
         {
-            playerScript.PlayerElement = 0;
-            playerScript.NextPlayerElement = 0;
-            rend.color = color[setElement];
+            rend.enabled = true;
+            playerScript = GameObject.Find("Player").GetComponent<Player>();
+            rend.color = color[playerScript.PlayerElement];
         }
         else
         {
-            playerScript.PlayerElement = 0;
-            playerScript.NextPlayerElement = 1;
+            rend.enabled = true;
+            playerScript = GameObject.Find("Player").GetComponent<Player>();
             rend.color = color[playerScript.NextPlayerElement];
         }
     }
@@ -56,10 +62,10 @@ public class ElementTimer : MonoBehaviour
     {
         if (playerScript.TriggerColorChange == 1)
         {
-            rend.color = color[setElement];
             playerScript.TriggerColorChange = 0;
         }
     }   
+    
     public void SliderTimer()
     {
         slider.value = CalculateSliderValue();
@@ -86,6 +92,8 @@ public class ElementTimer : MonoBehaviour
                     giveScore = true;
                     //Debug.Log("lol you got points");
                 }
+                rend.color = color[playerScript.PlayerElement];
+                
                 playerScript.TriggerColorChange = 1;
                 //Debug.Log("Next Element " + playerElement);
             }
@@ -107,7 +115,7 @@ public class ElementTimer : MonoBehaviour
     {
         if (playerScript.TriggerColorChange == 1)
         {
-            rend.color = color[nextElement];
+            rend.color = color[playerScript.NextPlayerElement];
         }
     }
 }

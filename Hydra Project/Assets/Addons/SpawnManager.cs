@@ -17,7 +17,7 @@ public class SpawnManager : MonoBehaviour
     public Material[] material;
     Renderer rend;
     [SerializeField]
-    private Player playerScript = GameObject.Find("Player").GetComponent<Player>();
+    public Player playerScript;
     
 
     void Start()

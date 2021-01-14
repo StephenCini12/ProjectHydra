@@ -12,16 +12,16 @@ public class GameUI : MonoBehaviour
     public Text highscoreText;
     public GameObject[] hearts;
     public int _lives = 3;
+    [SerializeField]
     public ElementTimer ElementTimerScript;
+    [SerializeField]
     public Player playerScript;
-    [SerializeField] GameObject optionsMenu;
 
     
     void Start()
     {
         //Time.timeScale = 1f;
         scoreValue = 0;
-        ElementTimerScript = GameObject.Find("ElementTimer").GetComponent<ElementTimer>();
         playerScript = GameObject.Find("Player").GetComponent<Player>();
         ElementTimerScript.giveScore = false;
     }
@@ -29,21 +29,20 @@ public class GameUI : MonoBehaviour
     void Update()
     {
         highscoreText.text = "Your score: " + (int)scoreValue;
-        scoreValue += 1.5f * Time.deltaTime;
+        scoreValue += 3f * Time.deltaTime;
         scoreText.text = "Score: " + (int)scoreValue;
-
-    if (ElementTimerScript.giveScore == true && playerScript.IsDamage == false)
-    {
-        //Debug.Log("cringe bro");
-        scoreValue = 10 + (int)scoreValue;
-        ElementTimerScript.giveScore = false;
-    }
-    if (ElementTimerScript.giveDiamond == true)
-    {
-        //Debug.Log("cringe bro");
-        scoreValue = 100 + (int)scoreValue;
-        ElementTimerScript.giveDiamond = false;
-    }
+        if (gameObject.GetComponent<ElementTimer>() != ElementTimerScript.giveScore == true)
+        {
+            //Debug.Log("cringe bro");
+            scoreValue = 10 + (int)scoreValue;
+            ElementTimerScript.giveScore = false;
+        }
+        if (ElementTimerScript.giveDiamond == true)
+        {
+            //Debug.Log("cringe bro");
+            scoreValue = 100 + (int)scoreValue;
+            ElementTimerScript.giveDiamond = false;
+        }
     }
 
     // void Health()
@@ -62,20 +61,5 @@ public class GameUI : MonoBehaviour
     //     }
     // }
 
-   
-    public void Options()
-    {
-        optionsMenu.SetActive(true);
-    }
-
-     public void Resume()
-    {
-        optionsMenu.SetActive(false);
-    }
-
-    public void backToPause()
-    {
-        optionsMenu.SetActive(false);
-    }    
 
 }

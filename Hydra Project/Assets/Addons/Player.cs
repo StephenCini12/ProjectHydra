@@ -22,10 +22,13 @@ public class Player : MonoBehaviour
     public int _lives = 3;
     public GameObject[] hearts;
     public bool HealthSystem = true;
+    [SerializeField]
     public int PlayerElement;
+    [SerializeField]
     public int NextPlayerElement;
     public Renderer rend;
     public Material[] material;
+    [SerializeField]
     public ElementTimer ElementTimerScript;
     public int TriggerColorChange = 0;
     public bool setMovingPlatform = false;
@@ -41,8 +44,8 @@ public class Player : MonoBehaviour
         TriggerColorChange = 0;
         rend = GetComponent<Renderer>();
         rend.enabled =true;
-        ElementTimerScript = GameObject.Find("ElementTimer").GetComponent<ElementTimer>();
-
+        ElementTimerScript.nextElement = NextPlayerElement;
+        ElementTimerScript.setElement = PlayerElement;
         playerCollider = playerCollider.GetComponent<BoxCollider2D>();
     }
 
@@ -58,6 +61,7 @@ public class Player : MonoBehaviour
 
         if (TriggerColorChange == 1)
         {
+            //ElementTimerScript = GameObject.Find("ElementTimer").GetComponent<ElementTimer>();
             ElementTimerScript.nextElement = NextPlayerElement;
             ElementTimerScript.setElement = PlayerElement;
             rend.sharedMaterial = material[PlayerElement];

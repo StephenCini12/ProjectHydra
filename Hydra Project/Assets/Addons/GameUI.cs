@@ -20,6 +20,7 @@ public class GameUI : MonoBehaviour
     
     void Start()
     {
+        //Time.timeScale = 1f;
         scoreValue = 0;
         ElementTimerScript = GameObject.Find("ElementTimer").GetComponent<ElementTimer>();
         playerScript = GameObject.Find("Player").GetComponent<Player>();
@@ -30,11 +31,6 @@ public class GameUI : MonoBehaviour
     {
         scoreValue += 1.5f * Time.deltaTime;
         scoreText.text = "Score: " + (int)scoreValue;
-    
-    if (HealthSystem)
-    {
-        Health();
-    }
 
     if (ElementTimerScript.giveScore == true && playerScript.IsDamage == false)
     {
@@ -50,21 +46,21 @@ public class GameUI : MonoBehaviour
     }
     }
 
-    void Health()
-    {
-        Player player = GetComponent<Player>();
+    // void Health()
+    // {
+    //     Player player = GetComponent<Player>();
 
-        if (_lives < 1)
-        {
-            Destroy(hearts[0].gameObject);
-        } else if (_lives < 2)
-        {
-            Destroy(hearts[1].gameObject);
-        }else if(_lives <3)
-        {
-            Destroy(hearts[2].gameObject);
-        }
-    }
+    //     if (_lives < 1)
+    //     {
+    //         Destroy(hearts[0].gameObject);
+    //     } else if (_lives < 2)
+    //     {
+    //         Destroy(hearts[1].gameObject);
+    //     }else if(_lives <3)
+    //     {
+    //         Destroy(hearts[2].gameObject);
+    //     }
+    // }
 
    
     public void Options()
@@ -80,11 +76,6 @@ public class GameUI : MonoBehaviour
     public void backToPause()
     {
         optionsMenu.SetActive(false);
-    }   
-
-    public void backToMenu()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-    }  
+    }    
 
 }

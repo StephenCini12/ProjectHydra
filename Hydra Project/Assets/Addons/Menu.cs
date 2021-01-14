@@ -8,18 +8,19 @@ public class Menu : MonoBehaviour
      
     [SerializeField] GameObject optionsMenu;     
     [SerializeField] GameObject buttons;
-    public int menu = 0;
+    [SerializeField] GameObject howToPlay;
+    public GameObject scoreMenu;
 
     public void PlayGame ()
     {
-        menu = 1;
+        howToPlay.gameObject.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Time.timeScale = 1f;
+    }
 
-        if(menu == 1)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            Time.timeScale = 1f;
-        }
-    
+    public void howTo ()
+    {
+        howToPlay.gameObject.SetActive(true);
     }
 
     public void QuitGame()
@@ -28,31 +29,23 @@ public class Menu : MonoBehaviour
         Application.Quit();
     }
 
-    public void Options()
+    public void Volume()
     {
-        menu = 3;
-        if(menu == 3)
-        {
-            optionsMenu.SetActive(true);
-            buttons.gameObject.SetActive(false);
-        }
-        
+        optionsMenu.SetActive(true);
+        buttons.gameObject.SetActive(false); 
+    }
+
+    public void Score()
+    {
+        scoreMenu.SetActive(true);
+        buttons.gameObject.SetActive(false); 
     }
 
     public void Back()
     {
         optionsMenu.SetActive(false);
-        
-        menu = 0;
-        if(menu == 0)
-        {
-            buttons.gameObject.SetActive(true);
-        }
-    }
-
-    public void Score()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        scoreMenu.SetActive(false);
+        buttons.gameObject.SetActive(true);
     }
 }
 

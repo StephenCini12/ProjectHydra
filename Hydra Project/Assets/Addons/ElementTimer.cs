@@ -61,8 +61,8 @@ public class ElementTimer : MonoBehaviour
         }
     }   
     public void SliderTimer()
-       {
-            slider.value = CalculateSliderValue();
+    {
+        slider.value = CalculateSliderValue();
 
             if(timeRemaining <= 0)
             {
@@ -98,8 +98,8 @@ public class ElementTimer : MonoBehaviour
             //     //playerScript.NextPlayerElement = Random.Range(0,3);
             //     //rend.color = color[nextElement];
             // }
-        }
-    private float CalculateSliderValue()
+    }
+    public float CalculateSliderValue()
     {
         return(timeRemaining / timerMax);
     }

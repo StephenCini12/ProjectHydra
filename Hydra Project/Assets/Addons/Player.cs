@@ -31,11 +31,6 @@ public class Player : MonoBehaviour
     public bool setMovingPlatform = false;
     public BoxCollider2D playerCollider;
     private float _immune = 0f;
-    public float dashDistance = 15f;
-    bool isDashing;
-    float doubleTapTime;
-    KeyCode lastKeyCode;
-
 
     void Start()
     {
@@ -112,11 +107,6 @@ public class Player : MonoBehaviour
         }else if(_lives <3)
         {
             Destroy(hearts[2].gameObject);
-        }
-
-        if (_lives <= 0)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
 

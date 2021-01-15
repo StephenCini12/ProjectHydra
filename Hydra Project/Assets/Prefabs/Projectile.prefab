@@ -121,10 +121,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectilePrefab: {fileID: 0}
   _projectileContainer: {fileID: 0}
-  isSpawner: 0
+  _DiamondPrefab: {fileID: 0}
+  _DiamondContainer: {fileID: 0}
   isLeft: 0
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 0}
+  isSpawner: 0
+  Projectiles: 1
+  Diamond: 0

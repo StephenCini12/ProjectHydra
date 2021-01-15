@@ -10,12 +10,16 @@ public class GameUI : MonoBehaviour
     public float scoreValue = 0;
     public Text scoreText;
     public Text highscoreText;
+    // [SerializeField]
+    // public bool giveDiamond = false;
     public GameObject[] hearts;
     public int _lives = 3;
     [SerializeField]
     public ElementTimer ElementTimerScript;
     [SerializeField]
     public Player playerScript;
+    [SerializeField]
+    public SpawnManager SpawnManagerScript;
 
     
     void Start()
@@ -37,11 +41,11 @@ public class GameUI : MonoBehaviour
             scoreValue = 10 + (int)scoreValue;
             ElementTimerScript.giveScore = false;
         }
-        if (ElementTimerScript.giveDiamond == true)
+        if (gameObject.GetComponent<SpawnManager>() != playerScript.giveDiamond == true && SpawnManagerScript.Diamond == true)
         {
             //Debug.Log("cringe bro");
             scoreValue = 100 + (int)scoreValue;
-            ElementTimerScript.giveDiamond = false;
+            playerScript.giveDiamond = false;
         }
     }
 

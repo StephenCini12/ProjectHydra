@@ -164,6 +164,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
   isSpawnPlatform: 0
+  helpedSpawn: 0
+  helppedelement: 1
 --- !u!61 &112437462
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -173,7 +175,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 112437460}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b28f3c5a71ffd3449b20e3906d86c0b9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -505,6 +507,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
   isSpawnPlatform: 0
+  helpedSpawn: 0
+  helppedelement: 1
 --- !u!61 &163855874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -514,7 +518,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 163855872}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b28f3c5a71ffd3449b20e3906d86c0b9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1127,6 +1131,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
   isSpawnPlatform: 0
+  helpedSpawn: 0
+  helppedelement: 1
 --- !u!61 &406740223
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1136,7 +1142,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 406740221}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b28f3c5a71ffd3449b20e3906d86c0b9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1633,6 +1639,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
   isSpawnPlatform: 0
+  helpedSpawn: 0
+  helppedelement: 1
 --- !u!61 &599149604
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1642,7 +1650,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 599149602}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b28f3c5a71ffd3449b20e3906d86c0b9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2234,6 +2242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSlider: 1
+  timeRemaining: 5
   slider: {fileID: 1847423322}
   nextElement: 0
   setElement: 1
@@ -2244,7 +2253,6 @@ MonoBehaviour:
   - {r: 0.38647294, g: 0.7264151, b: 0.065103225, a: 1}
   playerScript: {fileID: 0}
   giveScore: 0
-  giveDiamond: 0
 --- !u!1 &798861749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2277,10 +2285,15 @@ MonoBehaviour:
   _projectilePrefab: {fileID: 201658772822821467, guid: 76055216c5c3e834491883ddad549021,
     type: 3}
   _projectileContainer: {fileID: 1815311543}
-  isSpawner: 1
+  _DiamondPrefab: {fileID: 5823530461961382240, guid: 5f13106cdcac3d24dafdbfea7c22a5aa,
+    type: 3}
+  _DiamondContainer: {fileID: 1860687285}
   isLeft: 0
   material: []
   playerScript: {fileID: 0}
+  isSpawner: 1
+  Projectiles: 0
+  Diamond: 0
 --- !u!4 &798861751
 Transform:
   m_ObjectHideFlags: 0
@@ -2293,6 +2306,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1815311544}
+  - {fileID: 1860687286}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2469,6 +2483,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
   isSpawnPlatform: 0
+  helpedSpawn: 0
+  helppedelement: 1
 --- !u!61 &854642587
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2478,7 +2494,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 854642585}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b28f3c5a71ffd3449b20e3906d86c0b9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2599,6 +2615,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
   isSpawnPlatform: 0
+  helpedSpawn: 0
+  helppedelement: 1
 --- !u!61 &915227063
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2608,7 +2626,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 915227061}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b28f3c5a71ffd3449b20e3906d86c0b9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -3110,6 +3128,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
   isSpawnPlatform: 0
+  helpedSpawn: 0
+  helppedelement: 1
 --- !u!61 &1057036998
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3119,7 +3139,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1057036996}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b28f3c5a71ffd3449b20e3906d86c0b9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -3240,6 +3260,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
   isSpawnPlatform: 0
+  helpedSpawn: 0
+  helppedelement: 1
 --- !u!61 &1173422169
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3249,7 +3271,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1173422167}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b28f3c5a71ffd3449b20e3906d86c0b9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -3321,7 +3343,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173422167}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 91.212395, y: 25.695328, z: -68.43503}
+  m_LocalPosition: {x: 91.212395, y: 25.69533, z: -68.43503}
   m_LocalScale: {x: 3.1200001, y: 0.33499998, z: 1.1605326}
   m_Children: []
   m_Father: {fileID: 665726208}
@@ -3370,6 +3392,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
   isSpawnPlatform: 1
+  helpedSpawn: 0
+  helppedelement: 1
 --- !u!61 &1188612081
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3379,7 +3403,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1188612079}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b28f3c5a71ffd3449b20e3906d86c0b9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -3556,6 +3580,8 @@ MonoBehaviour:
   _lives: 3
   ElementTimerScript: {fileID: 742921758}
   playerScript: {fileID: 2004446134}
+  SpawnManagerScript: {fileID: -3153037104774017058, guid: 5f13106cdcac3d24dafdbfea7c22a5aa,
+    type: 3}
 --- !u!1 &1232405288
 GameObject:
   m_ObjectHideFlags: 0
@@ -3673,6 +3699,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
   isSpawnPlatform: 0
+  helpedSpawn: 0
+  helppedelement: 1
 --- !u!61 &1247796620
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3682,7 +3710,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1247796618}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b28f3c5a71ffd3449b20e3906d86c0b9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -4366,6 +4394,112 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1379543758}
   m_CullTransparentMesh: 0
+--- !u!1 &1416540348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1416540352}
+  - component: {fileID: 1416540351}
+  - component: {fileID: 1416540350}
+  - component: {fileID: 1416540349}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!61 &1416540349
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416540348}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 1}
+  m_EdgeRadius: 0
+--- !u!23 &1416540350
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416540348}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1416540351
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416540348}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1416540352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416540348}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.55, z: 0}
+  m_LocalScale: {x: 2.6313, y: 0.40954, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1447934540
 GameObject:
   m_ObjectHideFlags: 0
@@ -4539,6 +4673,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
   isSpawnPlatform: 0
+  helpedSpawn: 0
+  helppedelement: 1
 --- !u!61 &1478520052
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4548,7 +4684,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1478520050}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b28f3c5a71ffd3449b20e3906d86c0b9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -4669,6 +4805,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
   isSpawnPlatform: 0
+  helpedSpawn: 0
+  helppedelement: 1
 --- !u!61 &1482772377
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4678,7 +4816,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1482772375}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b28f3c5a71ffd3449b20e3906d86c0b9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -4919,7 +5057,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1553908265}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b28f3c5a71ffd3449b20e3906d86c0b9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -5020,6 +5158,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
   isSpawnPlatform: 0
+  helpedSpawn: 0
+  helppedelement: 1
 --- !u!1 &1617536481
 GameObject:
   m_ObjectHideFlags: 0
@@ -5772,6 +5912,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
   isSpawnPlatform: 0
+  helpedSpawn: 0
+  helppedelement: 1
 --- !u!61 &1751977317
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5781,7 +5923,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1751977315}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b28f3c5a71ffd3449b20e3906d86c0b9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -6449,6 +6591,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1860687285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1860687286}
+  m_Layer: 0
+  m_Name: DiamondContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1860687286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860687285}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 798861751}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1910072599
 GameObject:
   m_ObjectHideFlags: 0
@@ -6576,7 +6748,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004446129}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.61, z: 0}
+  m_LocalPosition: {x: 0, y: -1.87, z: 0}
   m_LocalScale: {x: 0.40490645, y: 0.6124321, z: 0.3512851}
   m_Children:
   - {fileID: 1910072600}
@@ -6614,6 +6786,7 @@ MonoBehaviour:
   - {fileID: 120873614}
   - {fileID: 1506668362}
   HealthSystem: 1
+  giveDiamond: 0
   PlayerElement: 0
   NextPlayerElement: 0
   rend: {fileID: 2004446131}
@@ -6739,6 +6912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSlider: 0
+  timeRemaining: 5
   slider: {fileID: 0}
   nextElement: 0
   setElement: 0
@@ -6749,7 +6923,6 @@ MonoBehaviour:
   - {r: 0.37215927, g: 0.7169812, b: 0.21982914, a: 1}
   playerScript: {fileID: 0}
   giveScore: 0
-  giveDiamond: 0
 --- !u!1 &2034708662
 GameObject:
   m_ObjectHideFlags: 0
@@ -6793,6 +6966,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
   isSpawnPlatform: 0
+  helpedSpawn: 0
+  helppedelement: 1
 --- !u!61 &2034708664
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6802,7 +6977,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2034708662}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b28f3c5a71ffd3449b20e3906d86c0b9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

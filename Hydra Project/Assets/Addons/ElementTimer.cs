@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ElementTimer : MonoBehaviour
 {
     public bool isSlider = true;
+    [SerializeField]
     private float timeRemaining = 5f;
     [SerializeField]
     private const float timerMax = 5f;
@@ -22,8 +23,6 @@ public class ElementTimer : MonoBehaviour
     public Player playerScript;
     [SerializeField]
     public bool giveScore = false;
-    [SerializeField]
-    public bool giveDiamond = false;
 
 
     void Start()
@@ -118,4 +117,10 @@ public class ElementTimer : MonoBehaviour
             rend.color = color[playerScript.NextPlayerElement];
         }
     }
+
+    // IEnumerator Timer()
+    // {
+    //     yield return new WaitForSeconds (5f);
+    // }
+
 }

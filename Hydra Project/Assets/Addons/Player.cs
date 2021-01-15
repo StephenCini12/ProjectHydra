@@ -23,6 +23,9 @@ public class Player : MonoBehaviour
     public GameObject[] hearts;
     public bool HealthSystem = true;
     [SerializeField]
+    public bool giveDiamond = false;
+    [SerializeField]
+    
     public int PlayerElement;
     [SerializeField]
     public int NextPlayerElement;
@@ -251,4 +254,5 @@ public class Player : MonoBehaviour
     //     isDashing = false;
     //     _RB.gravityScale = gravity;
     //}
+
 }

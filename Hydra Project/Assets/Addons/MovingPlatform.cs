@@ -14,6 +14,10 @@ public class MovingPlatform : MonoBehaviour
     Renderer rend;
     public Player playerScript;
     public bool isSpawnPlatform = false;
+    [SerializeField]
+    public bool helpedSpawn = false;
+    [SerializeField]
+    public int helppedelement = 1;
     
 
     void Start()
@@ -31,6 +35,7 @@ public class MovingPlatform : MonoBehaviour
         rend.enabled =true;
         rend.sharedMaterial = material[element];
         playerScript = GameObject.Find("Player").GetComponent<Player>();
+        // StartCoroutine(Helpping());
 
     }
 
@@ -50,7 +55,7 @@ public class MovingPlatform : MonoBehaviour
             Player.transform.SetParent(null);
         }
 
-       if (isMovingLeft)
+        if (isMovingLeft)
         {
             left ();
         }
@@ -58,6 +63,11 @@ public class MovingPlatform : MonoBehaviour
         else 
         {
             right ();
+        }
+        if(helpedSpawn == true)
+        {
+            helppedelement = Random.Range(1,5);
+            helpedSpawn = false;
         }
     }
 
@@ -78,6 +88,11 @@ public class MovingPlatform : MonoBehaviour
                 playerScript.Damage();
             }
         }
+        if (other.gameObject.CompareTag("Diamond"))
+        {
+            //tag.transform.stop
+            
+        }
     }
     private void OnCollisionExit2D(Collision2D other) 
     {
@@ -95,7 +110,15 @@ public class MovingPlatform : MonoBehaviour
         if(transform.position.x < -11.4f)
         {
             transform.position = new Vector3(11.4f,transform.position.y);
-            element = Random.Range (0,3);
+            helppedelement = Random.Range(1,5);
+            if (helppedelement == 4)
+            {
+                element = playerScript.NextPlayerElement;
+            }
+            else if (helppedelement >= 4)
+            {
+                element = Random.Range (0,3);
+            }
             rend.sharedMaterial = material[element];
         }
     }
@@ -107,8 +130,26 @@ public class MovingPlatform : MonoBehaviour
         if(transform.position.x > 11.4f)
         {
             transform.position = new Vector2(-11.4f,transform.position.y);
-            element = Random.Range (0,3);
+            helppedelement = Random.Range(1,5);
+            if (helppedelement == 4)
+            {
+                element = playerScript.NextPlayerElement;
+            }
+            else if (helppedelement >= 4)
+            {
+                element = Random.Range (0,3);
+            }
             rend.sharedMaterial = material[element];
         }
     }
+    
+    // public IEnumerator Helpping()
+    // {
+    //     while(helpedSpawn == false)
+    //     {
+    //         helpedSpawn = true;
+    //         yield return new WaitForSeconds (2.5f);
+    //     }
+    // }
+
 }

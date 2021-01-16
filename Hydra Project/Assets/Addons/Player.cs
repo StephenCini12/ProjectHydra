@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private bool isJumping;
     [SerializeField]
+    private bool isDashing;
+    [SerializeField]
     public bool HealthSystem = true;
     [SerializeField]
     public bool giveDiamond = false;
@@ -51,7 +53,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         PlayerElement = 0;
-        NextPlayerElement = 1;
+        NextPlayerElement = Random.Range(1,3);
         _immune = 0f;
         _RB = GetComponent<Rigidbody2D>();
         TriggerColorChange = 0;
@@ -118,10 +120,12 @@ public class Player : MonoBehaviour
         if (_lives < 1)
         {
             Destroy(hearts[0].gameObject);
-        } else if (_lives < 2)
+        } 
+        else if (_lives < 2)
         {
             Destroy(hearts[1].gameObject);
-        }else if(_lives <3)
+        }
+        else if(_lives <3)
         {
             Destroy(hearts[2].gameObject);
         }
@@ -136,10 +140,13 @@ public class Player : MonoBehaviour
             //stop the player from going lower then -3.8f
             transform.position = new Vector2(-8.5f,transform.position.y);
         }
-
         else if(transform.position.x >= 8.5f)
         {
             transform.position = new Vector2(8.5f,transform.position.y);
+        }
+        if(transform.position.y >= 4.75f)
+        {
+            transform.position = new Vector2(transform.position.x,4.75f);
         }
 
         //Player Jump
@@ -148,7 +155,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown (KeyCode.UpArrow) && isGrounded)
         {
-          _RB.AddForce (Vector2.up * _Jump, ForceMode2D.Impulse);
+            _RB.AddForce (Vector2.up * _Jump, ForceMode2D.Impulse);
         }
 
 
@@ -204,6 +211,21 @@ public class Player : MonoBehaviour
             playerCollider.enabled = true;
             _clipping = 0;
         }
+
+        // if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true && isDashing == false)
+        // {
+        //     isDashing = true;
+        //     _Speed = 25;
+        //     StartCoroutine(Dash());
+        // }
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded == false && isDashing == false)
+        {
+            isDashing = true;
+            _clipping = 0.35f;
+            _Jump = 12;
+            _Speed = 25;
+            StartCoroutine(Dash());
+        }
         // else if(Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.UpArrow))
         // {
         //     playerCollider.enabled = true;
@@ -235,7 +257,17 @@ public class Player : MonoBehaviour
         //     lastKeyCode = KeyCode.RightArrow;
         // }         
     }
-
+    public IEnumerator Dash()
+    {
+        yield return new WaitForSeconds(0.22f);
+        // if (_clipping == 0)
+        // {
+        //     playerCollider.enabled = false;
+        // }
+        _Speed = 8;
+        _Jump = 5;
+        isDashing = false;
+    }
     void FixedUpdate()
     {
         moveInput = Input.GetAxis("Horizontal");   

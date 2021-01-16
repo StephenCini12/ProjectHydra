@@ -153,19 +153,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0852a9e01dff54746a78b350e6a8dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlatformManager: 0
   isOnMovingPlatform: 0
-  Player: {fileID: 2004446129}
   isMovingLeft: 1
+  isSpawnPlatform: 0
   element: 1
+  _random: 0
+  helppedelement: 1
+  _level: 3
   speed: 2.15
+  maxspeed: 0
+  _difficulty: 0
+  Player: {fileID: 2004446129}
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
-  isSpawnPlatform: 0
-  helpedSpawn: 0
-  helppedelement: 1
+  SpawnManagerScript: {fileID: 798861750}
 --- !u!61 &112437462
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -496,19 +501,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0852a9e01dff54746a78b350e6a8dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlatformManager: 0
   isOnMovingPlatform: 0
-  Player: {fileID: 2004446129}
   isMovingLeft: 1
+  isSpawnPlatform: 0
   element: 1
+  _random: 0
+  helppedelement: 1
+  _level: 1
   speed: 1.25
+  maxspeed: 0
+  _difficulty: 0
+  Player: {fileID: 2004446129}
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
-  isSpawnPlatform: 0
-  helpedSpawn: 0
-  helppedelement: 1
+  SpawnManagerScript: {fileID: 798861750}
 --- !u!61 &163855874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1120,19 +1130,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0852a9e01dff54746a78b350e6a8dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlatformManager: 0
   isOnMovingPlatform: 0
-  Player: {fileID: 2004446129}
   isMovingLeft: 0
+  isSpawnPlatform: 0
   element: 1
+  _random: 0
+  helppedelement: 1
+  _level: 2
   speed: 1.75
+  maxspeed: 0
+  _difficulty: 0
+  Player: {fileID: 2004446129}
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
-  isSpawnPlatform: 0
-  helpedSpawn: 0
-  helppedelement: 1
+  SpawnManagerScript: {fileID: 798861750}
 --- !u!61 &406740223
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1628,19 +1643,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0852a9e01dff54746a78b350e6a8dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlatformManager: 0
   isOnMovingPlatform: 0
-  Player: {fileID: 2004446129}
   isMovingLeft: 1
+  isSpawnPlatform: 0
   element: 1
+  _random: 0
+  helppedelement: 1
+  _level: 1
   speed: 1.25
+  maxspeed: 0
+  _difficulty: 0
+  Player: {fileID: 2004446129}
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
-  isSpawnPlatform: 0
-  helpedSpawn: 0
-  helppedelement: 1
+  SpawnManagerScript: {fileID: 798861750}
 --- !u!61 &599149604
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2241,18 +2261,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77be675a58a177c40b6d1f5e94929337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSlider: 1
-  timeRemaining: 5
-  slider: {fileID: 1847423322}
   nextElement: 0
   setElement: 1
+  timeRemaining: 5
+  timerMax: 5
+  isSlider: 1
+  giveScore: 0
+  slider: {fileID: 1847423322}
   rend: {fileID: 0}
   color:
   - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0.9401281, b: 1, a: 1}
-  - {r: 0.38647294, g: 0.7264151, b: 0.065103225, a: 1}
+  - {r: 0, g: 1, b: 0.9898968, a: 1}
+  - {r: 0.09669812, g: 0.38679248, b: 0.12715714, a: 1}
   playerScript: {fileID: 0}
-  giveScore: 0
+  SpawnManagerScript: {fileID: 798861750}
 --- !u!1 &798861749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2282,18 +2304,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abfebaf39303d174fb2c65ae3d14ae22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileElement: 0
+  isLeft: 0
+  _difficulty: 25
+  _projectileSpeed: 3
+  _projectileMaxSpeed: 6
+  _projectileRememberSpeed: 3
+  isSpawner: 1
+  Projectiles: 0
+  Diamond: 0
   _projectilePrefab: {fileID: 201658772822821467, guid: 76055216c5c3e834491883ddad549021,
     type: 3}
   _projectileContainer: {fileID: 1815311543}
   _DiamondPrefab: {fileID: 5823530461961382240, guid: 5f13106cdcac3d24dafdbfea7c22a5aa,
     type: 3}
   _DiamondContainer: {fileID: 1860687285}
-  isLeft: 0
   material: []
   playerScript: {fileID: 0}
-  isSpawner: 1
-  Projectiles: 0
-  Diamond: 0
 --- !u!4 &798861751
 Transform:
   m_ObjectHideFlags: 0
@@ -2472,19 +2499,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0852a9e01dff54746a78b350e6a8dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlatformManager: 0
   isOnMovingPlatform: 0
-  Player: {fileID: 2004446129}
   isMovingLeft: 1
+  isSpawnPlatform: 0
   element: 1
+  _random: 0
+  helppedelement: 1
+  _level: 1
   speed: 1.25
+  maxspeed: 0
+  _difficulty: 0
+  Player: {fileID: 2004446129}
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
-  isSpawnPlatform: 0
-  helpedSpawn: 0
-  helppedelement: 1
+  SpawnManagerScript: {fileID: 798861750}
 --- !u!61 &854642587
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2604,19 +2636,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0852a9e01dff54746a78b350e6a8dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlatformManager: 0
   isOnMovingPlatform: 0
-  Player: {fileID: 2004446129}
   isMovingLeft: 1
+  isSpawnPlatform: 0
   element: 1
+  _random: 0
+  helppedelement: 1
+  _level: 3
   speed: 2.15
+  maxspeed: 0
+  _difficulty: 0
+  Player: {fileID: 2004446129}
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
-  isSpawnPlatform: 0
-  helpedSpawn: 0
-  helppedelement: 1
+  SpawnManagerScript: {fileID: 798861750}
 --- !u!61 &915227063
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3117,19 +3154,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0852a9e01dff54746a78b350e6a8dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlatformManager: 0
   isOnMovingPlatform: 0
-  Player: {fileID: 2004446129}
   isMovingLeft: 0
+  isSpawnPlatform: 0
   element: 1
+  _random: 0
+  helppedelement: 1
+  _level: 2
   speed: 1.75
+  maxspeed: 0
+  _difficulty: 0
+  Player: {fileID: 2004446129}
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
-  isSpawnPlatform: 0
-  helpedSpawn: 0
-  helppedelement: 1
+  SpawnManagerScript: {fileID: 798861750}
 --- !u!61 &1057036998
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3249,19 +3291,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0852a9e01dff54746a78b350e6a8dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlatformManager: 0
   isOnMovingPlatform: 0
-  Player: {fileID: 2004446129}
   isMovingLeft: 0
+  isSpawnPlatform: 0
   element: 1
+  _random: 0
+  helppedelement: 1
+  _level: 2
   speed: 1.75
+  maxspeed: 0
+  _difficulty: 0
+  Player: {fileID: 2004446129}
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
-  isSpawnPlatform: 0
-  helpedSpawn: 0
-  helppedelement: 1
+  SpawnManagerScript: {fileID: 798861750}
 --- !u!61 &1173422169
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3381,19 +3428,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0852a9e01dff54746a78b350e6a8dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlatformManager: 0
   isOnMovingPlatform: 0
-  Player: {fileID: 2004446129}
   isMovingLeft: 1
+  isSpawnPlatform: 1
   element: 1
+  _random: 0
+  helppedelement: 1
+  _level: 3
   speed: 2.15
+  maxspeed: 0
+  _difficulty: 0
+  Player: {fileID: 2004446129}
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
-  isSpawnPlatform: 1
-  helpedSpawn: 0
-  helppedelement: 1
+  SpawnManagerScript: {fileID: 798861750}
 --- !u!61 &1188612081
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3572,12 +3624,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c945aacde7bd4489349bb49944a4cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthSystem: 0
+  _lives: 3
   scoreValue: 0
+  HealthSystem: 0
   scoreText: {fileID: 1216254706}
   highscoreText: {fileID: 410503833}
   hearts: []
-  _lives: 3
   ElementTimerScript: {fileID: 742921758}
   playerScript: {fileID: 2004446134}
   SpawnManagerScript: {fileID: -3153037104774017058, guid: 5f13106cdcac3d24dafdbfea7c22a5aa,
@@ -3688,19 +3740,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0852a9e01dff54746a78b350e6a8dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlatformManager: 0
   isOnMovingPlatform: 0
-  Player: {fileID: 2004446129}
   isMovingLeft: 1
+  isSpawnPlatform: 0
   element: 1
+  _random: 0
+  helppedelement: 1
+  _level: 1
   speed: 1.25
+  maxspeed: 0
+  _difficulty: 0
+  Player: {fileID: 2004446129}
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
-  isSpawnPlatform: 0
-  helpedSpawn: 0
-  helppedelement: 1
+  SpawnManagerScript: {fileID: 798861750}
 --- !u!61 &1247796620
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4495,7 +4552,7 @@ Transform:
   m_GameObject: {fileID: 1416540348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.55, z: 0}
-  m_LocalScale: {x: 2.6313, y: 0.40954, z: 1}
+  m_LocalScale: {x: 1.3679076, y: 0.40954, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -4662,19 +4719,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0852a9e01dff54746a78b350e6a8dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlatformManager: 0
   isOnMovingPlatform: 0
-  Player: {fileID: 2004446129}
   isMovingLeft: 0
+  isSpawnPlatform: 0
   element: 1
+  _random: 0
+  helppedelement: 1
+  _level: 2
   speed: 1.75
+  maxspeed: 0
+  _difficulty: 0
+  Player: {fileID: 2004446129}
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
-  isSpawnPlatform: 0
-  helpedSpawn: 0
-  helppedelement: 1
+  SpawnManagerScript: {fileID: 798861750}
 --- !u!61 &1478520052
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4794,19 +4856,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0852a9e01dff54746a78b350e6a8dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlatformManager: 0
   isOnMovingPlatform: 0
-  Player: {fileID: 2004446129}
   isMovingLeft: 1
+  isSpawnPlatform: 0
   element: 1
+  _random: 0
+  helppedelement: 1
+  _level: 3
   speed: 2.15
+  maxspeed: 0
+  _difficulty: 0
+  Player: {fileID: 2004446129}
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
-  isSpawnPlatform: 0
-  helpedSpawn: 0
-  helppedelement: 1
+  SpawnManagerScript: {fileID: 798861750}
 --- !u!61 &1482772377
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5147,19 +5214,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0852a9e01dff54746a78b350e6a8dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlatformManager: 0
   isOnMovingPlatform: 0
-  Player: {fileID: 2004446129}
   isMovingLeft: 1
+  isSpawnPlatform: 0
   element: 1
+  _random: 0
+  helppedelement: 1
+  _level: 3
   speed: 2.15
+  maxspeed: 0
+  _difficulty: 0
+  Player: {fileID: 2004446129}
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
-  isSpawnPlatform: 0
-  helpedSpawn: 0
-  helppedelement: 1
+  SpawnManagerScript: {fileID: 798861750}
 --- !u!1 &1617536481
 GameObject:
   m_ObjectHideFlags: 0
@@ -5901,19 +5973,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0852a9e01dff54746a78b350e6a8dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlatformManager: 0
   isOnMovingPlatform: 0
-  Player: {fileID: 2004446129}
   isMovingLeft: 0
+  isSpawnPlatform: 0
   element: 1
+  _random: 0
+  helppedelement: 1
+  _level: 2
   speed: 1.75
+  maxspeed: 0
+  _difficulty: 0
+  Player: {fileID: 2004446129}
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
-  isSpawnPlatform: 0
-  helpedSpawn: 0
-  helppedelement: 1
+  SpawnManagerScript: {fileID: 798861750}
 --- !u!61 &1751977317
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6748,7 +6825,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004446129}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.87, z: 0}
+  m_LocalPosition: {x: 0, y: -1.92, z: 0}
   m_LocalScale: {x: 0.40490645, y: 0.6124321, z: 0.3512851}
   m_Children:
   - {fileID: 1910072600}
@@ -6767,36 +6844,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c6200cf91f50a41a35f8685d2e9136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lives: 3
+  PlayerElement: 0
+  NextPlayerElement: 0
+  TriggerColorChange: 0
   _Speed: 8
   _Jump: 5
   visabletimer: 0
-  _RB: {fileID: 2004446130}
+  checkRadius: 0.2
+  jumpTime: 0.55
+  _clipping: 0
+  setMovingPlatform: 0
   isOnPlatform: 0
   isGrounded: 1
+  isJumping: 0
+  HealthSystem: 1
+  giveDiamond: 0
+  touchProjectiles: 0
   IsDamage: 0
+  _RB: {fileID: 2004446130}
   feetPos: {fileID: 1910072600}
-  checkRadius: 0.2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  jumpTime: 0.45
-  _lives: 3
   hearts:
   - {fileID: 1709695436}
   - {fileID: 120873614}
   - {fileID: 1506668362}
-  HealthSystem: 1
-  giveDiamond: 0
-  PlayerElement: 0
-  NextPlayerElement: 0
   rend: {fileID: 2004446131}
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   ElementTimerScript: {fileID: 742921758}
-  TriggerColorChange: 0
-  setMovingPlatform: 0
   playerCollider: {fileID: 2004446135}
 --- !u!61 &2004446135
 BoxCollider2D:
@@ -6875,7 +6955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.37254903, g: 0.7176471, b: 0.21960786, a: 1}
+  m_Color: {r: 0.09669812, g: 0.38679248, b: 0.12715714, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6911,18 +6991,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77be675a58a177c40b6d1f5e94929337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSlider: 0
-  timeRemaining: 5
-  slider: {fileID: 0}
   nextElement: 0
   setElement: 0
+  timeRemaining: 5
+  timerMax: 5
+  isSlider: 0
+  giveScore: 0
+  slider: {fileID: 0}
   rend: {fileID: 0}
   color:
-  - {r: 1, g: 0.02821736, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0.99158764, a: 1}
-  - {r: 0.37215927, g: 0.7169812, b: 0.21982914, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0.9898968, a: 1}
+  - {r: 0.09669812, g: 0.38679248, b: 0.12715714, a: 1}
   playerScript: {fileID: 0}
-  giveScore: 0
+  SpawnManagerScript: {fileID: 0}
 --- !u!1 &2034708662
 GameObject:
   m_ObjectHideFlags: 0
@@ -6955,19 +7037,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0852a9e01dff54746a78b350e6a8dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlatformManager: 0
   isOnMovingPlatform: 0
-  Player: {fileID: 2004446129}
   isMovingLeft: 1
+  isSpawnPlatform: 0
   element: 1
+  _random: 0
+  helppedelement: 1
+  _level: 1
   speed: 1.25
+  maxspeed: 0
+  _difficulty: 0
+  Player: {fileID: 2004446129}
   material:
   - {fileID: 2100000, guid: cfb6f8a35c904be46930c4341faae5fd, type: 2}
   - {fileID: 2100000, guid: 999553fcbe729c04daf440657e36cbbc, type: 2}
   - {fileID: 2100000, guid: 83212ce328b9f6d47bb2d033ad540117, type: 2}
   playerScript: {fileID: 2004446134}
-  isSpawnPlatform: 0
-  helpedSpawn: 0
-  helppedelement: 1
+  SpawnManagerScript: {fileID: 798861750}
 --- !u!61 &2034708664
 BoxCollider2D:
   m_ObjectHideFlags: 0

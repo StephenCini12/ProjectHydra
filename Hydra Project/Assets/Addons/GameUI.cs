@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour
 {
-    public bool HealthSystem = true;
+    public int _lives = 3;
     public float scoreValue = 0;
+    public bool HealthSystem = true;
     public Text scoreText;
     public Text highscoreText;
     // [SerializeField]
     // public bool giveDiamond = false;
     public GameObject[] hearts;
-    public int _lives = 3;
     [SerializeField]
     public ElementTimer ElementTimerScript;
     [SerializeField]
@@ -35,7 +35,7 @@ public class GameUI : MonoBehaviour
         highscoreText.text = "Your score: " + (int)scoreValue;
         scoreValue += 3f * Time.deltaTime;
         scoreText.text = "Score: " + (int)scoreValue;
-        if (gameObject.GetComponent<ElementTimer>() != ElementTimerScript.giveScore == true)
+        if (gameObject.GetComponent<ElementTimer>() != ElementTimerScript.giveScore == true && playerScript.IsDamage == false)
         {
             //Debug.Log("cringe bro");
             scoreValue = 10 + (int)scoreValue;
@@ -46,6 +46,12 @@ public class GameUI : MonoBehaviour
             //Debug.Log("cringe bro");
             scoreValue = 100 + (int)scoreValue;
             playerScript.giveDiamond = false;
+        }
+        if (gameObject.GetComponent<SpawnManager>() != playerScript.touchProjectiles == true && playerScript.IsDamage == false)
+        {
+            //Debug.Log("cringe bro");
+            scoreValue = 50 + (int)scoreValue;
+            playerScript.touchProjectiles = false;
         }
     }
 

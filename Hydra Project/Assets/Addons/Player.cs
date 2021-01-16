@@ -5,38 +5,48 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    public int _lives = 3;
+    [SerializeField]
+    public int PlayerElement;
+    [SerializeField]
+    public int NextPlayerElement;
+    [SerializeField]
+    public int TriggerColorChange = 0;
     public float _Speed = 5f;
     public float _Jump = 8f;
     public float visabletimer;
-    public Rigidbody2D _RB;
-    public bool isOnPlatform;
     private float moveInput;
-    public bool isGrounded;
-    private bool isJumping;
-    public bool IsDamage = false;
-    public Transform feetPos;    
     public float checkRadius;
-    public LayerMask whatIsGround;
     private float jumpTimeCounter;
     public float jumpTime;
-    public int _lives = 3;
-    public GameObject[] hearts;
+    private float _immune = 0f;
+    public float _clipping = 0f;
+    [SerializeField]
+    public bool setMovingPlatform = false;
+    [SerializeField]
+    public bool isOnPlatform;
+    [SerializeField]
+    public bool isGrounded;
+    [SerializeField]
+    private bool isJumping;
+    [SerializeField]
     public bool HealthSystem = true;
     [SerializeField]
     public bool giveDiamond = false;
     [SerializeField]
-    
-    public int PlayerElement;
+    public bool touchProjectiles = false;
     [SerializeField]
-    public int NextPlayerElement;
+    public bool IsDamage = false;
+    public Rigidbody2D _RB;
+    public Transform feetPos;    
+    public LayerMask whatIsGround;
+    public GameObject[] hearts;
     public Renderer rend;
     public Material[] material;
     [SerializeField]
     public ElementTimer ElementTimerScript;
-    public int TriggerColorChange = 0;
-    public bool setMovingPlatform = false;
     public BoxCollider2D playerCollider;
-    private float _immune = 0f;
 
     void Start()
     {
@@ -147,6 +157,8 @@ public class Player : MonoBehaviour
             isJumping = true;
             jumpTimeCounter = jumpTime;
             _RB.velocity = Vector2.up * _Jump;
+            _clipping += Time.deltaTime;
+            playerCollider.enabled = false;
         }
 
         if(Input.GetKey(KeyCode.UpArrow) && isJumping == true)
@@ -155,6 +167,7 @@ public class Player : MonoBehaviour
             {
                 _RB.velocity = Vector2.up * _Jump;
                 jumpTimeCounter -= Time.deltaTime;
+                _clipping += Time.deltaTime;
             } 
         }
         else 
@@ -167,21 +180,34 @@ public class Player : MonoBehaviour
             isJumping = false;
         }
 
-
-        if(Input.GetKeyDown(KeyCode.DownArrow) && isGrounded || Input.GetKeyDown(KeyCode.UpArrow))
+        // if(Input.GetKeyDown(KeyCode.UpArrow) && _clipping == 0)
+        // {
+        //     _clipping = 0.55f;
+        //     playerCollider.enabled = false;
+        // }
+        if(Input.GetKeyDown(KeyCode.DownArrow) && isGrounded && _clipping == 0)
         {
-            //Debug.Log("Go Down");
+            _clipping = 0.35f;
             playerCollider.enabled = false;
         }
-        else if(Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.UpArrow))
+        // if(Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.UpArrow))
+        // {
+        //     playerCollider.enabled = true;
+        // }
+
+        if (_clipping > 0)
+        {
+            _clipping -= Time.deltaTime;
+        }
+        if (_clipping <= 0)
         {
             playerCollider.enabled = true;
+            _clipping = 0;
         }
-        
-         else if(Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.UpArrow))
-        {
-            playerCollider.enabled = true;
-        }
+        // else if(Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.UpArrow))
+        // {
+        //     playerCollider.enabled = true;
+        // }
 
         // //Dash left
         // if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -254,5 +280,11 @@ public class Player : MonoBehaviour
     //     isDashing = false;
     //     _RB.gravityScale = gravity;
     //}
-
+    // IEnumerator Jumping()
+    // {
+    //     while(Jumping == true)
+    //     {
+    //         yield return new WaitForSeconds(5f); 
+    //     }
+    // }
 }

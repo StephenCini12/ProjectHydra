@@ -4,7 +4,27 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    [SerializeField]
     private int projectileElement;
+    private int level;
+    public int isLeft;
+    [SerializeField]
+    public float _difficulty;
+    [SerializeField]
+    private float _projectileSpeed = 3f;
+    [SerializeField]
+    private float _projectileMaxSpeed = 6f;
+    [SerializeField]
+    public float _projectileRememberSpeed = 3f;
+    private float _DiamondSpeed = 1.3f;
+    private bool _stopSpawning = false;
+    //private bool _onPlatform = false;
+    [SerializeField]
+    public bool isSpawner = false;
+    [SerializeField]
+    public bool Projectiles = false;
+    [SerializeField]
+    public bool Diamond = false;
     [SerializeField]
     private GameObject _projectilePrefab;
     [SerializeField]
@@ -13,21 +33,12 @@ public class SpawnManager : MonoBehaviour
     private GameObject _DiamondPrefab;
     [SerializeField]
     private GameObject _DiamondContainer;
-    private float _projectileSpeed = 3f;
-    private float _DiamondSpeed = 1.3f;
-    private bool _stopSpawning = false;
-    //private bool _onPlatform = false;
-    private int level;
-    public int isLeft;
     public Material[] material;
     Renderer rend;
     [SerializeField]
     public Player playerScript;
     // [SerializeField]
     // public GameUI GameUIScript;
-    public bool isSpawner = false;
-    public bool Projectiles = false;
-    public bool Diamond = false;
     
 
     void Start()
@@ -39,6 +50,7 @@ public class SpawnManager : MonoBehaviour
         }
         if (Projectiles == true)
         {
+            _projectileSpeed = _projectileRememberSpeed;
             isLeft = Random.Range(0,2);
             projectileElement = Random.Range (0,3);
             rend = GetComponent<Renderer>();
@@ -49,14 +61,23 @@ public class SpawnManager : MonoBehaviour
         if (Diamond == true)
         {
             playerScript = GameObject.Find("Player").GetComponent<Player>();
+            transform.Rotate(0, 0, 45, Space.Self);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isSpawner == true && _difficulty > 5f)
+        {
+            _difficulty -= Time.deltaTime/Random.Range(30,76);
+        }
         if (Projectiles == true)
         {
+            // if (this._projectileSpeed <= this._projectileMaxSpeed)
+            // {
+            //     this._projectileSpeed += (Mathf.Abs(_difficulty)/1000000);
+            // }
             if (transform.position.y <= -5 && isLeft == 0 && isSpawner == false)
             {
                 level = Random.Range(0,3);
@@ -91,7 +112,7 @@ public class SpawnManager : MonoBehaviour
             }
             if (isLeft == 0 && isSpawner == false)
             {
-                transform.Translate(Vector2.right * _projectileSpeed * Time.deltaTime);
+                transform.Translate(Vector2.right * (_projectileSpeed + (Mathf.Abs(_difficulty))/50f) * Time.deltaTime);
             }
             
             if (transform.position.x >= 10 && isSpawner == false && isLeft == 0)
@@ -101,7 +122,7 @@ public class SpawnManager : MonoBehaviour
             
             if (isLeft == 1 && isSpawner == false)
             {
-                transform.Translate(Vector2.left * _projectileSpeed * Time.deltaTime);
+                transform.Translate(Vector2.left * (_projectileSpeed + (Mathf.Abs(_difficulty))/50f) * Time.deltaTime);
             }
             
             if (transform.position.x <= -10 && isSpawner == false && isLeft == 1)
@@ -174,7 +195,8 @@ public class SpawnManager : MonoBehaviour
             Vector2 posToSpawn = new Vector2(0,-5);
             GameObject newProjectile = Instantiate(_projectilePrefab,posToSpawn,Quaternion.identity);
             newProjectile.transform.SetParent(_projectileContainer.transform);
-            yield return new WaitForSeconds(5f); 
+            //yield return new WaitForSeconds(2); 
+            yield return new WaitForSeconds(Random.Range(5f,_difficulty)); 
         }
     }
     IEnumerator SpawnRoutine2()
@@ -184,7 +206,7 @@ public class SpawnManager : MonoBehaviour
             Vector2 posToSpawn2 = new Vector2(Random.Range(8.0f,-8.0f),6.25f);
             GameObject newProjectile2 = Instantiate(_DiamondPrefab,posToSpawn2,Quaternion.identity);
             newProjectile2.transform.SetParent(_DiamondContainer.transform);
-            yield return new WaitForSeconds(Random.Range(15f,26f)); 
+            yield return new WaitForSeconds(Random.Range(25f,46f)); 
         }
     }
     public void OnCollisionEnter2D(Collision2D other) 
@@ -198,6 +220,12 @@ public class SpawnManager : MonoBehaviour
                 {
                     playerScript.IsDamage = true;
                     playerScript.Damage();
+                    Destroy (this.gameObject);
+                }
+                if (projectileElement == playerScript.PlayerElement)
+                {
+                    playerScript.touchProjectiles = true;
+                    Destroy (this.gameObject);
                 }
                 Destroy (this.gameObject);
             }
@@ -210,6 +238,10 @@ public class SpawnManager : MonoBehaviour
                 playerScript.giveDiamond = true;
                 Destroy(this.gameObject);
             }
+            // if (other.gameObject.CompareTag("Projectile"))
+            // {
+            //     null
+            // }
         }
     }
 }

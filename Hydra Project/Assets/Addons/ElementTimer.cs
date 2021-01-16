@@ -5,24 +5,27 @@ using UnityEngine.UI;
 
 public class ElementTimer : MonoBehaviour
 {
-    public bool isSlider = true;
-    [SerializeField]
-    private float timeRemaining = 5f;
-    [SerializeField]
-    private const float timerMax = 5f;
-    [SerializeField]
-    private Slider slider;
     [SerializeField]
     public int nextElement = 0;
     [SerializeField]
     public int setElement = 1;
+    [SerializeField]
+    private float timeRemaining = 5f;
+    [SerializeField]
+    public float timerMax = 5f;
+    [SerializeField]
+    public bool isSlider = true;
+    [SerializeField]
+    public bool giveScore = false;
+    [SerializeField]
+    private Slider slider;
     [SerializeField]
     Image rend;
     [SerializeField]
     public Color[] color;
     public Player playerScript;
     [SerializeField]
-    public bool giveScore = false;
+    public SpawnManager SpawnManagerScript;
 
 
     void Start()
@@ -31,6 +34,7 @@ public class ElementTimer : MonoBehaviour
         //rend.enabled =true;
         if (isSlider)
         {
+            timeRemaining = SpawnManagerScript._difficulty/5;
             rend.enabled = true;
             playerScript = GameObject.Find("Player").GetComponent<Player>();
             rend.color = color[playerScript.PlayerElement];
@@ -47,6 +51,7 @@ public class ElementTimer : MonoBehaviour
     {
         if (isSlider)
         {
+            timerMax = SpawnManagerScript._difficulty/5;
             ColorChange();
             SliderTimer();
         }

@@ -8,13 +8,13 @@ public class Pause : MonoBehaviour
 {
 
     public bool isGamePaused = false;
+    private bool gameOver;
     public GameObject pauseMenu;
     public Player playerScript;
     public GameObject gameOverMenu;
     public GameObject optionsMenu;
     public GameObject pauseButtons;
     public GameObject gameOverButtons;
-    private bool gameOver;
 
     void Start()
     {

@@ -34,7 +34,7 @@ public class GameUI : MonoBehaviour
     {
         highscoreText.text = "Your score: " + (int)scoreValue;
         scoreValue += 3f * Time.deltaTime;
-        scoreText.text = "Score: " + (int)scoreValue;
+        scoreText.text = "" + (int)scoreValue;
         if (gameObject.GetComponent<ElementTimer>() != ElementTimerScript.giveScore == true && playerScript.IsDamage == false)
         {
             //Debug.Log("cringe bro");

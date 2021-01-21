@@ -33,8 +33,10 @@ public class SpawnManager : MonoBehaviour
     private GameObject _DiamondPrefab;
     [SerializeField]
     private GameObject _DiamondContainer;
-    public Material[] material;
-    Renderer rend;
+    [SerializeField]
+    public RuntimeAnimatorController[] runtimeAnimatorController;
+    [SerializeField]
+    Animator rend;
     [SerializeField]
     public Player playerScript;
     // [SerializeField]
@@ -53,9 +55,9 @@ public class SpawnManager : MonoBehaviour
             _projectileSpeed = _projectileRememberSpeed;
             isLeft = Random.Range(0,2);
             projectileElement = Random.Range (0,3);
-            rend = GetComponent<Renderer>();
+            rend = GetComponent<Animator>();
             rend.enabled =true;
-            rend.sharedMaterial = material[projectileElement];
+            rend.runtimeAnimatorController = runtimeAnimatorController [projectileElement];
             playerScript = GameObject.Find("Player").GetComponent<Player>();
         }
         if (Diamond == true)
@@ -78,36 +80,45 @@ public class SpawnManager : MonoBehaviour
             // {
             //     this._projectileSpeed += (Mathf.Abs(_difficulty)/1000000);
             // }
-            if (transform.position.y <= -5 && isLeft == 0 && isSpawner == false)
+            if (transform.position.y <= -10 && isLeft == 0 && isSpawner == false)
             {
                 level = Random.Range(0,3);
                 if (level == 0)
-                {
-                    transform.position = new Vector2(-10f,-1.4f);
-                }
-                if (level == 1)
-                {
-                    transform.position = new Vector2(-10f,0.6f);
-                }
-                if (level == 2)
                 {
                     transform.position = new Vector2(-10f,2.5f);
+                }
+                if (level == 1)
+                {
+                    transform.position = new Vector2(-10f,0f);
+                }
+                if (level == 2)
+                {
+                    transform.position = new Vector2(-10f,-2.5f);
                 } 
             }
-            if (transform.position.y <= -5 && isLeft == 1 && isSpawner == false)
+            if (transform.position.y <= -10 && isLeft == 1 && isSpawner == false)
             {
                 level = Random.Range(0,3);
                 if (level == 0)
                 {
-                    transform.position = new Vector2(10f,-1.4f);
+                    transform.position = new Vector2(10f,2.5f);
+                    Vector2 theScale = transform.localScale;
+                    theScale.x *= -1;
+                    transform.localScale = theScale;
                 }
                 if (level == 1)
                 {
-                    transform.position = new Vector2(10f,0.6f);
+                    transform.position = new Vector2(10f,0f);
+                    Vector2 theScale = transform.localScale;
+                    theScale.x *= -1;
+                    transform.localScale = theScale;
                 }
                 if (level == 2)
                 {
-                    transform.position = new Vector2(10f,2.5f);
+                    transform.position = new Vector2(10f,-2.5f);
+                    Vector2 theScale = transform.localScale;
+                    theScale.x *= -1;
+                    transform.localScale = theScale;
                 } 
             }
             if (isLeft == 0 && isSpawner == false)
@@ -192,7 +203,7 @@ public class SpawnManager : MonoBehaviour
     {
         while(_stopSpawning == false && isSpawner == true)
         {
-            Vector2 posToSpawn = new Vector2(0,-5);
+            Vector2 posToSpawn = new Vector2(0,-10);
             GameObject newProjectile = Instantiate(_projectilePrefab,posToSpawn,Quaternion.identity);
             newProjectile.transform.SetParent(_projectileContainer.transform);
             //yield return new WaitForSeconds(2); 

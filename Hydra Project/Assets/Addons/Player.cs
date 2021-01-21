@@ -44,8 +44,8 @@ public class Player : MonoBehaviour
     public Transform feetPos;    
     public LayerMask whatIsGround;
     public GameObject[] hearts;
-    public Renderer rend;
-    public Material[] material;
+    public SpriteRenderer rend;
+    public Sprite[] sprite;
     [SerializeField]
     public ElementTimer ElementTimerScript;
     public BoxCollider2D playerCollider;
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
         _immune = 0f;
         _RB = GetComponent<Rigidbody2D>();
         TriggerColorChange = 0;
-        rend = GetComponent<Renderer>();
+        rend = GetComponent<SpriteRenderer>();
         rend.enabled =true;
         ElementTimerScript.nextElement = NextPlayerElement;
         ElementTimerScript.setElement = PlayerElement;
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        rend.sharedMaterial = material[PlayerElement]; 
+        rend.sprite = sprite[PlayerElement]; 
         CalculateMovement();
         FixedUpdate();
         if (HealthSystem)
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
             //ElementTimerScript = GameObject.Find("ElementTimer").GetComponent<ElementTimer>();
             ElementTimerScript.nextElement = NextPlayerElement;
             ElementTimerScript.setElement = PlayerElement;
-            rend.sharedMaterial = material[PlayerElement];
+            rend.sprite = sprite[PlayerElement];
         }
 
         if (IsDamage == true)
@@ -144,14 +144,16 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector2(8.5f,transform.position.y);
         }
-        if(transform.position.y >= 4.75f)
+        if(transform.position.y >= 3.27f)
         {
-            transform.position = new Vector2(transform.position.x,4.75f);
+            transform.position = new Vector2(transform.position.x,3.27f);
         }
 
         //Player Jump
-        isGrounded = Physics2D.OverlapArea(new Vector2(transform.position.x -0.5f, transform.position.y - 0.5f),
-        new Vector2(transform.position.x + 0.5f, transform.position.y - 0.51f), whatIsGround);
+        isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
+        // new Vector2(transform.position.x + 0.5f, transform.position.y - 0.51f), whatIsGround);
+        // isGrounded = Physics2D.OverlapArea(new Vector2(transform.position.x -0.5f, transform.position.y - 0.5f),
+        // new Vector2(transform.position.x + 0.5f, transform.position.y - 0.51f), whatIsGround);
 
         if (Input.GetKeyDown (KeyCode.UpArrow) && isGrounded)
         {
@@ -164,6 +166,7 @@ public class Player : MonoBehaviour
             isJumping = true;
             jumpTimeCounter = jumpTime;
             _RB.velocity = Vector2.up * _Jump;
+            _clipping = 0.35f;
             _clipping += Time.deltaTime;
             playerCollider.enabled = false;
         }
@@ -174,7 +177,7 @@ public class Player : MonoBehaviour
             {
                 _RB.velocity = Vector2.up * _Jump;
                 jumpTimeCounter -= Time.deltaTime;
-                _clipping += Time.deltaTime;
+                _clipping += Time.deltaTime * 1.3f;
             } 
         }
         else 
@@ -185,6 +188,7 @@ public class Player : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.UpArrow))
         {
             isJumping = false;
+            _clipping = 0.35f;
         }
 
         // if(Input.GetKeyDown(KeyCode.UpArrow) && _clipping == 0)

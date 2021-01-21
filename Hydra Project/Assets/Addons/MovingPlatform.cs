@@ -28,8 +28,8 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField]
     private float _difficulty;
     public GameObject Player;
-    public Material[] material;
-    Renderer rend;
+    public Sprite[] sprite;
+    SpriteRenderer rend;
     public Player playerScript;
     public SpawnManager SpawnManagerScript;
     // [SerializeField]
@@ -65,9 +65,9 @@ public class MovingPlatform : MonoBehaviour
             speed = 2.15f;
         }
         maxspeed = speed*2.1f;
-        rend = GetComponent<Renderer>();
+        rend = GetComponent<SpriteRenderer>();
         rend.enabled =true;
-        rend.sharedMaterial = material[element];
+        rend.sprite = sprite[element];
         playerScript = GameObject.Find("Player").GetComponent<Player>();
         // StartCoroutine(Helpping());
     }
@@ -146,20 +146,20 @@ public class MovingPlatform : MonoBehaviour
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
 
-        if(transform.position.x < -11.4f)
+        if(transform.position.x < -13.125f)
         {
             helppedelement = (Random.Range(0,5) + Random.Range(0,2)) + 1;
             if (helppedelement >= 4)
             {
                 element = playerScript.NextPlayerElement;
-                rend.sharedMaterial = material[element];
+                rend.sprite = sprite[element];
             }
             else if(helppedelement <= 3)
             {
                 element = Random.Range (0,3);
-                rend.sharedMaterial = material[element];
+                rend.sprite = sprite[element];
             }
-            transform.position = new Vector3(11.4f,transform.position.y);
+            transform.position = new Vector3(13.125f,transform.position.y);
             // rend.sharedMaterial = material[element];
         }
     }
@@ -168,20 +168,20 @@ public class MovingPlatform : MonoBehaviour
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
 
-        if(transform.position.x > 11.4f)
+        if(transform.position.x > 13.125f)
         {
             helppedelement = Random.Range(0,5) + Random.Range(0,2);
             if (helppedelement >= 4)
             {
                 element = playerScript.NextPlayerElement;
-                rend.sharedMaterial = material[element];
+                rend.sprite = sprite[element];
             }
             else if(helppedelement <= 3)
             {
                 element = Random.Range (0,3);
-                rend.sharedMaterial = material[element];
+                rend.sprite = sprite[element];
             }
-            transform.position = new Vector2(-11.4f,transform.position.y);
+            transform.position = new Vector2(-13.125f,transform.position.y);
         
         }
     }

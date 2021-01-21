@@ -222,7 +222,7 @@ public class Player : MonoBehaviour
         {
             isDashing = true;
             _clipping = 0.35f;
-            _Jump = 12;
+            _Jump = 11;
             _Speed = 25;
             StartCoroutine(Dash());
         }

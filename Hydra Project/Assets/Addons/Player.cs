@@ -112,7 +112,9 @@ public class Player : MonoBehaviour
                 rend.enabled = true;
             }
         }
+
     }
+
     void Health()
     {
         Player player = GetComponent<Player>();
@@ -133,6 +135,12 @@ public class Player : MonoBehaviour
 
     void CalculateMovement()
     {
+
+        if (transform.position.y <= -11.25f)
+        {
+            _lives = 0;
+        }
+
         //Player Collissions      
         //if the player's y position is smaller or equal to -3.8f
         if(transform.position.x <= -8.5f)
@@ -283,16 +291,16 @@ public class Player : MonoBehaviour
        //}
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        setMovingPlatform = true;
-        //Debug.Log("Hit: " + transform.name);
-        if (coll.gameObject.tag == "Lava")
-        {
-            _lives = 0;
-            //Damage();
-        }
-    }  
+    // void OnCollisionEnter2D(Collision2D coll)
+    // {
+    //     setMovingPlatform = true;
+    //     //Debug.Log("Hit: " + transform.name);
+    //     if (coll.gameObject.tag == "Lava")
+    //     {
+    //         _lives = 0;
+    //         //Damage();
+    //     }
+    // }  
 
     public void Damage()
     {

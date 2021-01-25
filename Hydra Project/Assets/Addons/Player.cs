@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     public bool giveDiamond = false;
     [SerializeField]
+    public bool giveDiamondnotsame = false;
+    [SerializeField]
     public bool touchProjectiles = false;
     [SerializeField]
     public bool IsDamage = false;
@@ -46,21 +48,25 @@ public class Player : MonoBehaviour
     public Transform feetPos;    
     public LayerMask whatIsGround;
     public GameObject[] hearts;
+    [SerializeField]
     public SpriteRenderer rend;
-    public Sprite[] sprite;
+    public RuntimeAnimatorController[] runtimeAnimatorController;
     [SerializeField]
     public ElementTimer ElementTimerScript;
     public BoxCollider2D playerCollider;
+    [SerializeField]
+    public Animator anim;
 
     void Start()
     {
+        anim = GetComponent<Animator>();
         PlayerElement = 0;
         NextPlayerElement = Random.Range(1,3);
         _immune = 0f;
         _RB = GetComponent<Rigidbody2D>();
         TriggerColorChange = 0;
         rend = GetComponent<SpriteRenderer>();
-        rend.enabled =true;
+        anim.enabled =true;
         ElementTimerScript.nextElement = NextPlayerElement;
         ElementTimerScript.setElement = PlayerElement;
         playerCollider = playerCollider.GetComponent<BoxCollider2D>();
@@ -68,9 +74,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        rend.sprite = sprite[PlayerElement]; 
+        anim.runtimeAnimatorController = runtimeAnimatorController[PlayerElement]; 
         CalculateMovement();
         FixedUpdate();
+        Animations();
         
         if (HealthSystem)
         {
@@ -82,7 +89,7 @@ public class Player : MonoBehaviour
             //ElementTimerScript = GameObject.Find("ElementTimer").GetComponent<ElementTimer>();
             ElementTimerScript.nextElement = NextPlayerElement;
             ElementTimerScript.setElement = PlayerElement;
-            rend.sprite = sprite[PlayerElement];
+            anim.runtimeAnimatorController = runtimeAnimatorController[PlayerElement];
         }
 
         if (IsDamage == true)
@@ -188,7 +195,7 @@ public class Player : MonoBehaviour
             {
                 _RB.velocity = Vector2.up * _Jump;
                 jumpTimeCounter -= Time.deltaTime;
-                _clipping += Time.deltaTime * 1.1f;
+                _clipping += Time.deltaTime * 1.3f;
             } 
         }
         else 
@@ -199,7 +206,7 @@ public class Player : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.UpArrow))
         {
             isJumping = false;
-            _clipping = 0.35f;
+            _clipping = 0.15f;
         }
 
         // if(Input.GetKeyDown(KeyCode.UpArrow) && _clipping == 0)
@@ -300,6 +307,30 @@ public class Player : MonoBehaviour
             Vector2 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
+        }
+    }
+
+    void Animations()
+    {
+        if (moveInput == 0 && isJumping == false)
+        {
+            anim.SetBool("Walking", false);
+        }
+        else if (moveInput != 0 && isJumping == false)
+        {
+            anim.SetBool("Walking", true);
+        }
+        if (isJumping == true)
+        {
+            anim.SetBool("Jumping", true);
+        }
+        else
+        {
+            anim.SetBool("Jumping", false);
+        }
+        if (_lives == 0)
+        {
+            anim.SetBool("Death", true);
         }
     }
 

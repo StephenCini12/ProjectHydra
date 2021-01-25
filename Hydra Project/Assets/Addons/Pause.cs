@@ -95,6 +95,7 @@ public class Pause : MonoBehaviour
     public void backToMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        Time.timeScale = 1f;
     } 
 
     public void playAgain()

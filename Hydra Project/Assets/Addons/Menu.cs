@@ -15,23 +15,30 @@ public class Menu : MonoBehaviour
 
     public void PlayGame ()
     {
-        FadeObject = GameObject.Find("FadeFrame").GetComponent<FadeTransition>();
-        FadeObject.IsFadingBlack = true;
-        FadeObject.TriggerFade = true;
-        StartingGame = 1;
-        StartCoroutine(Start());
+        //Debug.Log("bruh it me");
+        if (StartingGame == 1f)
+        {
+            FadeObject = GameObject.Find("FadeFrame").GetComponent<FadeTransition>();
+            FadeObject.IsFadingBlack = true;
+            FadeObject.TriggerFade = true;
+            StartingGame = 2;
+            StartCoroutine(StartG());
+        }
     }
     public void Startgame ()
     {
-        if(StartingGame == 1f)
+        //Debug.Log("bruh it me");
+        if(StartingGame == 2f)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            Time.timeScale = 1f;
+            Time.timeScale = 0f;
+            StartingGame = 0;
         }
     }
 
     public void howTo ()
     {
+        StartingGame = 1;
         Background.gameObject.SetActive(false);
         buttons.gameObject.SetActive(false);
         howtoplay.gameObject.SetActive(true);
@@ -61,7 +68,7 @@ public class Menu : MonoBehaviour
         scoreMenu.SetActive(false);
         buttons.gameObject.SetActive(true);
     }
-    public IEnumerator Start()
+    public IEnumerator StartG()
     {
         yield return new WaitForSeconds(1f);
         Startgame();

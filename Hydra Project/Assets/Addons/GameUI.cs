@@ -28,6 +28,7 @@ public class GameUI : MonoBehaviour
         scoreValue = 0;
         playerScript = GameObject.Find("Player").GetComponent<Player>();
         ElementTimerScript.giveScore = false;
+        scoreText.text = "" + (int)scoreValue;
     }
 
     void Update()
@@ -41,7 +42,13 @@ public class GameUI : MonoBehaviour
             scoreValue = 10 + (int)scoreValue;
             ElementTimerScript.giveScore = false;
         }
-        if (gameObject.GetComponent<SpawnManager>() != playerScript.giveDiamond == true && SpawnManagerScript.Diamond == true)
+        if (gameObject.GetComponent<SpawnManager>() != playerScript.giveDiamondnotsame == true)
+        {
+            //Debug.Log("cringe bro");
+            scoreValue = 50 + (int)scoreValue;
+            playerScript.giveDiamondnotsame = false;
+        }
+        if (gameObject.GetComponent<SpawnManager>() != playerScript.giveDiamond == true)
         {
             //Debug.Log("cringe bro");
             scoreValue = 100 + (int)scoreValue;

@@ -6,6 +6,8 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
     private int projectileElement;
+    [SerializeField]
+    private int diamondElement;
     private int level;
     public int isLeft;
     [SerializeField]
@@ -62,8 +64,12 @@ public class SpawnManager : MonoBehaviour
         }
         if (Diamond == true)
         {
+            diamondElement = Random.Range (0,3);
+            rend = GetComponent<Animator>();
+            rend.enabled =true;
+            rend.runtimeAnimatorController = runtimeAnimatorController [diamondElement];
             playerScript = GameObject.Find("Player").GetComponent<Player>();
-            transform.Rotate(0, 0, 45, Space.Self);
+            //transform.Rotate(0, 0, 45, Space.Self);
         }
     }
 
@@ -246,8 +252,17 @@ public class SpawnManager : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                playerScript.giveDiamond = true;
-                Destroy(this.gameObject);
+                if (diamondElement != playerScript.PlayerElement)
+                {
+                    playerScript.giveDiamondnotsame = true;
+                    Destroy (this.gameObject);
+                }
+                else if (diamondElement == playerScript.PlayerElement)
+                {
+                    playerScript.giveDiamond = true;
+                    Destroy (this.gameObject);
+                }
+                Destroy (this.gameObject);
             }
             // if (other.gameObject.CompareTag("Projectile"))
             // {

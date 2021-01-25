@@ -31,8 +31,9 @@ public class Pause : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKey)
+        if (Input.anyKey && PAKTSView == true)
         {
+            PAKTSView = false;
             isGamePaused = false;
             Time.timeScale = 1f;
             Destroy(PAKTS.gameObject);

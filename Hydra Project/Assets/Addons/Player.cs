@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     private float _immune = 0f;
     public float _clipping = 0f;
     [SerializeField]
+    public bool _isright = true;
+    [SerializeField]
     public bool setMovingPlatform = false;
     [SerializeField]
     public bool isOnPlatform;
@@ -69,6 +71,7 @@ public class Player : MonoBehaviour
         rend.sprite = sprite[PlayerElement]; 
         CalculateMovement();
         FixedUpdate();
+        
         if (HealthSystem)
         {
             Health();
@@ -174,7 +177,7 @@ public class Player : MonoBehaviour
             isJumping = true;
             jumpTimeCounter = jumpTime;
             _RB.velocity = Vector2.up * _Jump;
-            _clipping = 0.35f;
+            _clipping = 0.15f;
             _clipping += Time.deltaTime;
             playerCollider.enabled = false;
         }
@@ -185,7 +188,7 @@ public class Player : MonoBehaviour
             {
                 _RB.velocity = Vector2.up * _Jump;
                 jumpTimeCounter -= Time.deltaTime;
-                _clipping += Time.deltaTime * 1.3f;
+                _clipping += Time.deltaTime * 1.1f;
             } 
         }
         else 
@@ -284,11 +287,20 @@ public class Player : MonoBehaviour
     {
         moveInput = Input.GetAxis("Horizontal");   
         _RB.velocity = new Vector2(moveInput * _Speed, _RB.velocity.y);
-
-        //if (!isDashing)
-        //{
-            //_RB.velocity = new Vector2(mx *_Speed, _RB.velocity.y);
-       //}
+        if(Input.GetKeyDown(KeyCode.LeftArrow) && _isright == true)
+        {
+            _isright = false;
+            Vector2 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
+        if(Input.GetKeyDown(KeyCode.RightArrow) && _isright == false)
+        {
+            _isright = true;
+            Vector2 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
     }
 
     // void OnCollisionEnter2D(Collision2D coll)

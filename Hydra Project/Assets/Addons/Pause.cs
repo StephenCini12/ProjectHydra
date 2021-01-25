@@ -8,7 +8,10 @@ public class Pause : MonoBehaviour
 {
 
     public bool isGamePaused = false;
+    public bool PAKTSView = true;
     private bool gameOver;
+    [SerializeField]
+    public float PAKTSTimer;
     public GameObject pauseMenu;
     [SerializeField]
     public Player playerScript;
@@ -16,17 +19,24 @@ public class Pause : MonoBehaviour
     public GameObject optionsMenu;
     public GameObject pauseButtons;
     public GameObject gameOverButtons;
+    public GameObject PAKTS;
 
     void Start()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
         Player player = GetComponent<Player>();
         gameOver = false;
-        isGamePaused = false;
+        isGamePaused = true;
     }
 
     void Update()
     {
+        if (Input.anyKey)
+        {
+            isGamePaused = false;
+            Time.timeScale = 1f;
+            Destroy(PAKTS.gameObject);
+        }
         if (Input.GetKeyDown(KeyCode.Escape) && gameOver == false)
         {
             if (isGamePaused)

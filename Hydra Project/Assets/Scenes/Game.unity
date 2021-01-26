@@ -1657,6 +1657,7 @@ MonoBehaviour:
   isGrounded: 1
   isJumping: 0
   isDashing: 0
+  isDusking: 0
   HealthSystem: 1
   giveDiamond: 0
   giveDiamondnotsame: 0
@@ -2189,7 +2190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515523240}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09993553, y: 0.33336604, z: 2.51}
+  m_LocalPosition: {x: -0.09993553, y: 0.19, z: 2.51}
   m_LocalScale: {x: 3.9606, y: 3.9606, z: 3.9606}
   m_Children: []
   m_Father: {fileID: 1532033101}
@@ -3245,6 +3246,7 @@ MonoBehaviour:
   setElement: 1
   timeRemaining: 5
   timerMax: 5
+  holdElement: 0
   isSlider: 1
   giveScore: 0
   slider: {fileID: 1847423322}
@@ -3966,7 +3968,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 934371185}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09993553, y: 0.25336605, z: 6.7136827}
+  m_LocalPosition: {x: -0.09993553, y: 0.25336605, z: 3.35}
   m_LocalScale: {x: 9.613169, y: 9.613169, z: 9.613169}
   m_Children: []
   m_Father: {fileID: 1532033101}
@@ -6958,7 +6960,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGamePaused: 0
   PAKTSView: 1
-  GameoverView: 0
   PAKTSTimer: 0
   pauseMenu: {fileID: 1697842473}
   playerScript: {fileID: 341908861}
@@ -9278,6 +9279,7 @@ MonoBehaviour:
   setElement: 0
   timeRemaining: 5
   timerMax: 5
+  holdElement: 0
   isSlider: 0
   giveScore: 0
   slider: {fileID: 0}

@@ -34,7 +34,10 @@ public class GameUI : MonoBehaviour
     void Update()
     {
         highscoreText.text = "Your score: " + (int)scoreValue;
-        scoreValue += 3f * Time.deltaTime;
+        if (playerScript._lives > 0)
+        {
+            scoreValue += 3f * Time.deltaTime;
+        }
         scoreText.text = "" + (int)scoreValue;
         if (gameObject.GetComponent<ElementTimer>() != ElementTimerScript.giveScore == true && playerScript.IsDamage == false)
         {

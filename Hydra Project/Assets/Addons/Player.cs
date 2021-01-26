@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private bool isDashing;
     [SerializeField]
+    private bool isDusking;
+    [SerializeField]
     public bool HealthSystem = true;
     [SerializeField]
     public bool giveDiamond = false;
@@ -94,11 +96,11 @@ public class Player : MonoBehaviour
             anim.runtimeAnimatorController = runtimeAnimatorController[PlayerElement];
         }
 
-        if (IsDamage == true)
+        if (IsDamage == true )
         {
             _immune += Time.deltaTime;
             //rend.enabled = false;
-            if (rend.enabled == true)
+            if (rend.enabled == true && _lives > 0)
             {
                 visabletimer += Time.deltaTime;
                 if (visabletimer >= 0.2f)
@@ -135,11 +137,11 @@ public class Player : MonoBehaviour
         {
             Destroy(hearts[0].gameObject);
         } 
-        else if (_lives < 2)
+        if (_lives < 2)
         {
             Destroy(hearts[1].gameObject);
         }
-        else if(_lives <3)
+        if(_lives < 3)
         {
             Destroy(hearts[2].gameObject);
         }
@@ -175,43 +177,42 @@ public class Player : MonoBehaviour
         // isGrounded = Physics2D.OverlapArea(new Vector2(transform.position.x -0.5f, transform.position.y - 0.5f),
         // new Vector2(transform.position.x + 0.5f, transform.position.y - 0.51f), whatIsGround);
 
-        if (Input.GetKeyDown (KeyCode.UpArrow) && isGrounded)
+        if (Input.GetKeyDown (KeyCode.W) && isGrounded && _lives > 0)
         {
             //audioPlayerScript = GetComponent<AudioPlayer>(); 
             _RB.AddForce (Vector2.up * _Jump, ForceMode2D.Impulse);
             audioPlayerScript.PlayJumpSound();
         }
-
-
-        if(isGrounded == true && Input.GetKeyDown(KeyCode.UpArrow))
+        if(isGrounded == true && Input.GetKeyDown(KeyCode.W) && _lives > 0)
         {
             isJumping = true;
             jumpTimeCounter = jumpTime;
             _RB.velocity = Vector2.up * _Jump;
-            _clipping = 0.15f;
+            //_clipping = 0.15f;
             _clipping += Time.deltaTime;
             playerCollider.enabled = false;
         }
 
-        if(Input.GetKey(KeyCode.UpArrow) && isJumping == true)
+        if(Input.GetKey(KeyCode.W) && isJumping == true && _lives > 0)
         {
             if(jumpTimeCounter > 0)
             {
                 _RB.velocity = Vector2.up * _Jump;
                 jumpTimeCounter -= Time.deltaTime;
-                _clipping += Time.deltaTime * 1.3f;
+                _clipping += Time.deltaTime;
+                //_clipping += Time.deltaTime * 1.15f;
             } 
         }
         else 
         {
             isJumping = false;
         }
-        if(jumpTimeCounter <= 0)
+        if(jumpTimeCounter <= 0 && Input.GetKey(KeyCode.S) == false && isDusking == false && _lives > 0)
         {
             _clipping = 0f;
         } 
        
-        if(Input.GetKeyUp(KeyCode.UpArrow))
+        if(Input.GetKeyUp(KeyCode.W) && _lives > 0)
         {
             isJumping = false;
             _clipping = 0.42f;
@@ -222,10 +223,11 @@ public class Player : MonoBehaviour
         //     _clipping = 0.55f;
         //     playerCollider.enabled = false;
         // }
-        if(Input.GetKeyDown(KeyCode.DownArrow) && isGrounded && _clipping == 0)
+        if(Input.GetKeyDown(KeyCode.S) && isGrounded && _clipping == 0 && _lives > 0)
         {
             _clipping = 0.365f;
             playerCollider.enabled = false;
+            isDusking = true;
         }
         // if(Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.UpArrow))
         // {
@@ -240,6 +242,7 @@ public class Player : MonoBehaviour
         {
             playerCollider.enabled = true;
             _clipping = 0;
+            isDusking = false;
         }
 
         // if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true && isDashing == false)
@@ -248,10 +251,10 @@ public class Player : MonoBehaviour
         //     _Speed = 25;
         //     StartCoroutine(Dash());
         // }
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded == false && isDashing == false)
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded == false && isDashing == false && _lives > 0)
         {
             isDashing = true;
-            _clipping = 0.35f;
+            _clipping = 0.4f;
             _Jump = 11;
             _Speed = 25;
             StartCoroutine(Dash());
@@ -300,21 +303,24 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
-        moveInput = Input.GetAxis("Horizontal");   
-        _RB.velocity = new Vector2(moveInput * _Speed, _RB.velocity.y);
-        if(Input.GetKeyDown(KeyCode.LeftArrow) && _isright == true)
+        if (_lives > 0)
         {
-            _isright = false;
-            Vector2 theScale = transform.localScale;
-            theScale.x *= -1;
-            transform.localScale = theScale;
-        }
-        if(Input.GetKeyDown(KeyCode.RightArrow) && _isright == false)
-        {
-            _isright = true;
-            Vector2 theScale = transform.localScale;
-            theScale.x *= -1;
-            transform.localScale = theScale;
+            moveInput = Input.GetAxis("Horizontal");   
+            _RB.velocity = new Vector2(moveInput * _Speed, _RB.velocity.y);
+            if(Input.GetKeyDown(KeyCode.A) && _isright == true)
+            {
+                _isright = false;
+                Vector2 theScale = transform.localScale;
+                theScale.x *= -1;
+                transform.localScale = theScale;
+            }
+            if(Input.GetKeyDown(KeyCode.D) && _isright == false)
+            {
+                _isright = true;
+                Vector2 theScale = transform.localScale;
+                theScale.x *= -1;
+                transform.localScale = theScale;
+            }
         }
     }
 
@@ -356,11 +362,11 @@ public class Player : MonoBehaviour
     public void Damage()
     {
         _lives-= 1;
-        if(_lives <= 0)
-        {
-            //yield return new WaitForSeconds (3);
-            rend.enabled = false;
-        }
+        // if(_lives <= 0)
+        // {
+        //     //yield return new WaitForSeconds (3);
+        //     rend.enabled = false;
+        // }
     }
 
     // IEnumerator Dash (float direction)

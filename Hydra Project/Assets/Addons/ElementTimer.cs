@@ -14,6 +14,8 @@ public class ElementTimer : MonoBehaviour
     [SerializeField]
     public float timerMax = 5f;
     [SerializeField]
+    public bool holdElement = true;
+    [SerializeField]
     public bool isSlider = true;
     [SerializeField]
     public bool giveScore = false;
@@ -52,6 +54,10 @@ public class ElementTimer : MonoBehaviour
         if (isSlider)
         {
             timerMax = SpawnManagerScript._difficulty/5;
+            // if (timeRemaining <= 0)
+            // {
+
+            // }
             ColorChange();
             SliderTimer();
         }
@@ -122,7 +128,14 @@ public class ElementTimer : MonoBehaviour
             rend.color = color[playerScript.NextPlayerElement];
         }
     }
-
+    // IEnumerator Hold()
+    // {
+    //     while(holdElement == false)
+    //     {
+    //         yield return new WaitForSeconds(1f);
+    //         holdElement = true;
+    //     }
+    // }
     // IEnumerator Timer()
     // {
     //     yield return new WaitForSeconds (5f);

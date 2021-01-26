@@ -9,7 +9,6 @@ public class Pause : MonoBehaviour
 
     public bool isGamePaused = false;
     public bool PAKTSView = true;
-    public bool GameoverView = false;
     private bool gameOver;
     [SerializeField]
     public float PAKTSTimer;
@@ -54,9 +53,12 @@ public class Pause : MonoBehaviour
 
         if(playerScript._lives <= 0)
         {
-            gameOverMenu.SetActive(true);
+            //GameoverView = true;
+            GameOver.SetActive(true);
+            // gameOverMenu.SetActive(true);
             gameOver = true;
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
+            StartCoroutine(GameoverText());
         }
     }
 
@@ -103,5 +105,14 @@ public class Pause : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    } 
+    }
+    IEnumerator GameoverText()
+    {
+        while(GameOver == true)
+        {
+            yield return new WaitForSeconds(3f); 
+            gameOverMenu.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
 }

@@ -202,11 +202,15 @@ public class Player : MonoBehaviour
         {
             isJumping = false;
         }
+        if(jumpTimeCounter <= 0)
+        {
+            _clipping = 0f;
+        } 
        
         if(Input.GetKeyUp(KeyCode.UpArrow))
         {
             isJumping = false;
-            _clipping = 0.15f;
+            _clipping = 0.42f;
         }
 
         // if(Input.GetKeyDown(KeyCode.UpArrow) && _clipping == 0)
@@ -216,7 +220,7 @@ public class Player : MonoBehaviour
         // }
         if(Input.GetKeyDown(KeyCode.DownArrow) && isGrounded && _clipping == 0)
         {
-            _clipping = 0.35f;
+            _clipping = 0.365f;
             playerCollider.enabled = false;
         }
         // if(Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.UpArrow))

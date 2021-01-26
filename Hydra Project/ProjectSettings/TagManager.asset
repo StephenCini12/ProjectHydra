@@ -8,6 +8,7 @@ TagManager:
   - Diamond
   - Lava
   - Projectile
+  - Warning
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,7 @@ public class Pause : MonoBehaviour
 
     public bool isGamePaused = false;
     public bool PAKTSView = true;
+    public bool GameoverView = false;
     private bool gameOver;
     [SerializeField]
     public float PAKTSTimer;
@@ -20,6 +21,7 @@ public class Pause : MonoBehaviour
     public GameObject pauseButtons;
     public GameObject gameOverButtons;
     public GameObject PAKTS;
+    public GameObject GameOver;
 
     void Start()
     {

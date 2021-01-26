@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     private int projectileElement;
     [SerializeField]
     private int diamondElement;
-    private int level;
+    public int level;
     public int isLeft;
     [SerializeField]
     public float _difficulty;
@@ -19,6 +19,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     public float _projectileRememberSpeed = 3f;
     private float _DiamondSpeed = 1.3f;
+    public float visabletimer;
     private bool _stopSpawning = false;
     //private bool _onPlatform = false;
     [SerializeField]
@@ -28,6 +29,10 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     public bool Diamond = false;
     [SerializeField]
+    public bool isWarning = false;
+    [SerializeField]
+    public bool isWarningShow = false;
+    [SerializeField]
     private GameObject _projectilePrefab;
     [SerializeField]
     private GameObject _projectileContainer;
@@ -36,9 +41,15 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject _DiamondContainer;
     [SerializeField]
+    private GameObject _WarningPrefab;
+    [SerializeField]
+    private GameObject _WarningContainer;
+    [SerializeField]
     public RuntimeAnimatorController[] runtimeAnimatorController;
     [SerializeField]
-    Animator rend;
+    Animator anim;
+    [SerializeField]
+    public SpriteRenderer rend;
     [SerializeField]
     public Player playerScript;
     // [SerializeField]
@@ -57,25 +68,36 @@ public class SpawnManager : MonoBehaviour
             _projectileSpeed = _projectileRememberSpeed;
             isLeft = Random.Range(0,2);
             projectileElement = Random.Range (0,3);
-            rend = GetComponent<Animator>();
-            rend.enabled =true;
-            rend.runtimeAnimatorController = runtimeAnimatorController [projectileElement];
+            anim = GetComponent<Animator>();
+            anim.enabled =true;
+            anim.runtimeAnimatorController = runtimeAnimatorController [projectileElement];
             playerScript = GameObject.Find("Player").GetComponent<Player>();
         }
         if (Diamond == true)
         {
             diamondElement = Random.Range (0,3);
-            rend = GetComponent<Animator>();
-            rend.enabled =true;
-            rend.runtimeAnimatorController = runtimeAnimatorController [diamondElement];
+            anim = GetComponent<Animator>();
+            anim.enabled =true;
+            anim.runtimeAnimatorController = runtimeAnimatorController [diamondElement];
             playerScript = GameObject.Find("Player").GetComponent<Player>();
             //transform.Rotate(0, 0, 45, Space.Self);
+        }
+        if (isWarning == true)
+        {
+            StartCoroutine(Delete());
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        // if (isWarningShow == true)
+        // {
+        //     Vector2 posToSpawn = new Vector2(0,-10);
+        //     GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
+        //     newWarning.transform.SetParent(_WarningContainer.transform);
+        //     isWarningShow = false;
+        // }
         if (isSpawner == true && _difficulty > 5f)
         {
             _difficulty -= Time.deltaTime/Random.Range(30,76);
@@ -89,42 +111,58 @@ public class SpawnManager : MonoBehaviour
             if (transform.position.y <= -10 && isLeft == 0 && isSpawner == false)
             {
                 level = Random.Range(0,3);
+                //_WarningPrefab.GetComponent<SpawnManager>().level = this.level;
                 if (level == 0)
                 {
-                    transform.position = new Vector2(-10f,2.5f);
+                    transform.position = new Vector2(-17f,2.5f);
+                    Vector2 posToSpawn = new Vector3(-8.241f,2.4f,-1.259f);
+                    GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
+                    //newWarning.transform.SetParent(_WarningContainer.transform);
+                    
                 }
                 if (level == 1)
                 {
-                    transform.position = new Vector2(-10f,0f);
+                    transform.position = new Vector2(-17f,0f);
+                    Vector2 posToSpawn = new Vector3(-8.241f,0f,-1.259f);
+                    GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
                 }
                 if (level == 2)
                 {
-                    transform.position = new Vector2(-10f,-2.5f);
+                    transform.position = new Vector2(-17f,-2.5f);
+                    Vector2 posToSpawn = new Vector3(-8.241f,-2.66f,-1.259f);
+                    GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
                 } 
             }
             if (transform.position.y <= -10 && isLeft == 1 && isSpawner == false)
             {
                 level = Random.Range(0,3);
+                //_WarningPrefab.GetComponent<SpawnManager>().level = this.level;
                 if (level == 0)
                 {
-                    transform.position = new Vector2(10f,2.5f);
+                    transform.position = new Vector2(17f,2.5f);
                     Vector2 theScale = transform.localScale;
                     theScale.x *= -1;
                     transform.localScale = theScale;
+                    Vector2 posToSpawn = new Vector3(8.241f,2.4f,-1.259f);
+                    GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
                 }
                 if (level == 1)
                 {
-                    transform.position = new Vector2(10f,0f);
+                    transform.position = new Vector2(17f,0f);
                     Vector2 theScale = transform.localScale;
                     theScale.x *= -1;
                     transform.localScale = theScale;
+                    Vector2 posToSpawn = new Vector3(8.241f,0f,-1.259f);
+                    GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
                 }
                 if (level == 2)
                 {
-                    transform.position = new Vector2(10f,-2.5f);
+                    transform.position = new Vector2(17f,-2.5f);
                     Vector2 theScale = transform.localScale;
                     theScale.x *= -1;
                     transform.localScale = theScale;
+                    Vector2 posToSpawn = new Vector3(8.241f,-2.66f,-1.259f);
+                    GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
                 } 
             }
             if (isLeft == 0 && isSpawner == false)
@@ -152,6 +190,27 @@ public class SpawnManager : MonoBehaviour
             if (transform.position.y < -4.5f)
             {
                 Destroy(this.gameObject);
+            }
+        }
+        if (isWarning == true)
+        {
+            if (rend.enabled == true)
+            {
+                visabletimer += Time.deltaTime;
+                if (visabletimer >= 0.375f)
+                {
+                    visabletimer = 0f;
+                    rend.enabled = false;
+                }
+            }
+            else
+            {
+                visabletimer += Time.deltaTime;
+                if (visabletimer >= 0.375f)
+                {
+                    visabletimer = 0f;
+                    rend.enabled = true;
+                }
             }
         }
     }
@@ -224,6 +283,14 @@ public class SpawnManager : MonoBehaviour
             GameObject newProjectile2 = Instantiate(_DiamondPrefab,posToSpawn2,Quaternion.identity);
             newProjectile2.transform.SetParent(_DiamondContainer.transform);
             yield return new WaitForSeconds(Random.Range(25f,46f)); 
+        }
+    }
+    IEnumerator Delete()
+    {
+        while(isWarning == true)
+        {
+            yield return new WaitForSeconds(2f); 
+            Destroy(this.gameObject);
         }
     }
     public void OnCollisionEnter2D(Collision2D other) 

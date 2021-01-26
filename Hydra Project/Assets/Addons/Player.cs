@@ -56,6 +56,8 @@ public class Player : MonoBehaviour
     public BoxCollider2D playerCollider;
     [SerializeField]
     public Animator anim;
+    [SerializeField]
+    public AudioPlayer audioPlayerScript;
 
     void Start()
     {
@@ -69,7 +71,7 @@ public class Player : MonoBehaviour
         anim.enabled =true;
         ElementTimerScript.nextElement = NextPlayerElement;
         ElementTimerScript.setElement = PlayerElement;
-        playerCollider = playerCollider.GetComponent<BoxCollider2D>();
+        playerCollider = playerCollider.GetComponent<BoxCollider2D>();       
     }
 
     void Update()
@@ -175,7 +177,9 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown (KeyCode.UpArrow) && isGrounded)
         {
+            //audioPlayerScript = GetComponent<AudioPlayer>(); 
             _RB.AddForce (Vector2.up * _Jump, ForceMode2D.Impulse);
+            audioPlayerScript.PlayJumpSound();
         }
 
 
@@ -354,7 +358,6 @@ public class Player : MonoBehaviour
         _lives-= 1;
         if(_lives <= 0)
         {
-            Debug.Log("You died...GAME OVER");
             //yield return new WaitForSeconds (3);
             rend.enabled = false;
         }

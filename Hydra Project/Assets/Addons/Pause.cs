@@ -54,7 +54,6 @@ public class Pause : MonoBehaviour
 
         if(playerScript._lives <= 0)
         {
-            Debug.Log("You DEAD");
             gameOverMenu.SetActive(true);
             gameOver = true;
             Time.timeScale = 0f;

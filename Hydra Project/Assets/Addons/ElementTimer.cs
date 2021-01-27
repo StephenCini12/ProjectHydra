@@ -10,15 +10,13 @@ public class ElementTimer : MonoBehaviour
     [SerializeField]
     public int setElement = 1;
     [SerializeField]
-    private float timeRemaining = 5f;
+    public float timeRemaining = 5f;
     [SerializeField]
     public float timerMax = 5f;
     [SerializeField]
     public bool holdElement = true;
     [SerializeField]
     public bool isSlider = true;
-    [SerializeField]
-    public bool giveScore = false;
     [SerializeField]
     private Slider slider;
     [SerializeField]
@@ -60,6 +58,7 @@ public class ElementTimer : MonoBehaviour
             // }
             ColorChange();
             SliderTimer();
+            //if (ResetTimer == true) ResetTimer = false;
         }
         else
         {
@@ -99,18 +98,18 @@ public class ElementTimer : MonoBehaviour
                 }
                 if (playerScript.IsDamage == false)
                 {
-                    giveScore = true;
+                    playerScript.giveScore = true;
                     //Debug.Log("lol you got points");
                 }
                 rend.color = color[playerScript.PlayerElement];
-                
                 playerScript.TriggerColorChange = 1;
                 //Debug.Log("Next Element " + playerElement);
             }
-            else if(timeRemaining > 0)
+            else if(timeRemaining > 0 && playerScript._lives > 0)
             {
                 timeRemaining -= Time.deltaTime;
             }
+            //if(timeRemaining == timerMax) 
             // else if(timeRemaining == timerMax)
             // {
             //     //playerScript.NextPlayerElement = Random.Range(0,3);

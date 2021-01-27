@@ -86,8 +86,10 @@ public class MovingPlatform : MonoBehaviour
             if (element != playerScript.PlayerElement && playerScript.IsDamage == false)
             {
                 playerScript.IsDamage = true;
-                playerScript.Damage();               
+                playerScript.Damage();        
             }
+            if (playerScript.PlayerElement == this.element) playerScript.playerELisSameAsPlatformEL = true;
+            else playerScript.playerELisSameAsPlatformEL = false;
         }
         else
         {
@@ -138,6 +140,7 @@ public class MovingPlatform : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isOnMovingPlatform = false;
+            playerScript.playerELisSameAsPlatformEL = false;
         }
     }
 

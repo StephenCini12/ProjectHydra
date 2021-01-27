@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     public bool isGrounded;
     [SerializeField]
-    private bool isJumping;
+    public bool isJumping;
     [SerializeField]
     private bool isDashing;
     [SerializeField]
@@ -39,11 +39,15 @@ public class Player : MonoBehaviour
     [SerializeField]
     public bool HealthSystem = true;
     [SerializeField]
+    public bool giveScore = false;
+    [SerializeField]
     public bool giveDiamond = false;
     [SerializeField]
     public bool giveDiamondnotsame = false;
     [SerializeField]
     public bool touchProjectiles = false;
+    [SerializeField]
+    public bool playerELisSameAsPlatformEL = false;
     [SerializeField]
     public bool IsDamage = false;
     public Rigidbody2D _RB;

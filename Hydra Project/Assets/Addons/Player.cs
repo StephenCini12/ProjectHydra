@@ -361,12 +361,11 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
-        _lives-= 1;
-        // if(_lives <= 0)
-        // {
-        //     //yield return new WaitForSeconds (3);
-        //     rend.enabled = false;
-        // }
+        if (_lives > 0)
+        {
+            _lives-= 1;
+            audioPlayerScript.PlayDamageSound();
+        }
     }
 
     // IEnumerator Dash (float direction)

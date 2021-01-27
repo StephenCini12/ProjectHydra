@@ -21,6 +21,7 @@ public class Pause : MonoBehaviour
     public GameObject gameOverButtons;
     public GameObject PAKTS;
     public GameObject GameOver;
+    public AudioPlayer audioPlayerScript;
 
     void Start()
     {
@@ -41,6 +42,8 @@ public class Pause : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape) && gameOver == false)
         {
+            audioPlayerScript.PlayCollectSound();
+            
             if (isGamePaused)
             {
                 ResumeGame();

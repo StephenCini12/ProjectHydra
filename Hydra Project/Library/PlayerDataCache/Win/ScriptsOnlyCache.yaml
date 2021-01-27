@@ -1,7 +1,9 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AudioPlayer
     - ElementTimer
+    - FadeTransition
     - GameUI
     - Menu
     - MovingPlatform
@@ -11,6 +13,12 @@ ScriptsOnlyBuild:
     - UIElementIcon
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -36,19 +44,11 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 21
       Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
     - Class: 28
-      Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
     - Class: 50
-      Script: {instanceID: 0}
-    - Class: 58
       Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
@@ -57,6 +57,10 @@ ScriptsOnlyBuild:
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
@@ -67,41 +71,43 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11252}
+      Script: {instanceID: 11254}
     - Class: 114
-      Script: {instanceID: 11342}
+      Script: {instanceID: 11334}
     - Class: 114
-      Script: {instanceID: 11412}
+      Script: {instanceID: 11346}
     - Class: 114
-      Script: {instanceID: 11452}
+      Script: {instanceID: 11416}
     - Class: 114
-      Script: {instanceID: 11730}
+      Script: {instanceID: 11456}
     - Class: 114
-      Script: {instanceID: 11774}
+      Script: {instanceID: 11734}
     - Class: 114
-      Script: {instanceID: 11840}
+      Script: {instanceID: 11778}
     - Class: 114
-      Script: {instanceID: 11866}
+      Script: {instanceID: 11844}
     - Class: 114
-      Script: {instanceID: 12226}
+      Script: {instanceID: 11870}
     - Class: 114
-      Script: {instanceID: 12464}
+      Script: {instanceID: 12230}
     - Class: 114
-      Script: {instanceID: 12502}
+      Script: {instanceID: 12468}
     - Class: 114
-      Script: {instanceID: 12544}
+      Script: {instanceID: 12506}
     - Class: 114
-      Script: {instanceID: 12668}
+      Script: {instanceID: 12548}
     - Class: 114
-      Script: {instanceID: 12712}
+      Script: {instanceID: 12672}
     - Class: 114
-      Script: {instanceID: 12746}
+      Script: {instanceID: 12716}
     - Class: 114
-      Script: {instanceID: 13004}
+      Script: {instanceID: 12752}
     - Class: 114
-      Script: {instanceID: 13064}
+      Script: {instanceID: 13010}
     - Class: 114
-      Script: {instanceID: 13094}
+      Script: {instanceID: 13070}
+    - Class: 114
+      Script: {instanceID: 13100}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -133,30 +139,44 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11252}
+      Script: {instanceID: 11254}
     - Class: 114
-      Script: {instanceID: 11412}
+      Script: {instanceID: 11334}
     - Class: 114
-      Script: {instanceID: 11452}
+      Script: {instanceID: 11416}
     - Class: 114
-      Script: {instanceID: 11840}
+      Script: {instanceID: 11456}
     - Class: 114
-      Script: {instanceID: 11866}
+      Script: {instanceID: 11844}
     - Class: 114
-      Script: {instanceID: 12226}
+      Script: {instanceID: 11870}
     - Class: 114
-      Script: {instanceID: 12712}
+      Script: {instanceID: 12230}
     - Class: 114
-      Script: {instanceID: 13004}
+      Script: {instanceID: 12716}
     - Class: 114
-      Script: {instanceID: 13064}
+      Script: {instanceID: 12728}
     - Class: 114
-      Script: {instanceID: 13094}
+      Script: {instanceID: 13010}
+    - Class: 114
+      Script: {instanceID: 13070}
+    - Class: 114
+      Script: {instanceID: 13100}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -200,6 +220,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: db1e5d09e60a047d86d9c5f4a8fc4d4c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AudioPlayer
   - hash:
       serializedVersion: 2
       Hash: ed1dd7686cf529940229afe967ff2c4e
@@ -334,7 +360,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 24acb234d8902709c111120002bd0273
+      Hash: 84438d0f405d9f02848016988241fa96
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpawnManager
@@ -364,7 +390,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 7a42c29892a941e206c4c0199fd860f8
+      Hash: b05e68ba549750787723f663dbaecf2a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Menu
@@ -472,7 +498,7 @@ ScriptsOnlyBuild:
     className: ActivationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 65b52a524466aa02c50c8809a2b6bba3
+      Hash: e587312bbc7a59bd9dd62f07d69de187
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ElementTimer
@@ -484,7 +510,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 5ceae3ab380a8b89b0a7a8d7c4a5c662
+      Hash: 55336c82fbe2c1a634d565ced27ef870
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameUI
@@ -508,7 +534,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 328dee3f43cabb837b6d8a1006006b8f
+      Hash: a70bf6517f069ef4cae5c0c5e59300b1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -526,13 +552,19 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 3fe3f9ffd615ccae15e49052a3a9964f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FadeTransition
+  - hash:
+      serializedVersion: 2
       Hash: 8e6ceabfd38a184413d69b7db56c89cc
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 7cf0dfd7da6d7991724a4e1471e28475
+      Hash: abfbc66a96ed5dee4a9c364b919fefb2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pause
@@ -648,4 +680,5 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Game.unity
-  playerPath: D:/Apps/GitHub/ProjectHydra/Hydra Project/Export/UI Testing/Hydra Project.exe
+  playerPath: D:/Apps/GitHub/ProjectHydra/Hydra Project/Export/MonoBleedingEdge/Hydra
+    Project.exe

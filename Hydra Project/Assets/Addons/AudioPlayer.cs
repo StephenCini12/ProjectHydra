@@ -5,48 +5,55 @@ using UnityEngine;
 
 public class AudioPlayer : MonoBehaviour
 {
-    public AudioClip JumpSound;
-    //playerDamageSound, playerCollectSound;
-    public AudioSource audioSrc;
-    private float musicVolume = 1f;
+    public AudioClip JumpSound, playerDamageSound, CollectSound, selectSound;
+    public AudioSource audioSrcMusic;
+    public AudioSource audioSrcEffecs;
+    private float musicVolume = 0.5f;
+    private float effectsVolume = 0.5f;
     void Start()
     {
         //JumpSound = Resources.Load<AudioClip> ("playerJumpSound");
         //playerCollectSound = Resources.Load<AudioClip> ("playerCollect");
         //playerDamageSound = Resources.Load<AudioClip> ("playerDamage");
 
-        audioSrc = GetComponent<AudioSource>();
+        // audioSrcMusic = GetComponent<AudioSource>();
+        // audioSrcEffecs = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        audioSrc.volume = musicVolume;
+        audioSrcMusic.volume = musicVolume;
+        audioSrcEffecs.volume = effectsVolume;
+
     }
 
     public void updateVolume( float volume)
     {
         musicVolume = volume;
     }
+    public void updateEffectsVolume( float volume)
+    {
+        effectsVolume = volume;
+    }
 
     public void PlayJumpSound()
     {
-        //audioSrc.clip = JumpSound;
-        audioSrc.PlayOneShot(JumpSound);
-        //audioSrc.PlayOneShot (JumpSound);
-        Debug.Log("Jump Sound play");
+        audioSrcEffecs.PlayOneShot(JumpSound);
     }
 
-    // public void PlayJumpSound (string clip)
-    // {
-    //     switch (clip)
-    //     {
-    //         case "playerJumpSound":
-    //         audioSrc.PlayOneShot(JumpSound);
-    //         break;
-    //     }
-    
-    // Debug.Log("Jump Sound play");
+    public void PlayCollectSound()
+    {
+        audioSrcEffecs.PlayOneShot(CollectSound);
+    }
 
-    // }
+    public void PlayDamageSound()
+    {
+        audioSrcEffecs.PlayOneShot(playerDamageSound);
+    }
+
+    public void PlaySelectSound()
+    {
+        audioSrcEffecs.PlayOneShot(selectSound);
+    }
 }

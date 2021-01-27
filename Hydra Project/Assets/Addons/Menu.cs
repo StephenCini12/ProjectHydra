@@ -11,6 +11,7 @@ public class Menu : MonoBehaviour
     [SerializeField] GameObject Background;
     [SerializeField] public GameObject scoreMenu;
     [SerializeField] public FadeTransition FadeObject;
+    public AudioPlayer audioPlayerScript;
     int StartingGame = 0;
 
     public void PlayGame ()

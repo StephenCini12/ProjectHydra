@@ -1685,6 +1685,7 @@ MonoBehaviour:
   giveDiamond: 0
   giveDiamondnotsame: 0
   touchProjectiles: 0
+  playerELisSameAsPlatformEL: 0
   IsDamage: 0
   _RB: {fileID: 341908862}
   feetPos: {fileID: 1910072600}

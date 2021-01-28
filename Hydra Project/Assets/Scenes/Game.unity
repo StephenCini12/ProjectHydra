@@ -6607,6 +6607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f6eab030888684e976842d424a3c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicSlider: {fileID: 1325639627}
+  effectsSlider: {fileID: 1841447315}
   JumpSound: {fileID: 8300000, guid: 4620d4f293bf6b64eabde55940436cbe, type: 3}
   playerDamageSound: {fileID: 8300000, guid: b55b51e6b4fbf4f4bb912c706e57bcea, type: 3}
   CollectSound: {fileID: 8300000, guid: 785d7031cf76d264ca0b52480adf9845, type: 3}

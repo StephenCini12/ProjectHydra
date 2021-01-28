@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_MinSize: {x: 708, y: 492}
   m_MaxSize: {x: 18003, y: 14042}
   vertical: 0
-  controlID: 48
+  controlID: 77
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 342}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 49
+  controlID: 136
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 138
+  controlID: 54
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -764,9 +764,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -17.428371, y: 0.22517824, z: 10.473447}
+    m_Target: {x: -3.1356754, y: -3.6159863, z: 85.166985}
     speed: 2
-    m_Value: {x: -17.428371, y: 0.22517824, z: 10.473447}
+    m_Value: {x: -3.1356754, y: -3.6159863, z: 85.166985}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -812,13 +812,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.10427858, y: 0.30567986, z: -0.03370214, w: -0.9458096}
+    m_Target: {x: -0.12743162, y: 0.21161978, z: -0.027840838, w: -0.96861213}
     speed: 2
-    m_Value: {x: -0.10427828, y: 0.305679, z: -0.033702042, w: -0.9458069}
+    m_Value: {x: -0.12743121, y: 0.21161912, z: -0.027840752, w: -0.96860915}
   m_Size:
-    m_Target: 13.800817
+    m_Target: 31.461094
     speed: 2
-    m_Value: 13.800817
+    m_Value: 31.461094
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -897,7 +897,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 20020
+  m_LastSelectedObjectID: 14708
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -927,9 +927,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a67d0000
-      m_LastClickedID: 32166
-      m_ExpandedIDs: 6ee8ffff5aeaffffd4eaffff2cecffff74edffffeeeeffff54f1ffff9ef2ffff66f4ffff3cf9ffff86fafffff4ffffff26480000ae4900006e4e00008a57000012590000f8690000f06c0000
+      m_SelectedIDs: 02370000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 00f3ffff62f5ffff2cfaffff34faffffd2faffff50390000f839000032450000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -945,7 +945,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 8}
+        m_ClientGUIView: {fileID: 10}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -997,14 +997,14 @@ MonoBehaviour:
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\Apps\GitHub\ProjectHydra\Hydra Project
+  m_LastProjectPath: D:\GitHub\ProjectHydra\Hydra Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: d03c0000
     m_LastClickedID: 15568
-    m_ExpandedIDs: 00000000fa380000fc380000fe38000000390000023900000439000006390000083900000a3900000c3900000e390000
+    m_ExpandedIDs: 00000000c4360000c6360000c8360000ca360000cc360000ce360000d0360000d2360000d4360000d6360000d8360000da360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1029,24 +1029,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 95}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000fa380000fc380000fe38000000390000023900000439000006390000083900000a3900000c3900000e3900002c390000
+    m_ExpandedIDs: ffffffff00000000c4360000c6360000c8360000ca360000cc360000ce360000d0360000d2360000d4360000d6360000d8360000da360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Game
-      m_OriginalName: Game
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 14660
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_SearchString: 
@@ -1120,7 +1120,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewResizer:
-    m_CachedPref: 151
+    m_CachedPref: -151
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioPlayer : MonoBehaviour
 {
-    //public MusicSlider musicSliderScript;
     public GameObject musicSlider;
     public GameObject effectsSlider;
     public AudioClip JumpSound, playerDamageSound, CollectSound, selectSound;
@@ -30,7 +30,8 @@ public class AudioPlayer : MonoBehaviour
 
     void OnLevelWasLoaded()
     {
-        //musicSlider.GetComponent<Slider>().volume = PersistentData.data.musicVolumeData;
+        musicSlider.GetComponent<Slider>().value = PersistentData.data.musicVolumeData;
+        effectsSlider.GetComponent<Slider>().value = PersistentData.data.effectsVolumeData;
     }
 
 

@@ -173,6 +173,7 @@ public class Player : MonoBehaviour
         if(transform.position.y >= 3.27f)
         {
             transform.position = new Vector2(transform.position.x,3.27f);
+            jumpTimeCounter = 0;
         }
 
         //Player Jump
@@ -185,6 +186,7 @@ public class Player : MonoBehaviour
         {
             //audioPlayerScript = GetComponent<AudioPlayer>(); 
             _RB.AddForce (Vector2.up * _Jump, ForceMode2D.Impulse);
+            _clipping = 0.42f;
             audioPlayerScript.PlayJumpSound();
         }
         if(isGrounded == true && Input.GetKeyDown(KeyCode.W) && _lives > 0)
@@ -216,11 +218,11 @@ public class Player : MonoBehaviour
             _clipping = 0f;
         } 
        
-        if(Input.GetKeyUp(KeyCode.W) && _lives > 0)
-        {
-            isJumping = false;
-            _clipping = 0.42f;
-        }
+        // if(Input.GetKeyUp(KeyCode.W) && isGrounded == true && _lives > 0)
+        // {
+        //     isJumping = false;
+        //     _clipping = 0.42f;
+        // }
 
         // if(Input.GetKeyDown(KeyCode.UpArrow) && _clipping == 0)
         // {
@@ -345,6 +347,14 @@ public class Player : MonoBehaviour
         else
         {
             anim.SetBool("Jumping", false);
+        }
+        if (isDusking == true)
+        {
+            anim.SetBool("Duck", true);
+        }
+        else
+        {
+            anim.SetBool("Duck", false);
         }
         if (_lives == 0)
         {

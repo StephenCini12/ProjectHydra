@@ -11,27 +11,35 @@ public class AudioPlayer : MonoBehaviour
     public AudioClip JumpSound, playerDamageSound, CollectSound, selectSound;
     public AudioSource audioSrcMusic;
     public AudioSource audioSrcEffecs;
-    private float musicVolume = 0.5f;
-    private float effectsVolume = 0.5f;
+    [SerializeField]
+    public float musicVolume = 0.5f;
+    [SerializeField]
+    public float effectsVolume = 0.5f;
     void Start()
     {
         musicVolume = PersistentData.data.musicVolumeData;
         effectsVolume = PersistentData.data.effectsVolumeData;
+        musicSlider.GetComponent<Slider>().value = musicVolume;
+        effectsSlider.GetComponent<Slider>().value = effectsVolume;
     }
 
     void Update()
     {
-
+        // musicVolume = PersistentData.data.musicVolumeData;
+        // effectsVolume = PersistentData.data.effectsVolumeData;
         audioSrcMusic.volume = musicVolume;
         audioSrcEffecs.volume = effectsVolume;
+
         PersistentData.data.musicVolumeData = musicVolume;
         PersistentData.data.effectsVolumeData = effectsVolume;
+        PlayerPrefs.SetFloat("MusicAudio", (float)musicVolume);
+        PlayerPrefs.SetFloat("EffectAudio", (float)effectsVolume);
     }
 
     void OnLevelWasLoaded()
     {
-        musicSlider.GetComponent<Slider>().value = PersistentData.data.musicVolumeData;
-        effectsSlider.GetComponent<Slider>().value = PersistentData.data.effectsVolumeData;
+        musicSlider.GetComponent<Slider>().value = musicVolume;
+        effectsSlider.GetComponent<Slider>().value = effectsVolume;
     }
 
 

@@ -8,7 +8,9 @@ ScriptsOnlyBuild:
     - Menu
     - MovingPlatform
     - Pause
+    - PersistentData
     - Player
+    - Score
     - SpawnManager
     - UIElementIcon
     Unity.Rider.Editor.dll:
@@ -91,23 +93,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12230}
     - Class: 114
-      Script: {instanceID: 12468}
+      Script: {instanceID: 12470}
     - Class: 114
-      Script: {instanceID: 12506}
+      Script: {instanceID: 12508}
     - Class: 114
-      Script: {instanceID: 12548}
+      Script: {instanceID: 12550}
     - Class: 114
-      Script: {instanceID: 12672}
+      Script: {instanceID: 12674}
     - Class: 114
-      Script: {instanceID: 12716}
+      Script: {instanceID: 12718}
     - Class: 114
-      Script: {instanceID: 12752}
+      Script: {instanceID: 12754}
     - Class: 114
-      Script: {instanceID: 13010}
+      Script: {instanceID: 13012}
     - Class: 114
-      Script: {instanceID: 13070}
+      Script: {instanceID: 13072}
     - Class: 114
-      Script: {instanceID: 13100}
+      Script: {instanceID: 13102}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -168,15 +170,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12230}
     - Class: 114
-      Script: {instanceID: 12716}
+      Script: {instanceID: 12278}
     - Class: 114
-      Script: {instanceID: 12728}
+      Script: {instanceID: 12718}
     - Class: 114
-      Script: {instanceID: 13010}
+      Script: {instanceID: 12730}
     - Class: 114
-      Script: {instanceID: 13070}
+      Script: {instanceID: 13012}
     - Class: 114
-      Script: {instanceID: 13100}
+      Script: {instanceID: 13072}
+    - Class: 114
+      Script: {instanceID: 13102}
+    - Class: 114
+      Script: {instanceID: 15174}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -222,7 +228,7 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: db1e5d09e60a047d86d9c5f4a8fc4d4c
+      Hash: 721ac8f30e4cfb62f4fa132baf2833bb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AudioPlayer
@@ -456,6 +462,12 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
+      Hash: ba417ead5f0d75c85a9b3700eb46dd90
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PersistentData
+  - hash:
+      serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -498,7 +510,7 @@ ScriptsOnlyBuild:
     className: ActivationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: e587312bbc7a59bd9dd62f07d69de187
+      Hash: f396ed781c1171d083793c8e490dccc6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ElementTimer
@@ -510,7 +522,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 55336c82fbe2c1a634d565ced27ef870
+      Hash: 1933ef6025b7961ff81ead98a5e24a71
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameUI
@@ -534,7 +546,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: a70bf6517f069ef4cae5c0c5e59300b1
+      Hash: 394cfa1f34bd40b35524c2e803286b60
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -676,9 +688,15 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: fd603770689195d8c21e05ad28422d62
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Score
   platform: 5
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Game.unity
-  playerPath: D:/Apps/GitHub/ProjectHydra/Hydra Project/Export/MonoBleedingEdge/Hydra
+  playerPath: D:/GitHub/ProjectHydra/Hydra Project/Export/Hydra Project_Data/Hydra
     Project.exe

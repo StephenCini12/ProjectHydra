@@ -76,7 +76,20 @@ public class GameUI : MonoBehaviour
     {
         if (IsScore == true)
         {
-            highscoreText.text = "Your score: " + (int)scoreValue;
+            if (PersistentData.data.Highscore > scoreValue && playerScript._lives == 0)
+            {
+                highscoreText.text = "Your score: " + (int)scoreValue;
+            }
+            else if (PersistentData.data.Highscore < scoreValue)
+            {
+                PersistentData.data.Highscore = scoreValue;
+                if (playerScript._lives == 0)
+                {
+                    PersistentData.data.GotNewScore = true;
+                    highscoreText.text = "New highscore: " + (int)scoreValue;
+                    PlayerPrefs.SetInt("Highscore", (int)scoreValue);
+                }
+            }
             if (playerScript._lives > 0)
             {
                 scoreValue += 5f * Time.deltaTime;

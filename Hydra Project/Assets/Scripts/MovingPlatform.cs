@@ -14,6 +14,8 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField]
     public bool isSpawnPlatform = false;
     [SerializeField]
+    public bool canMove = false;
+    [SerializeField]
     public int element = 0;
     [SerializeField]
     private int _random = 0;
@@ -75,10 +77,6 @@ public class MovingPlatform : MonoBehaviour
     void Update()
     {
         //this.speed += Mathf.Abs(SpawnManagerScript._difficulty)/100000;
-        if (this.speed <= this.maxspeed)
-        {
-            this.speed += (Mathf.Abs(SpawnManagerScript._difficulty)/1000000);
-        }
 
         if (isOnMovingPlatform)
         {
@@ -112,7 +110,14 @@ public class MovingPlatform : MonoBehaviour
         // }
     }
 
-
+    void FixedUpdate()
+    {
+        if(this.speed <= this.maxspeed)
+        {
+            this.speed += SpawnManagerScript._difficulty / 1000000;
+        }
+    }
+    
 
     private void OnCollisionEnter2D(Collision2D other) 
     {

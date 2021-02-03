@@ -1143,6 +1143,7 @@ MonoBehaviour:
   musicVolumeData: 0.5
   effectsVolumeData: 0.5
   Highscore: 0
+  SetDefaultSettings: 0
   GotNewScore: 0
   resetData: 0
 --- !u!4 &409107035
@@ -3075,8 +3076,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.27, y: -188.2}
-  m_SizeDelta: {x: 202.77719, y: 33.12642}
+  m_AnchoredPosition: {x: 10.27, y: -188.6}
+  m_SizeDelta: {x: 202.77719, y: 23.788109}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1389528531
 MonoBehaviour:

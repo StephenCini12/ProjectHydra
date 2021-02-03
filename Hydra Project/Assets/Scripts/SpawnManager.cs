@@ -214,56 +214,6 @@ public class SpawnManager : MonoBehaviour
             }
         }
     }
-
-    // IEnumerator SpawnRoutine()
-    // {
-    //     while(_stopSpawning == false)
-    //     {
-    //         level = Random.Range(0,3);
-    //         //Vector2 posToSpawn = new Vector2(0,0);
-
-    //         if (isLeft == 0)
-    //         {
-    //             Vector2 posToSpawn = new Vector2(0,0);
-    //             if (level == 0)
-    //             {
-    //                 posToSpawn = new Vector2(-10f,-1.4f);
-    //             }
-    //             if (level == 1)
-    //             {
-    //                 posToSpawn = new Vector2(-10f,0.6f);
-    //             }
-    //             if (level == 2)
-    //             {
-    //                 posToSpawn = new Vector2(-10f,2.5f);
-    //             } 
-    //             GameObject newProjectile = Instantiate(_projectilePrefab,posToSpawn,Quaternion.identity);
-    //             newProjectile.transform.SetParent(_projectileContainer.transform);
-    //         }
-
-    //         else if (isLeft == 1)
-    //         {
-    //             Vector2 posToSpawn = new Vector2(0,0);
-    //             if (level == 0)
-    //             {
-    //                 posToSpawn = new Vector2(10f,-1.4f);
-    //             }
-    //             if (level == 1)
-    //             {
-    //                 posToSpawn = new Vector2(10f,0.6f);
-    //             }
-    //             if (level == 2)
-    //             {
-    //                 posToSpawn = new Vector2(10f,2.5f);
-    //             }
-    //             GameObject newProjectile = Instantiate(_projectilePrefab,posToSpawn,Quaternion.identity);
-    //             newProjectile.transform.SetParent(_projectileContainer.transform);
-    //         }
-    //         //GameObject newProjectile = Instantiate(_projectilePrefab,posToSpawn,Quaternion.identity);
-    //         //newProjectile.transform.SetParent(_projectileContainer.transform);
-    //         yield return new WaitForSeconds(1f); 
-    //     }
-    // }
     IEnumerator SpawnRoutine()
     {
         while(_stopSpawning == false && isSpawner == true)
@@ -317,6 +267,7 @@ public class SpawnManager : MonoBehaviour
 
         if (Diamond == true)
         {
+            //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), playerScript.GetComponent<Collider2D>());
             if (other.gameObject.CompareTag("Player"))
             {
                 if (diamondElement != playerScript.PlayerElement)
@@ -331,10 +282,7 @@ public class SpawnManager : MonoBehaviour
                 }
                 Destroy (this.gameObject);
             }
-            // if (other.gameObject.CompareTag("Projectile"))
-            // {
-            //     null
-            // }
+
         }
     }
 }

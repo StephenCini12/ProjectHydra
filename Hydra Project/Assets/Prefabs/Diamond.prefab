@@ -164,21 +164,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileElement: 0
+  diamondElement: 0
+  level: 0
   isLeft: 0
   _difficulty: 5
   _projectileSpeed: 3
   _projectileMaxSpeed: 6
   _projectileRememberSpeed: 3
+  visabletimer: 0
   isSpawner: 0
   Projectiles: 0
   Diamond: 1
+  isWarning: 0
+  isWarningShow: 0
   _projectilePrefab: {fileID: 0}
   _projectileContainer: {fileID: 0}
   _DiamondPrefab: {fileID: 0}
   _DiamondContainer: {fileID: 0}
+  _WarningPrefab: {fileID: 0}
+  _WarningContainer: {fileID: 0}
   runtimeAnimatorController:
   - {fileID: 9100000, guid: 025ada8daca04eb4f99d95393a177ada, type: 2}
   - {fileID: 9100000, guid: 1710123ebca824146986bd848ed193ac, type: 2}
   - {fileID: 9100000, guid: 45245aa0699b84647b9b68c848d8e867, type: 2}
+  anim: {fileID: 0}
   rend: {fileID: 0}
   playerScript: {fileID: 0}

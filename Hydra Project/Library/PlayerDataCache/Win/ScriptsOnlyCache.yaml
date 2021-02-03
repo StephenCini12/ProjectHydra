@@ -73,43 +73,43 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11254}
+      Script: {instanceID: 11258}
     - Class: 114
-      Script: {instanceID: 11334}
+      Script: {instanceID: 11338}
     - Class: 114
-      Script: {instanceID: 11346}
+      Script: {instanceID: 11350}
     - Class: 114
-      Script: {instanceID: 11416}
+      Script: {instanceID: 11420}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11460}
     - Class: 114
-      Script: {instanceID: 11734}
+      Script: {instanceID: 11738}
     - Class: 114
-      Script: {instanceID: 11778}
+      Script: {instanceID: 11782}
     - Class: 114
-      Script: {instanceID: 11844}
+      Script: {instanceID: 11848}
     - Class: 114
-      Script: {instanceID: 11870}
+      Script: {instanceID: 11874}
     - Class: 114
-      Script: {instanceID: 12230}
+      Script: {instanceID: 12234}
     - Class: 114
-      Script: {instanceID: 12470}
+      Script: {instanceID: 12474}
     - Class: 114
-      Script: {instanceID: 12508}
+      Script: {instanceID: 12512}
     - Class: 114
-      Script: {instanceID: 12550}
+      Script: {instanceID: 12554}
     - Class: 114
-      Script: {instanceID: 12674}
+      Script: {instanceID: 12676}
     - Class: 114
-      Script: {instanceID: 12718}
+      Script: {instanceID: 12720}
     - Class: 114
-      Script: {instanceID: 12754}
+      Script: {instanceID: 12756}
     - Class: 114
-      Script: {instanceID: 13012}
+      Script: {instanceID: 13014}
     - Class: 114
-      Script: {instanceID: 13072}
+      Script: {instanceID: 13074}
     - Class: 114
-      Script: {instanceID: 13102}
+      Script: {instanceID: 13104}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -156,33 +156,33 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11254}
+      Script: {instanceID: 11258}
     - Class: 114
-      Script: {instanceID: 11334}
+      Script: {instanceID: 11338}
     - Class: 114
-      Script: {instanceID: 11416}
+      Script: {instanceID: 11420}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11460}
     - Class: 114
-      Script: {instanceID: 11844}
+      Script: {instanceID: 11848}
     - Class: 114
-      Script: {instanceID: 11870}
+      Script: {instanceID: 11874}
     - Class: 114
-      Script: {instanceID: 12230}
+      Script: {instanceID: 12234}
     - Class: 114
-      Script: {instanceID: 12278}
+      Script: {instanceID: 12282}
     - Class: 114
-      Script: {instanceID: 12718}
+      Script: {instanceID: 12720}
     - Class: 114
-      Script: {instanceID: 12730}
+      Script: {instanceID: 12732}
     - Class: 114
-      Script: {instanceID: 13012}
+      Script: {instanceID: 13014}
     - Class: 114
-      Script: {instanceID: 13072}
+      Script: {instanceID: 13074}
     - Class: 114
-      Script: {instanceID: 13102}
+      Script: {instanceID: 13104}
     - Class: 114
-      Script: {instanceID: 15174}
+      Script: {instanceID: 13114}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -228,13 +228,13 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: 721ac8f30e4cfb62f4fa132baf2833bb
+      Hash: 256f8a59485b097d6177e9643167acec
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AudioPlayer
   - hash:
       serializedVersion: 2
-      Hash: ed1dd7686cf529940229afe967ff2c4e
+      Hash: 9506eb9291a9c3f9248df6493d413f34
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MovingPlatform
@@ -462,7 +462,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: ba417ead5f0d75c85a9b3700eb46dd90
+      Hash: 791ccb7040b626486d55ba2ddbabd642
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PersistentData
@@ -678,6 +678,12 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
+      Hash: fd603770689195d8c21e05ad28422d62
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Score
+  - hash:
+      serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -688,15 +694,9 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: fd603770689195d8c21e05ad28422d62
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Score
   platform: 5
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Game.unity
-  playerPath: D:/GitHub/ProjectHydra/Hydra Project/Export/Hydra Project_Data/Hydra
+  playerPath: D:/Apps/GitHub/ProjectHydra/Hydra Project/Export/Elemental Hydra Game/Hydra
     Project.exe

@@ -351,6 +351,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 1
   isSpawnPlatform: 1
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -631,6 +632,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 1
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -1029,6 +1031,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 1
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -1449,6 +1452,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 1
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -1962,6 +1966,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 1
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -2782,6 +2787,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 0
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -2972,6 +2978,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 1
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -3817,6 +3824,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 1
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -4037,6 +4045,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 1
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -4575,6 +4584,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 1
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -4882,6 +4892,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 0
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -5021,6 +5032,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 1
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -5343,6 +5355,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 0
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -5895,6 +5908,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 0
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -5984,6 +5998,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 0
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -6613,8 +6628,11 @@ MonoBehaviour:
   playerDamageSound: {fileID: 8300000, guid: b55b51e6b4fbf4f4bb912c706e57bcea, type: 3}
   CollectSound: {fileID: 8300000, guid: 785d7031cf76d264ca0b52480adf9845, type: 3}
   selectSound: {fileID: 8300000, guid: 7f4930b4035275c40a8440603c5c2632, type: 3}
+  NewHighScoreSound: {fileID: 8300000, guid: 56cdd105ae6317b4c8ba86fb391a0a08, type: 3}
   audioSrcMusic: {fileID: 1413790745}
   audioSrcEffecs: {fileID: 1413790742}
+  musicVolume: 0.5
+  effectsVolume: 0.5
 --- !u!4 &1413790744
 Transform:
   m_ObjectHideFlags: 0
@@ -7147,6 +7165,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 1
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -8177,6 +8196,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 1
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -8803,6 +8823,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 0
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -9229,6 +9250,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 0
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -9555,6 +9577,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 1
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1
@@ -9887,6 +9910,7 @@ MonoBehaviour:
   isOnMovingPlatform: 0
   isMovingLeft: 1
   isSpawnPlatform: 0
+  canMove: 0
   element: 0
   _random: 0
   helppedelement: 1

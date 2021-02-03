@@ -115,6 +115,11 @@ public class Pause : MonoBehaviour
         {
             yield return new WaitForSeconds(3f); 
             gameOverMenu.SetActive(true);
+            if(PersistentData.data.GotNewScore == true)
+            {
+                audioPlayerScript.PlayHighScoreSound();
+                PersistentData.data.GotNewScore = false;
+            }
             Time.timeScale = 0f;
         }
     }

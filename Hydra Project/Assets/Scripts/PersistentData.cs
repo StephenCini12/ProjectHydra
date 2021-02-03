@@ -14,7 +14,7 @@ public class PersistentData : MonoBehaviour
     [SerializeField]
     public float Highscore;
     public bool GotNewScore = false;
-    public bool On = false;
+    public bool resetData = false;
 
     void Start()
     {
@@ -39,6 +39,4 @@ public class PersistentData : MonoBehaviour
         musicVolumeData = PlayerPrefs.GetFloat("MusicAudio");
         effectsVolumeData = PlayerPrefs.GetFloat("EffectAudio");
     }
-
-    
 }

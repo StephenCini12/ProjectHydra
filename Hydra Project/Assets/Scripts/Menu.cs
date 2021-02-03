@@ -74,5 +74,11 @@ public class Menu : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Startgame();
     }
+    public void ResetData()
+    {
+        PersistentData.data.resetData = true;
+        PersistentData.data.Highscore = 0;
+        PlayerPrefs.SetInt("Highscore", (int)0);
+    }
 }
 

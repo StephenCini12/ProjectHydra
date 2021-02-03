@@ -187,7 +187,7 @@ public class SpawnManager : MonoBehaviour
         }
         if (Diamond == true)
         {
-            if (transform.position.y < -5f)
+            if (transform.position.y < -6f)
             {
                 Destroy(this.gameObject);
             }

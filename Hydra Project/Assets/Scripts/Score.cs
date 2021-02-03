@@ -16,5 +16,11 @@ public class Score : MonoBehaviour
 
     void Update()
     {
+        if(PersistentData.data.resetData == true)
+        {
+            Setscore = 0;
+            scoreText.text = ""+(int)Setscore;
+            PersistentData.data.resetData = false;
+        }
     }
 }

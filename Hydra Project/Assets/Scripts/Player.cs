@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     public bool setMovingPlatform = false, HealthSystem = true, _isright = true, canDash = true;
     [SerializeField]
-    public bool giveScore = false, giveDiamond = false, giveDiamondnotsame = false, touchProjectiles = false, IsDamage = false, playerELisSameAsPlatformEL = false;
+    public bool giveScore = false, giveDiamond = false, giveDiamondnotsame = false, touchProjectiles = false, IsDamage = false, playerELisSameAsPlatformEL = false, IsSwaggingSword = false, IsHittingSword = false;
     public Rigidbody2D _RB;
     public Transform feetPos;    
     public LayerMask whatIsGround;
@@ -58,10 +58,7 @@ public class Player : MonoBehaviour
         FixedUpdate();
         Animations();
         
-        if (HealthSystem)
-        {
-            Health();
-        }
+        if (HealthSystem) Health();
 
         if (TriggerColorChange == 1)
         {
@@ -108,52 +105,34 @@ public class Player : MonoBehaviour
     {
         Player player = GetComponent<Player>();
 
-        if (_lives < 1)
-        {
-            Destroy(hearts[0].gameObject);
-        } 
-        if (_lives < 2)
-        {
-            Destroy(hearts[1].gameObject);
-        }
-        if(_lives < 3)
-        {
-            Destroy(hearts[2].gameObject);
-        }
+        if (_lives < 1) Destroy(hearts[0].gameObject);
+
+        if (_lives < 2) Destroy(hearts[1].gameObject);
+
+        if (_lives < 3) Destroy(hearts[2].gameObject);
     }
 
     void CalculateMovement()
     {
 
-        if (transform.position.y <= -11.25f)
-        {
-            _lives = 0;
-        }
+        if (transform.position.y <= -11.25f) _lives = 0;
 
-        //Player Collissions      
-        //if the player's y position is smaller or equal to -3.8f
-        if(transform.position.x <= -8.5f)
-        {
-            //stop the player from going lower then -3.8f
-            transform.position = new Vector2(-8.5f,transform.position.y);
-        }
-        else if(transform.position.x >= 8.5f)
-        {
-            transform.position = new Vector2(8.5f,transform.position.y);
-        }
+        if(transform.position.x <= -8.5f) transform.position = new Vector2(-8.5f,transform.position.y);
+        
+        else if(transform.position.x >= 8.5f) transform.position = new Vector2(8.5f,transform.position.y);
+
         if(transform.position.y >= 3.27f)
         {
             transform.position = new Vector2(transform.position.x,3.27f);
             jumpTimeCounter = 0;
         }
 
-        //Player Jump
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
         // new Vector2(transform.position.x + 0.5f, transform.position.y - 0.51f), whatIsGround);
         // isGrounded = Physics2D.OverlapArea(new Vector2(transform.position.x -0.5f, transform.position.y - 0.5f),
         // new Vector2(transform.position.x + 0.5f, transform.position.y - 0.51f), whatIsGround);
 
-        if (Input.GetKeyDown (KeyCode.W) && isGrounded && _lives > 0)
+        if (Input.GetKeyDown (KeyCode.W) && isGrounded && _lives > 0 && IsSwaggingSword == false)
         {
             //audioPlayerScript = GetComponent<AudioPlayer>(); 
             _RB.AddForce (Vector2.up * _Jump, ForceMode2D.Impulse);
@@ -170,7 +149,7 @@ public class Player : MonoBehaviour
             playerCollider.enabled = false;
         }
 
-        if(Input.GetKey(KeyCode.W) && isJumping == true && _lives > 0)
+        if(Input.GetKey(KeyCode.W) && isJumping == true && _lives > 0 && IsSwaggingSword == false)
         {
             if(jumpTimeCounter > 0)
             {
@@ -180,25 +159,21 @@ public class Player : MonoBehaviour
                 //_clipping += Time.deltaTime * 1.15f;
             } 
         }
-        else 
-        {
-            isJumping = false;
-        }
-        if(jumpTimeCounter <= 0 && _clipping > 0 && isDusking == false && _lives > 0 && isDashing == false && canDash == true)
-        {
-            _clipping = 0f;
-        } 
+        else isJumping = false;
+
+        if(jumpTimeCounter <= 0 && _clipping > 0 && isDusking == false && _lives > 0 && isDashing == false && canDash == true) _clipping = 0f;
+
         if(Input.GetKeyDown(KeyCode.S) && isGrounded && _clipping == 0 && _lives > 0)
         {
             _clipping = 0.365f;
             playerCollider.enabled = false;
             isDusking = true;
+            IsSwaggingSword = false;
+            audioPlayerScript.PlayDucking();
+        }
 
-        }
-        if (_clipping > 0)
-        {
-            _clipping -= Time.deltaTime;
-        }
+        if (_clipping > 0) _clipping -= Time.deltaTime;
+
         if (_clipping <= 0)
         {
             playerCollider.enabled = true;
@@ -211,6 +186,8 @@ public class Player : MonoBehaviour
             canDash = false;
             DashSetY = (float)transform.position.y;
             jumpTimeCounter = 0;
+            IsSwaggingSword = false;
+            audioPlayerScript.PlayDashing();
             StartCoroutine(Dash());
         }
         if (isDashing == true && _lives > 0) 
@@ -229,7 +206,15 @@ public class Player : MonoBehaviour
                 transform.Translate(Vector2.right * (_Speed*2) * Time.deltaTime);
                 _clipping = 0.4f;
             }
-        }     
+        }
+        if (Input.GetKeyDown (KeyCode.E) && isGrounded && _lives > 0 && isDashing == false && IsSwaggingSword == false)
+        {
+            IsSwaggingSword = true;
+            IsHittingSword = false;
+            moveInput = 0;
+            StartCoroutine(CanSword());
+            StartCoroutine(SwordHit());
+        }
     }
     public IEnumerator Dash()
     {
@@ -246,20 +231,33 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1f);
         canDash = true;
     }
+    public IEnumerator CanSword()
+    {
+        yield return new WaitForSeconds(0.75f);
+        IsSwaggingSword = false;
+        IsHittingSword = false;
+        moveInput = 0;
+    }
+    public IEnumerator SwordHit()
+    {
+        yield return new WaitForSeconds(0.266f);
+        audioPlayerScript.PlaySword();
+        IsHittingSword = true;
+    }
     void FixedUpdate()
     {
         if (_lives > 0)
         {
-            if(isDashing == false) moveInput = Input.GetAxis("Horizontal");   
+            if(isDashing == false && IsSwaggingSword == false) moveInput = Input.GetAxis("Horizontal");   
             _RB.velocity = new Vector2(moveInput * _Speed, _RB.velocity.y);
-            if(Input.GetKeyDown(KeyCode.A) && _isright == true)
+            if(Input.GetKey(KeyCode.A) && _isright == true && IsSwaggingSword == false)
             {
                 _isright = false;
                 Vector2 theScale = transform.localScale;
                 theScale.x *= -1;
                 transform.localScale = theScale;
             }
-            if(Input.GetKeyDown(KeyCode.D) && _isright == false)
+            if(Input.GetKey(KeyCode.D) && _isright == false && IsSwaggingSword == false)
             {
                 _isright = true;
                 Vector2 theScale = transform.localScale;
@@ -271,42 +269,17 @@ public class Player : MonoBehaviour
 
     void Animations()
     {
-        if (moveInput == 0 && isJumping == false)
-        {
-            anim.SetBool("Walking", false);
-        }
-        else if (moveInput != 0 && isJumping == false)
-        {
-            anim.SetBool("Walking", true);
-        }
-        if (isJumping == true)
-        {
-            anim.SetBool("Jumping", true);
-        }
-        else
-        {
-            anim.SetBool("Jumping", false);
-        }
-        if (isDusking == true)
-        {
-            anim.SetBool("Duck", true);
-        }
-        else
-        {
-            anim.SetBool("Duck", false);
-        }
-        if (isDashing == true)
-        {
-            anim.SetBool("Dash", true);
-        }
-        else
-        {
-            anim.SetBool("Dash", false);
-        }
-        if (_lives == 0)
-        {
-            anim.SetBool("Death", true);
-        }
+        if (moveInput == 0 && isJumping == false && IsSwaggingSword == false) anim.SetBool("Walking", false);
+        else if (moveInput != 0 && isJumping == false && IsSwaggingSword == false) anim.SetBool("Walking", true);
+        if (isJumping == true) anim.SetBool("Jumping", true);
+        else anim.SetBool("Jumping", false);
+        if (isDusking == true) anim.SetBool("Duck", true);
+        else anim.SetBool("Duck", false);
+        if (isDashing == true) anim.SetBool("Dash", true);
+        else anim.SetBool("Dash", false);
+        if (IsSwaggingSword == true) anim.SetBool("Sword", true);
+        else anim.SetBool("Sword", false);
+        if (_lives == 0) anim.SetBool("Death", true);
     }
 
     public void Damage()

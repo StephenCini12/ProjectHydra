@@ -69,10 +69,8 @@ public class ElementTimer : MonoBehaviour
     }
     public void ColorChange()
     {
-        if (playerScript.TriggerColorChange == 1)
-        {
-            playerScript.TriggerColorChange = 0;
-        }
+        if (playerScript.TriggerColorChange == 1) playerScript.TriggerColorChange = 0;
+
     }   
     
     public void SliderTimer()

@@ -8,7 +8,7 @@ public class AudioPlayer : MonoBehaviour
 {
     public GameObject musicSlider;
     public GameObject effectsSlider;
-    public AudioClip JumpSound, playerDamageSound, CollectSound, selectSound, NewHighScoreSound;
+    public AudioClip JumpSound, playerDamageSound, CollectSound, selectSound, NewHighScoreSound, Sword, DuckingSound, DashingSound;
     public AudioSource audioSrcMusic;
     public AudioSource audioSrcEffecs;
     [SerializeField]
@@ -75,5 +75,17 @@ public class AudioPlayer : MonoBehaviour
     public void PlayHighScoreSound()
     {
         audioSrcEffecs.PlayOneShot(NewHighScoreSound);
+    }
+    public void PlaySword()
+    {
+        audioSrcEffecs.PlayOneShot(Sword);
+    }
+    public void PlayDucking()
+    {
+        audioSrcEffecs.PlayOneShot(DuckingSound);
+    }
+    public void PlayDashing()
+    {
+        audioSrcEffecs.PlayOneShot(DashingSound);
     }
 }

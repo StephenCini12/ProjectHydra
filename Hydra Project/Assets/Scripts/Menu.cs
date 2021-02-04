@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class Menu : MonoBehaviour
 {
+    //[SerializeField] public bool _mouseOver;
     [SerializeField] GameObject optionsMenu;     
     [SerializeField] GameObject buttons;
     [SerializeField] GameObject howtoplay;
@@ -103,5 +106,11 @@ public class Menu : MonoBehaviour
         PersistentData.data.Highscore = 0;
         PlayerPrefs.SetInt("Highscore", (int)0);
     }
+
+    void Update()
+    {
+        //SetUnitTargetPosition(UtilsClass.GetMouseWorldPositionZeroZ());
+    }
+
 }
 

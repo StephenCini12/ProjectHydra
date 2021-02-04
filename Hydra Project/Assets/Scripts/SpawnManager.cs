@@ -5,9 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
-    private int projectileElement;
-    [SerializeField]
-    private int diamondElement;
+    private int projectileElement, diamondElement;
     public int level;
     public int isLeft;
     [SerializeField]
@@ -23,15 +21,7 @@ public class SpawnManager : MonoBehaviour
     private bool _stopSpawning = false;
     //private bool _onPlatform = false;
     [SerializeField]
-    public bool isSpawner = false;
-    [SerializeField]
-    public bool Projectiles = false;
-    [SerializeField]
-    public bool Diamond = false;
-    [SerializeField]
-    public bool isWarning = false;
-    [SerializeField]
-    public bool isWarningShow = false;
+    public bool isSpawner = false, Projectiles = false, Diamond = false, isWarning = false, isWarningShow = false;
     [SerializeField]
     private GameObject _projectilePrefab;
     [SerializeField]
@@ -52,6 +42,7 @@ public class SpawnManager : MonoBehaviour
     public SpriteRenderer rend;
     [SerializeField]
     public Player playerScript;
+    public AudioPlayer audioPlayerScript;
     // [SerializeField]
     // public GameUI GameUIScript;
     
@@ -82,115 +73,17 @@ public class SpawnManager : MonoBehaviour
             playerScript = GameObject.Find("Player").GetComponent<Player>();
             //transform.Rotate(0, 0, 45, Space.Self);
         }
-        if (isWarning == true)
-        {
-            StartCoroutine(Delete());
-        }
+        if (isWarning == true) StartCoroutine(Delete());
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if (isWarningShow == true)
-        // {
-        //     Vector2 posToSpawn = new Vector2(0,-10);
-        //     GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
-        //     newWarning.transform.SetParent(_WarningContainer.transform);
-        //     isWarningShow = false;
-        // }
-        if (isSpawner == true && _difficulty > 5f)
-        {
-            _difficulty -= Time.deltaTime/Random.Range(30,76);
-        }
-        if (Projectiles == true)
-        {
-            // if (this._projectileSpeed <= this._projectileMaxSpeed)
-            // {
-            //     this._projectileSpeed += (Mathf.Abs(_difficulty)/1000000);
-            // }
-            if (transform.position.y <= -10 && isLeft == 0 && isSpawner == false)
-            {
-                level = Random.Range(0,3);
-                //_WarningPrefab.GetComponent<SpawnManager>().level = this.level;
-                if (level == 0)
-                {
-                    transform.position = new Vector2(-17f,2.5f);
-                    Vector2 posToSpawn = new Vector3(-8.241f,2.4f,-1.259f);
-                    GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
-                    //newWarning.transform.SetParent(_WarningContainer.transform);
-                    
-                }
-                if (level == 1)
-                {
-                    transform.position = new Vector2(-17f,0f);
-                    Vector2 posToSpawn = new Vector3(-8.241f,0f,-1.259f);
-                    GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
-                }
-                if (level == 2)
-                {
-                    transform.position = new Vector2(-17f,-2.5f);
-                    Vector2 posToSpawn = new Vector3(-8.241f,-2.66f,-1.259f);
-                    GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
-                } 
-            }
-            if (transform.position.y <= -10 && isLeft == 1 && isSpawner == false)
-            {
-                level = Random.Range(0,3);
-                //_WarningPrefab.GetComponent<SpawnManager>().level = this.level;
-                if (level == 0)
-                {
-                    transform.position = new Vector2(17f,2.5f);
-                    Vector2 theScale = transform.localScale;
-                    theScale.x *= -1;
-                    transform.localScale = theScale;
-                    Vector2 posToSpawn = new Vector3(8.241f,2.4f,-1.259f);
-                    GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
-                }
-                if (level == 1)
-                {
-                    transform.position = new Vector2(17f,0f);
-                    Vector2 theScale = transform.localScale;
-                    theScale.x *= -1;
-                    transform.localScale = theScale;
-                    Vector2 posToSpawn = new Vector3(8.241f,0f,-1.259f);
-                    GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
-                }
-                if (level == 2)
-                {
-                    transform.position = new Vector2(17f,-2.5f);
-                    Vector2 theScale = transform.localScale;
-                    theScale.x *= -1;
-                    transform.localScale = theScale;
-                    Vector2 posToSpawn = new Vector3(8.241f,-2.66f,-1.259f);
-                    GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
-                } 
-            }
-            if (isLeft == 0 && isSpawner == false)
-            {
-                transform.Translate(Vector2.right * (_projectileSpeed + (Mathf.Abs(_difficulty))/50f) * Time.deltaTime);
-            }
-            
-            if (transform.position.x >= 10 && isSpawner == false && isLeft == 0)
-            {
-                Destroy(this.gameObject);
-            }
-            
-            if (isLeft == 1 && isSpawner == false)
-            {
-                transform.Translate(Vector2.left * (_projectileSpeed + (Mathf.Abs(_difficulty))/50f) * Time.deltaTime);
-            }
-            
-            if (transform.position.x <= -10 && isSpawner == false && isLeft == 1)
-            {
-                Destroy(this.gameObject);
-            }
-        }
+        if (isSpawner == true && _difficulty > 5f) _difficulty -= Time.deltaTime/Random.Range(30,76);
+        if (Projectiles == true) ProjectilesGroup();
         if (Diamond == true)
         {
-            if (transform.position.y < -6f)
-            {
-                Destroy(this.gameObject);
-            }
+            if (this.transform.position.y < -6f) Destroy(this.gameObject);
         }
         if (isWarning == true)
         {
@@ -214,6 +107,95 @@ public class SpawnManager : MonoBehaviour
             }
         }
     }
+
+    void ProjectilesGroup()
+    {
+        if (transform.position.y <= -10 && isLeft == 0 && isSpawner == false)
+        {
+            level = Random.Range(0,3);
+            //_WarningPrefab.GetComponent<SpawnManager>().level = this.level;
+            if (level == 0)
+            {
+                transform.position = new Vector2(-17f,2.5f);
+                Vector2 posToSpawn = new Vector3(-8.241f,2.4f,-1.259f);
+                GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
+                //newWarning.transform.SetParent(_WarningContainer.transform);
+                    
+            }
+            if (level == 1)
+            {
+                transform.position = new Vector2(-17f,0f);
+                Vector2 posToSpawn = new Vector3(-8.241f,0f,-1.259f);
+                GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
+            }
+            if (level == 2)
+            {
+                transform.position = new Vector2(-17f,-2.5f);
+                Vector2 posToSpawn = new Vector3(-8.241f,-2.66f,-1.259f);
+                GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
+            } 
+        }
+        if (transform.position.y <= -10 && isLeft == 1 && isSpawner == false)
+        {
+            level = Random.Range(0,3);
+            //_WarningPrefab.GetComponent<SpawnManager>().level = this.level;
+            if (level == 0)
+            {
+                transform.position = new Vector2(17f,2.5f);
+                Vector2 theScale = transform.localScale;
+                theScale.x *= -1;
+                transform.localScale = theScale;
+                Vector2 posToSpawn = new Vector3(8.241f,2.4f,-1.259f);
+                GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
+            }
+            if (level == 1)
+                {
+                transform.position = new Vector2(17f,0f);
+                Vector2 theScale = transform.localScale;
+                theScale.x *= -1;
+                transform.localScale = theScale;
+                Vector2 posToSpawn = new Vector3(8.241f,0f,-1.259f);
+                GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
+            }
+            if (level == 2)
+            {
+                transform.position = new Vector2(17f,-2.5f);
+                Vector2 theScale = transform.localScale;
+                theScale.x *= -1;
+                transform.localScale = theScale;
+                Vector2 posToSpawn = new Vector3(8.241f,-2.66f,-1.259f);
+                GameObject newWarning = Instantiate(_WarningPrefab,posToSpawn,Quaternion.identity);
+            } 
+        }
+        if (isLeft == 0 && isSpawner == false) 
+        {
+            transform.Translate(Vector2.right * (_projectileSpeed + (Mathf.Abs(_difficulty))/50f) * Time.deltaTime);
+            if (Vector2.Distance(playerScript.transform.position, this.transform.position) < 1.6 && playerScript._isright == false && playerScript.IsHittingSword == true)
+            {
+                if(this.projectileElement == playerScript.PlayerElement) playerScript.touchProjectiles = true;
+                else playerScript.touchProjectiles = false;
+                Debug.Log(playerScript.touchProjectiles);
+                Destroy(this.gameObject);
+            }
+        }
+        if (transform.position.x >= 10 && isSpawner == false && isLeft == 0) Destroy(this.gameObject);
+            
+        if (isLeft == 1 && isSpawner == false) 
+        {
+            transform.Translate(Vector2.left * (_projectileSpeed + (Mathf.Abs(_difficulty))/50f) * Time.deltaTime);
+            if (Vector2.Distance(playerScript.transform.position, this.transform.position) < 1.6 && playerScript._isright == true && playerScript.IsHittingSword == true)
+            {
+                if(this.projectileElement == playerScript.PlayerElement) playerScript.touchProjectiles = true;
+                else playerScript.touchProjectiles = false;
+                Debug.Log(playerScript.touchProjectiles);
+                Destroy(this.gameObject);
+            }
+        }
+
+        if (transform.position.x <= -10 && isSpawner == false && isLeft == 1) Destroy(this.gameObject);
+
+    }
+
     IEnumerator SpawnRoutine()
     {
         while(_stopSpawning == false && isSpawner == true)
@@ -247,21 +229,22 @@ public class SpawnManager : MonoBehaviour
     {
         if (Projectiles == true)
         {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), playerScript.GetComponent<Collider2D>());
+            //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), playerScript.GetComponent<Collider2D>());
             if (other.gameObject.CompareTag("Player") && playerScript.IsDamage == false)
             {
                 if (projectileElement != playerScript.PlayerElement && playerScript.IsDamage == false)
                 {
                     playerScript.IsDamage = true;
+                    //audioPlayerScript.PlayCollectSound();
                     playerScript.Damage();
-                    Destroy (this.gameObject);
+                    //Destroy (this.gameObject);
                 }
-                if (projectileElement == playerScript.PlayerElement)
-                {
-                    playerScript.touchProjectiles = true;
-                    Destroy (this.gameObject);
-                }
-                Destroy (this.gameObject);
+                // if (projectileElement == playerScript.PlayerElement)
+                // {
+                //     playerScript.touchProjectiles = true;
+                    //Destroy (this.gameObject);
+                // }
+                //Destroy (this.gameObject);
             }
         }
 

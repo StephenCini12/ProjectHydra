@@ -8,10 +8,13 @@ public class Pause : MonoBehaviour
 {
 
     public bool isGamePaused = false;
+    public bool ResetGame = false;
     public bool PAKTSView = true;
     private bool gameOver;
     [SerializeField]
     public float PAKTSTimer;
+    [SerializeField]
+    public float XX, YY, ZZ;
     public GameObject pauseMenu;
     [SerializeField]
     public Player playerScript;
@@ -29,6 +32,9 @@ public class Pause : MonoBehaviour
         Player player = GetComponent<Player>();
         gameOver = false;
         isGamePaused = true;
+        XX = (float)pauseMenu.gameObject.transform.position.y;
+        YY = (float)gameOverMenu.gameObject.transform.position.y;
+        ZZ = (float)gameOverMenu.transform.position.z;
     }
 
     void Update()
@@ -54,7 +60,7 @@ public class Pause : MonoBehaviour
             }
         }
 
-        if(playerScript._lives <= 0)
+        if(playerScript._lives <= 0 && gameOver == false)
         {
             //GameoverView = true;
             GameOver.SetActive(true);
@@ -63,12 +69,17 @@ public class Pause : MonoBehaviour
             //Time.timeScale = 0f;
             StartCoroutine(GameoverText());
         }
+        if(Input.GetKeyDown(KeyCode.R) && ResetGame == true || Input.GetKeyDown(KeyCode.Space) && ResetGame == true) playAgain();
+        if(gameOverMenu.gameObject.transform.position.y > (YY + 0.08f) && Time.timeScale == 0f) gameOverMenu.transform.Translate(Vector3.down * 10 * 0.01f);
+        if(pauseMenu.gameObject.transform.position.y > XX && Time.timeScale == 0f) pauseMenu.transform.Translate(Vector3.down * 12 * 0.01f);
+
     }
 
     public void ResumeGame()
     {
         Debug.Log("Resume Game");
         pauseMenu.SetActive(false);
+        optionsMenu.SetActive(false);
         Time.timeScale = 1f;
         isGamePaused = false;
     }
@@ -77,11 +88,11 @@ public class Pause : MonoBehaviour
     {
         if (gameOver == false)
         {
-            Time.timeScale = 0f;
             pauseMenu.SetActive(true);
+            pauseMenu.gameObject.transform.position = new Vector3(pauseMenu.gameObject.transform.position.x,+12,pauseMenu.gameObject.transform.position.z);
+            Time.timeScale = 0f;
             isGamePaused = true;  
         }
-
     }
 
     public void Options()
@@ -115,6 +126,8 @@ public class Pause : MonoBehaviour
         {
             yield return new WaitForSeconds(3f); 
             gameOverMenu.SetActive(true);
+            gameOverMenu.gameObject.transform.position = new Vector2(gameOverMenu.gameObject.transform.position.x,+25);
+            ResetGame = true;
             if(PersistentData.data.GotNewScore == true)
             {
                 audioPlayerScript.PlayHighScoreSound();

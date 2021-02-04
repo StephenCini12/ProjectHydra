@@ -290,7 +290,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6991e6f115c7d1a4e9f99c6fbde4f7e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1745,6 +1745,8 @@ MonoBehaviour:
   touchProjectiles: 0
   IsDamage: 0
   playerELisSameAsPlatformEL: 0
+  IsSwaggingSword: 0
+  IsHittingSword: 0
   _RB: {fileID: 341908862}
   feetPos: {fileID: 1910072600}
   whatIsGround:
@@ -2747,6 +2749,7 @@ MonoBehaviour:
   buttons: {fileID: 0}
   howtoplay: {fileID: 0}
   Background: {fileID: 0}
+  Story: {fileID: 0}
   scoreMenu: {fileID: 0}
   FadeObject: {fileID: 0}
   audioPlayerScript: {fileID: 0}
@@ -3553,6 +3556,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   rend: {fileID: 0}
   playerScript: {fileID: 0}
+  audioPlayerScript: {fileID: 1413790743}
 --- !u!4 &798861751
 Transform:
   m_ObjectHideFlags: 0
@@ -3798,7 +3802,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6991e6f115c7d1a4e9f99c6fbde4f7e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6776,6 +6780,9 @@ MonoBehaviour:
   CollectSound: {fileID: 8300000, guid: 785d7031cf76d264ca0b52480adf9845, type: 3}
   selectSound: {fileID: 8300000, guid: 7f4930b4035275c40a8440603c5c2632, type: 3}
   NewHighScoreSound: {fileID: 8300000, guid: 56cdd105ae6317b4c8ba86fb391a0a08, type: 3}
+  Sword: {fileID: 8300000, guid: 4854dc2d2a4443d448f2244b4fa0209d, type: 3}
+  DuckingSound: {fileID: 8300000, guid: 369b9094e6d4af3419c6b3df5c823334, type: 3}
+  DashingSound: {fileID: 8300000, guid: f089c5767bddcc94d91d73978418f60b, type: 3}
   audioSrcMusic: {fileID: 1413790745}
   audioSrcEffecs: {fileID: 1413790742}
   musicVolume: 0.5
@@ -7232,8 +7239,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGamePaused: 0
+  ResetGame: 0
   PAKTSView: 1
   PAKTSTimer: 0
+  XX: 0
+  YY: 0
+  ZZ: 0
   pauseMenu: {fileID: 1697842473}
   playerScript: {fileID: 341908861}
   gameOverMenu: {fileID: 2086403591}
@@ -7757,8 +7768,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 1228501863
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1 &1699899949
 GameObject:
@@ -9703,7 +9714,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1fab377051ef18f448072cba56f30270, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

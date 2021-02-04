@@ -10,6 +10,7 @@ TagManager:
   - Projectile
   - Warning
   - Feet
+  - Buttons
   layers:
   - Default
   - TransparentFX

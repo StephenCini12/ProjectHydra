@@ -9,15 +9,11 @@ public class GameUI : MonoBehaviour
     public int _lives = 3;
     [SerializeField]
     public int _pickbonus = 0;
-    public float scoreValue = 0;
-    [SerializeField]
-    public float bonusValue = 0;
+    public float scoreValue = 0, bonusValue = 0;
     [SerializeField]
     public bool HealthSystem = true;
     [SerializeField]
-    public bool IsScore = false;
-    [SerializeField]
-    public bool IsBonus = false;
+    public bool IsScore = false, IsBonus = false;
     public Text scoreText;
     public Text highscoreText;
     // [SerializeField]
@@ -76,10 +72,7 @@ public class GameUI : MonoBehaviour
     {
         if (IsScore == true)
         {
-            if (PersistentData.data.Highscore > scoreValue && playerScript._lives == 0)
-            {
-                highscoreText.text = "Your score: " + (int)scoreValue;
-            }
+            if (PersistentData.data.Highscore > scoreValue && playerScript._lives == 0) highscoreText.text = "Your score: " + (int)scoreValue;
             else if (PersistentData.data.Highscore < scoreValue)
             {
                 PersistentData.data.Highscore = scoreValue;
@@ -127,7 +120,7 @@ public class GameUI : MonoBehaviour
                 newBonus.GetComponent<GameUI>()._pickbonus = 3;
                 playerScript.giveDiamond = false;
             }
-            if (gameObject.GetComponent<SpawnManager>() != playerScript.touchProjectiles == true && playerScript.IsDamage == false)
+            if (gameObject.GetComponent<SpawnManager>() != playerScript.touchProjectiles == true)
             {
                 //touching a current element projectile
                 scoreValue = 50 + (int)scoreValue;
@@ -138,10 +131,8 @@ public class GameUI : MonoBehaviour
                 playerScript.touchProjectiles = false;
             }
         }
-        if (IsBonus == true)
-        {
-            transform.Translate(Vector2.down * 0.75f * Time.deltaTime);
-        }
+        if (IsBonus == true) transform.Translate(Vector2.down * 0.75f * Time.deltaTime);
+
     }
     IEnumerator Delete()
     {

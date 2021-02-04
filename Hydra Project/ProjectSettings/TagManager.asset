@@ -9,6 +9,7 @@ TagManager:
   - Lava
   - Projectile
   - Warning
+  - Feet
   layers:
   - Default
   - TransparentFX

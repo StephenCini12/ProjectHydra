@@ -6,50 +6,21 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    public int _lives = 3;
+    public int _lives = 3, TriggerColorChange = 0;
     [SerializeField]
-    public int PlayerElement;
-    [SerializeField]
-    public int NextPlayerElement;
-    [SerializeField]
-    public int TriggerColorChange = 0;
-    public float _Speed = 5f;
-    public float _Jump = 8f;
-    public float visabletimer;
-    private float moveInput;
-    public float checkRadius;
-    private float jumpTimeCounter;
-    public float jumpTime;
+    public int PlayerElement, NextPlayerElement;
+    public float _Speed = 5f, _Jump = 8f;
+    public float visabletimer , checkRadius , jumpTime;
+    private float moveInput , jumpTimeCounter;
     private float _immune = 0f;
     public float _clipping = 0f;
+    private float DashSetY;
     [SerializeField]
-    public bool _isright = true;
+    public bool isOnPlatform, isGrounded, isJumping, isDashing, isDusking;
     [SerializeField]
-    public bool setMovingPlatform = false;
+    public bool setMovingPlatform = false, HealthSystem = true, _isright = true, canDash = true;
     [SerializeField]
-    public bool isOnPlatform;
-    [SerializeField]
-    public bool isGrounded;
-    [SerializeField]
-    public bool isJumping;
-    [SerializeField]
-    private bool isDashing;
-    [SerializeField]
-    private bool isDusking;
-    [SerializeField]
-    public bool HealthSystem = true;
-    [SerializeField]
-    public bool giveScore = false;
-    [SerializeField]
-    public bool giveDiamond = false;
-    [SerializeField]
-    public bool giveDiamondnotsame = false;
-    [SerializeField]
-    public bool touchProjectiles = false;
-    [SerializeField]
-    public bool playerELisSameAsPlatformEL = false;
-    [SerializeField]
-    public bool IsDamage = false;
+    public bool giveScore = false, giveDiamond = false, giveDiamondnotsame = false, touchProjectiles = false, IsDamage = false, playerELisSameAsPlatformEL = false;
     public Rigidbody2D _RB;
     public Transform feetPos;    
     public LayerMask whatIsGround;
@@ -213,33 +184,17 @@ public class Player : MonoBehaviour
         {
             isJumping = false;
         }
-        if(jumpTimeCounter <= 0 && Input.GetKey(KeyCode.S) == false && isDusking == false && _lives > 0)
+        if(jumpTimeCounter <= 0 && _clipping > 0 && isDusking == false && _lives > 0 && isDashing == false && canDash == true)
         {
             _clipping = 0f;
         } 
-       
-        // if(Input.GetKeyUp(KeyCode.W) && isGrounded == true && _lives > 0)
-        // {
-        //     isJumping = false;
-        //     _clipping = 0.42f;
-        // }
-
-        // if(Input.GetKeyDown(KeyCode.UpArrow) && _clipping == 0)
-        // {
-        //     _clipping = 0.55f;
-        //     playerCollider.enabled = false;
-        // }
         if(Input.GetKeyDown(KeyCode.S) && isGrounded && _clipping == 0 && _lives > 0)
         {
             _clipping = 0.365f;
             playerCollider.enabled = false;
             isDusking = true;
-        }
-        // if(Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.UpArrow))
-        // {
-        //     playerCollider.enabled = true;
-        // }
 
+        }
         if (_clipping > 0)
         {
             _clipping -= Time.deltaTime;
@@ -250,68 +205,52 @@ public class Player : MonoBehaviour
             _clipping = 0;
             isDusking = false;
         }
-
-        // if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true && isDashing == false)
-        // {
-        //     isDashing = true;
-        //     _Speed = 25;
-        //     StartCoroutine(Dash());
-        // }
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded == false && isDashing == false && _lives > 0)
+        if(Input.GetKeyDown(KeyCode.Space)  && isDashing == false && _lives > 0 && canDash == true)
         {
             isDashing = true;
-            _clipping = 0.4f;
-            _Jump = 11;
-            _Speed = 25;
+            canDash = false;
+            DashSetY = (float)transform.position.y;
+            jumpTimeCounter = 0;
             StartCoroutine(Dash());
         }
-        // else if(Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.UpArrow))
-        // {
-        //     playerCollider.enabled = true;
-        // }
-
-        // //Dash left
-        // if (Input.GetKeyDown(KeyCode.LeftArrow))
-        // {
-        //     if (doubleTapTime > Time.time && lastKeyCode == KeyCode.LeftArrow){
-        //         StartCoroutine(Dash(1f));
-        //     } 
-        //     else {
-        //         doubleTapTime = Time.time + 0.5f;
-        //     }
-            
-        //     lastKeyCode = KeyCode.LeftArrow;
-        // }
-
-        // //Dash right
-        // if (Input.GetKeyDown(KeyCode.RightArrow))
-        // {
-        //     if (doubleTapTime > Time.time && lastKeyCode == KeyCode.RightArrow){
-        //         StartCoroutine(Dash(1f));
-        //     } 
-        //     else {
-        //         doubleTapTime = Time.time + 0.5f;
-        //     }
-            
-        //     lastKeyCode = KeyCode.RightArrow;
-        // }         
+        if (isDashing == true && _lives > 0) 
+        {
+            if(_isright == false) 
+            {
+                _RB.gravityScale = 0f;
+                transform.position = new Vector2(transform.position.x,DashSetY);
+                transform.Translate(Vector2.left * (_Speed*2) * Time.deltaTime);
+                _clipping = 0.4f;
+            }
+            else 
+            {
+                _RB.gravityScale = 0f;
+                transform.position = new Vector2(transform.position.x,DashSetY);
+                transform.Translate(Vector2.right * (_Speed*2) * Time.deltaTime);
+                _clipping = 0.4f;
+            }
+        }     
     }
     public IEnumerator Dash()
     {
-        yield return new WaitForSeconds(0.22f);
-        // if (_clipping == 0)
-        // {
-        //     playerCollider.enabled = false;
-        // }
-        _Speed = 8;
-        _Jump = 5;
+        yield return new WaitForSeconds(0.25f);
+        _RB.gravityScale = 2.5f;
+        jumpTimeCounter = 0f;
+        _clipping = 0.22f;
+        canDash = false;
         isDashing = false;
+        StartCoroutine(CanDash());
+    }
+    public IEnumerator CanDash()
+    {
+        yield return new WaitForSeconds(1f);
+        canDash = true;
     }
     void FixedUpdate()
     {
         if (_lives > 0)
         {
-            moveInput = Input.GetAxis("Horizontal");   
+            if(isDashing == false) moveInput = Input.GetAxis("Horizontal");   
             _RB.velocity = new Vector2(moveInput * _Speed, _RB.velocity.y);
             if(Input.GetKeyDown(KeyCode.A) && _isright == true)
             {
@@ -356,22 +295,19 @@ public class Player : MonoBehaviour
         {
             anim.SetBool("Duck", false);
         }
+        if (isDashing == true)
+        {
+            anim.SetBool("Dash", true);
+        }
+        else
+        {
+            anim.SetBool("Dash", false);
+        }
         if (_lives == 0)
         {
             anim.SetBool("Death", true);
         }
     }
-
-    // void OnCollisionEnter2D(Collision2D coll)
-    // {
-    //     setMovingPlatform = true;
-    //     //Debug.Log("Hit: " + transform.name);
-    //     if (coll.gameObject.tag == "Lava")
-    //     {
-    //         _lives = 0;
-    //         //Damage();
-    //     }
-    // }  
 
     public void Damage()
     {
@@ -381,23 +317,4 @@ public class Player : MonoBehaviour
             audioPlayerScript.PlayDamageSound();
         }
     }
-
-    // IEnumerator Dash (float direction)
-    // {
-    //     isDashing = true;
-    //     _RB.velocity = new Vector2(_RB.velocity.x, 0f);
-    //     _RB.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
-    //     float gravity = _RB.gravityScale;
-    //     _RB.gravityScale = 0f;
-    //     yield return new WaitForSeconds(0.4f);
-    //     isDashing = false;
-    //     _RB.gravityScale = gravity;
-    //}
-    // IEnumerator Jumping()
-    // {
-    //     while(Jumping == true)
-    //     {
-    //         yield return new WaitForSeconds(5f); 
-    //     }
-    // }
 }

@@ -73,43 +73,43 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11258}
+      Script: {instanceID: 11254}
     - Class: 114
-      Script: {instanceID: 11338}
+      Script: {instanceID: 11334}
     - Class: 114
-      Script: {instanceID: 11350}
+      Script: {instanceID: 11346}
     - Class: 114
-      Script: {instanceID: 11420}
+      Script: {instanceID: 11416}
     - Class: 114
-      Script: {instanceID: 11460}
+      Script: {instanceID: 11456}
     - Class: 114
-      Script: {instanceID: 11738}
+      Script: {instanceID: 11734}
     - Class: 114
-      Script: {instanceID: 11782}
+      Script: {instanceID: 11778}
     - Class: 114
-      Script: {instanceID: 11848}
+      Script: {instanceID: 11844}
     - Class: 114
-      Script: {instanceID: 11874}
+      Script: {instanceID: 11870}
     - Class: 114
-      Script: {instanceID: 12234}
+      Script: {instanceID: 12230}
     - Class: 114
-      Script: {instanceID: 12474}
+      Script: {instanceID: 12470}
     - Class: 114
-      Script: {instanceID: 12512}
+      Script: {instanceID: 12508}
     - Class: 114
-      Script: {instanceID: 12554}
+      Script: {instanceID: 12550}
     - Class: 114
-      Script: {instanceID: 12676}
+      Script: {instanceID: 12674}
     - Class: 114
-      Script: {instanceID: 12720}
+      Script: {instanceID: 12718}
     - Class: 114
-      Script: {instanceID: 12756}
+      Script: {instanceID: 12754}
     - Class: 114
-      Script: {instanceID: 13014}
+      Script: {instanceID: 13012}
     - Class: 114
-      Script: {instanceID: 13074}
+      Script: {instanceID: 13072}
     - Class: 114
-      Script: {instanceID: 13104}
+      Script: {instanceID: 13102}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -156,33 +156,33 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11258}
+      Script: {instanceID: 11254}
     - Class: 114
-      Script: {instanceID: 11338}
+      Script: {instanceID: 11334}
     - Class: 114
-      Script: {instanceID: 11420}
+      Script: {instanceID: 11416}
     - Class: 114
-      Script: {instanceID: 11460}
+      Script: {instanceID: 11456}
     - Class: 114
-      Script: {instanceID: 11848}
+      Script: {instanceID: 11844}
     - Class: 114
-      Script: {instanceID: 11874}
+      Script: {instanceID: 11870}
     - Class: 114
-      Script: {instanceID: 12234}
+      Script: {instanceID: 12230}
     - Class: 114
-      Script: {instanceID: 12282}
+      Script: {instanceID: 12278}
     - Class: 114
-      Script: {instanceID: 12720}
+      Script: {instanceID: 12718}
     - Class: 114
-      Script: {instanceID: 12732}
+      Script: {instanceID: 12730}
     - Class: 114
-      Script: {instanceID: 13014}
+      Script: {instanceID: 13012}
     - Class: 114
-      Script: {instanceID: 13074}
+      Script: {instanceID: 13072}
     - Class: 114
-      Script: {instanceID: 13104}
+      Script: {instanceID: 13102}
     - Class: 114
-      Script: {instanceID: 13114}
+      Script: {instanceID: 13112}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -462,7 +462,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 791ccb7040b626486d55ba2ddbabd642
+      Hash: efca0ed8a8fec55ded4f2fb1ef47865d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PersistentData
@@ -698,5 +698,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Game.unity
-  playerPath: D:/Apps/GitHub/ProjectHydra/Hydra Project/Export/Elemental Hydra Game/Hydra
-    Project.exe
+  playerPath: D:/GitHub/ProjectHydra/Hydra Project/Export/Elemental Hydra/Hydra Project.exe

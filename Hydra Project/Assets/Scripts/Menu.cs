@@ -9,6 +9,7 @@ public class Menu : MonoBehaviour
     [SerializeField] GameObject buttons;
     [SerializeField] GameObject howtoplay;
     [SerializeField] GameObject Background;
+    [SerializeField] GameObject Story;
     [SerializeField] public GameObject scoreMenu;
     [SerializeField] public FadeTransition FadeObject;
     public AudioPlayer audioPlayerScript;
@@ -29,11 +30,24 @@ public class Menu : MonoBehaviour
     public void Startgame ()
     {
         //Debug.Log("bruh it me");
-        if(StartingGame == 2f)
+        if(StartingGame >= 2f)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            Time.timeScale = 0f;
-            StartingGame = 0;
+            if(PersistentData.data.SetStoryFrame == 0) 
+            {
+                StartingGame = 3;
+                FadeObject.IsFadingBlack = false;
+                FadeObject.TriggerFade = true;
+                PlayerPrefs.SetInt("SetStory", (int) 1);
+                PersistentData.data.SetStoryFrame = 1;
+                Story.gameObject.SetActive(true);
+                StartCoroutine(StartGStory());
+            }
+            else
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                Time.timeScale = 0f;
+                StartingGame = 0;
+            }
         }
     }
 
@@ -73,6 +87,15 @@ public class Menu : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         Startgame();
+    }
+    public IEnumerator StartGStory()
+    {
+        yield return new WaitForSeconds(8f);
+        FadeObject = GameObject.Find("FadeFrame").GetComponent<FadeTransition>();
+        FadeObject.IsFadingBlack = true;
+        FadeObject.TriggerFade = true;
+        StartingGame = 4;
+        StartCoroutine(StartG());
     }
     public void ResetData()
     {

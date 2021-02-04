@@ -14,7 +14,7 @@ public class PersistentData : MonoBehaviour
     [SerializeField]
     public float Highscore;
 
-    public int SetDefaultSettings = 0;
+    public int SetDefaultSettings = 0, SetStoryFrame = 0;
 
     public bool GotNewScore = false;
     public bool resetData = false;
@@ -37,8 +37,11 @@ public class PersistentData : MonoBehaviour
 
     void Awake() 
     {
+        //PlayerPrefs.DeleteAll();
         //PlayerPrefs.SetInt("DefaultSettings", (int)0);
+        //PlayerPrefs.SetInt("SetStory", (int)0);
         SetDefaultSettings = PlayerPrefs.GetInt("DefaultSettings");
+        SetStoryFrame = PlayerPrefs.GetInt("SetStory");
         if (SetDefaultSettings == 0)
         {
             PlayerPrefs.SetFloat("MusicAudio", (float) 0.5f);
@@ -46,7 +49,7 @@ public class PersistentData : MonoBehaviour
             PlayerPrefs.SetInt("Highscore", (int) 0);
             PlayerPrefs.SetInt("DefaultSettings", (int) 1);
         }
-        Debug.Log(PlayerPrefs.GetInt("DefaultSettings"));
+        //Debug.Log(PlayerPrefs.GetInt("DefaultSettings"));
 
         if(data == null)
         {

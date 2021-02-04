@@ -16,6 +16,8 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField]
     public bool canMove = false;
     [SerializeField]
+    public bool HoppedOn = false;
+    [SerializeField]
     public int element = 0;
     [SerializeField]
     private int _random = 0;
@@ -23,6 +25,8 @@ public class MovingPlatform : MonoBehaviour
     public int helppedelement = 1;
     [SerializeField]
     public int _level;
+    [SerializeField]
+    public float SetY;
     [SerializeField]
     public float speed;
     [SerializeField]
@@ -41,6 +45,7 @@ public class MovingPlatform : MonoBehaviour
     void Start()
     {
         _random = Random.Range(0,7);
+        this.SetY = (float)this.transform.position.y;
         if (isSpawnPlatform == false &&_random == 6)
         {
             isSpawnPlatform = true;
@@ -88,6 +93,7 @@ public class MovingPlatform : MonoBehaviour
             }
             if (playerScript.PlayerElement == this.element) playerScript.playerELisSameAsPlatformEL = true;
             else playerScript.playerELisSameAsPlatformEL = false;
+            //if (playerScript._clipping <= 0) playerScript.canDash = true;
         }
         else
         {
@@ -124,6 +130,11 @@ public class MovingPlatform : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isOnMovingPlatform = true;
+            if (HoppedOn == false)
+            {
+                StartCoroutine(Hopped());
+                HoppedOn = true;
+            }
         }
         
         if (other.gameObject.CompareTag("Player") && playerScript.isGrounded == true && playerScript.IsDamage == false)
@@ -194,13 +205,15 @@ public class MovingPlatform : MonoBehaviour
         }
     }
     
-    // public IEnumerator Helpping()
-    // {
-    //     while(helpedSpawn == false)
-    //     {
-    //         helpedSpawn = true;
-    //         yield return new WaitForSeconds (2.5f);
-    //     }
-    // }
+    public IEnumerator Hopped()
+    {
+        this.transform.position = new Vector2(transform.position.x,(transform.position.y - 0.025f));
+        yield return new WaitForSeconds (0.1f);
+        while(SetY != (float)transform.position.y)
+        {
+            this.transform.position = new Vector2(transform.position.x, this.SetY);
+            HoppedOn = false;
+        }
+    }
 
 }

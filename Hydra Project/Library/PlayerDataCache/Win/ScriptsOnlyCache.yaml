@@ -101,15 +101,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12674}
     - Class: 114
-      Script: {instanceID: 12718}
+      Script: {instanceID: 12720}
     - Class: 114
-      Script: {instanceID: 12754}
+      Script: {instanceID: 12756}
     - Class: 114
-      Script: {instanceID: 13012}
+      Script: {instanceID: 13014}
     - Class: 114
-      Script: {instanceID: 13072}
+      Script: {instanceID: 13074}
     - Class: 114
-      Script: {instanceID: 13102}
+      Script: {instanceID: 13104}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -172,17 +172,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12278}
     - Class: 114
-      Script: {instanceID: 12718}
+      Script: {instanceID: 12720}
     - Class: 114
-      Script: {instanceID: 12730}
+      Script: {instanceID: 12732}
     - Class: 114
-      Script: {instanceID: 13012}
+      Script: {instanceID: 13014}
     - Class: 114
-      Script: {instanceID: 13072}
+      Script: {instanceID: 13074}
     - Class: 114
-      Script: {instanceID: 13102}
+      Script: {instanceID: 13104}
     - Class: 114
-      Script: {instanceID: 13112}
+      Script: {instanceID: 13114}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -228,13 +228,13 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: 256f8a59485b097d6177e9643167acec
+      Hash: 155f37454649cafc6cca712b37105064
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AudioPlayer
   - hash:
       serializedVersion: 2
-      Hash: 9506eb9291a9c3f9248df6493d413f34
+      Hash: cb09bc46d761e655772a9e07cda5807c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MovingPlatform
@@ -366,7 +366,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 84438d0f405d9f02848016988241fa96
+      Hash: 2e82eb46e64af4bf7d46aa754823fe33
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpawnManager
@@ -396,7 +396,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: b05e68ba549750787723f663dbaecf2a
+      Hash: 272560b2186e414544acac334add4195
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Menu
@@ -462,7 +462,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: efca0ed8a8fec55ded4f2fb1ef47865d
+      Hash: 511514333febd4d3ca2a3cf0ba37df1c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PersistentData
@@ -534,7 +534,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 27d1d536e5623542aa63989a25aa14b8
+      Hash: 45581c067dd86f2a0db8037b6f7b3a8f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIElementIcon
@@ -546,10 +546,16 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 394cfa1f34bd40b35524c2e803286b60
+      Hash: 8343d6119689b5ef567ead5b2817278e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
+  - hash:
+      serializedVersion: 2
+      Hash: 9b02dda14497a57573aa7b1d995bf6e1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIButtons
   - hash:
       serializedVersion: 2
       Hash: f336e086360abe49a3323e5f1583c35a
@@ -576,7 +582,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: abfbc66a96ed5dee4a9c364b919fefb2
+      Hash: 1f1bea48c1fbb37487dabe19b3313f91
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pause

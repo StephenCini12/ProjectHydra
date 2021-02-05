@@ -163,7 +163,7 @@ public class Player : MonoBehaviour
 
         if(jumpTimeCounter <= 0 && _clipping > 0 && isDusking == false && _lives > 0 && isDashing == false && canDash == true) _clipping = 0f;
 
-        if(Input.GetKeyDown(KeyCode.S) && isGrounded && _clipping == 0 && _lives > 0)
+        if(Input.GetKeyDown(KeyCode.S) && _clipping == 0 && _lives > 0)
         {
             _clipping = 0.365f;
             playerCollider.enabled = false;
@@ -171,6 +171,7 @@ public class Player : MonoBehaviour
             IsSwaggingSword = false;
             audioPlayerScript.PlayDucking();
         }
+        //if(Input.GetKey(KeyCode.S) && _clipping <= 0.365f) _clipping = 0.09f;
 
         if (_clipping > 0) _clipping -= Time.deltaTime;
 

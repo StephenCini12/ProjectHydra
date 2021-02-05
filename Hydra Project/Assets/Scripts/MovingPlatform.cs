@@ -6,17 +6,9 @@ using UnityEngine;
 public class MovingPlatform : MonoBehaviour
 {
     [SerializeField]
-    public bool isPlatformManager = false;
-    [SerializeField]
-    public bool isOnMovingPlatform = false;
+    public bool isPlatformManager = false, isOnMovingPlatform = false, isSpawnPlatform = false, canMove = false, HoppedOn = false;
     [SerializeField]
     public bool isMovingLeft = true;
-    [SerializeField]
-    public bool isSpawnPlatform = false;
-    [SerializeField]
-    public bool canMove = false;
-    [SerializeField]
-    public bool HoppedOn = false;
     [SerializeField]
     public int element = 0;
     [SerializeField]
@@ -26,13 +18,9 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField]
     public int _level;
     [SerializeField]
-    public float SetY;
+    public float SetY, speed, maxspeed;
     [SerializeField]
-    public float speed;
-    [SerializeField]
-    public float maxspeed;
-    [SerializeField]
-    private float _difficulty;
+    public float _difficulty;
     public GameObject Player;
     public Sprite[] sprite;
     SpriteRenderer rend;
@@ -46,36 +34,20 @@ public class MovingPlatform : MonoBehaviour
     {
         _random = Random.Range(0,7);
         this.SetY = (float)this.transform.position.y;
-        if (isSpawnPlatform == false &&_random == 6)
-        {
-            isSpawnPlatform = true;
-        }
-        if(!isSpawnPlatform)
-        {
-            element = Random.Range(0,3);
-        }
-        else
-        {
-            element = 0;
-        }
-        
-        if(_level == 1)
-        {
-            speed = 1.25f;
-        }
-        if(_level == 2)
-        {
-            speed = 1.75f;
-        }
-        if(_level == 3)
-        {
-            speed = 2.15f;
-        }
-        maxspeed = speed*2.1f;
+        if (isSpawnPlatform == false &&_random == 6) isSpawnPlatform = true;
+        if(!isSpawnPlatform) element = Random.Range(0,3);
+        else element = 0;
+
+        if(_level == 1) speed = 1.15f;
+        if(_level == 2) speed = 1.65f;
+        if(_level == 3) speed = 2.05f;
+
+        this.maxspeed = this.speed*2.2f;
         rend = GetComponent<SpriteRenderer>();
         rend.enabled =true;
         rend.sprite = sprite[element];
         playerScript = GameObject.Find("Player").GetComponent<Player>();
+        //this.speed = this.maxspeed;
         // StartCoroutine(Helpping());
     }
 
@@ -95,20 +67,12 @@ public class MovingPlatform : MonoBehaviour
             else playerScript.playerELisSameAsPlatformEL = false;
             //if (playerScript._clipping <= 0) playerScript.canDash = true;
         }
-        else
-        {
-            Player.transform.SetParent(null);
-        }
+        else Player.transform.SetParent(null);
 
-        if (isMovingLeft)
-        {
-            left ();
-        }
+        if (isMovingLeft) left ();
+        else right ();
 
-        else 
-        {
-            right ();
-        }
+
         // if(helpedSpawn == true)
         // {
         //     helppedelement = Random.Range(1,5);
@@ -118,10 +82,7 @@ public class MovingPlatform : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(this.speed <= this.maxspeed)
-        {
-            this.speed += SpawnManagerScript._difficulty / 1000000;
-        }
+        if(this.speed <= this.maxspeed) this.speed += SpawnManagerScript._difficulty / 100000;
     }
     
 

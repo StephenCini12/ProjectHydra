@@ -70,8 +70,8 @@ public class Pause : MonoBehaviour
             StartCoroutine(GameoverText());
         }
         if(Input.GetKeyDown(KeyCode.R) && ResetGame == true || Input.GetKeyDown(KeyCode.Space) && ResetGame == true) playAgain();
-        if(gameOverMenu.gameObject.transform.position.y > (YY + 0.08f) && Time.timeScale == 0f) gameOverMenu.transform.Translate(Vector3.down * 10 * 0.01f);
-        if(pauseMenu.gameObject.transform.position.y > XX && Time.timeScale == 0f) pauseMenu.transform.Translate(Vector3.down * 12 * 0.01f);
+        if(gameOverMenu.gameObject.transform.position.y > (YY + 0.08f) && Time.timeScale == 0f) gameOverMenu.transform.Translate(Vector3.down * 15 * 0.01f);
+        if(pauseMenu.gameObject.transform.position.y > XX && Time.timeScale == 0f) pauseMenu.transform.Translate(Vector3.down * 15 * 0.01f);
 
     }
 

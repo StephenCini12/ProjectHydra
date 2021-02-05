@@ -39,7 +39,7 @@ public class PersistentData : MonoBehaviour
     {
         //PlayerPrefs.DeleteAll();
         //PlayerPrefs.SetInt("DefaultSettings", (int)0);
-        //PlayerPrefs.SetInt("SetStory", (int)0);
+        PlayerPrefs.SetInt("SetStory", (int)0);
         SetDefaultSettings = PlayerPrefs.GetInt("DefaultSettings");
         SetStoryFrame = PlayerPrefs.GetInt("SetStory");
         if (SetDefaultSettings == 0)

@@ -82,31 +82,15 @@ public class ElementTimer : MonoBehaviour
                 timeRemaining = timerMax;
                 playerScript.PlayerElement = playerScript.NextPlayerElement;
                 playerScript.NextPlayerElement = playerScript.NextPlayerElement + Random.Range(-1 , +2);
-                if (playerScript.NextPlayerElement <= -1)
-                {
-                    playerScript.NextPlayerElement = 2;
-                }
-                if (playerScript.NextPlayerElement == playerScript.PlayerElement)
-                {
-                    playerScript.NextPlayerElement = playerScript.NextPlayerElement + 1;
-                }
-                if (playerScript.NextPlayerElement >= 3)
-                {
-                    playerScript.NextPlayerElement = 0;
-                }
-                if (playerScript.IsDamage == false)
-                {
-                    playerScript.giveScore = true;
-                    //Debug.Log("lol you got points");
-                }
+                if (playerScript.NextPlayerElement <= -1) playerScript.NextPlayerElement = 2;
+                if (playerScript.NextPlayerElement == playerScript.PlayerElement) playerScript.NextPlayerElement = playerScript.NextPlayerElement + 1;
+                if (playerScript.NextPlayerElement >= 3) playerScript.NextPlayerElement = 0;
+                if (playerScript.IsDamage == false) playerScript.giveScore = true;
                 rend.color = color[playerScript.PlayerElement];
                 playerScript.TriggerColorChange = 1;
                 //Debug.Log("Next Element " + playerElement);
             }
-            else if(timeRemaining > 0 && playerScript._lives > 0)
-            {
-                timeRemaining -= Time.deltaTime;
-            }
+            else if(timeRemaining > 0 && playerScript._lives > 0) timeRemaining -= Time.deltaTime;
             //if(timeRemaining == timerMax) 
             // else if(timeRemaining == timerMax)
             // {
@@ -120,10 +104,7 @@ public class ElementTimer : MonoBehaviour
     }
     public void BackElement()
     {
-        if (playerScript.TriggerColorChange == 1)
-        {
-            rend.color = color[playerScript.NextPlayerElement];
-        }
+        if (playerScript.TriggerColorChange == 1) rend.color = color[playerScript.NextPlayerElement];
     }
     // IEnumerator Hold()
     // {

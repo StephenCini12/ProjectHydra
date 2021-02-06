@@ -82,7 +82,7 @@ public class MovingPlatform : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(this.speed <= this.maxspeed) this.speed += SpawnManagerScript._difficulty / 100000;
+        if(this.speed <= this.maxspeed) this.speed += SpawnManagerScript._difficulty / 500000;
     }
     
 

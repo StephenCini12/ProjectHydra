@@ -56,10 +56,7 @@ public class PersistentData : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             data = this;
         }
-        else if(data != this)
-        {
-            Destroy(gameObject);
-        }
+        else if(data != this) Destroy(gameObject);
         Highscore = PlayerPrefs.GetInt("Highscore");
         musicVolumeData = PlayerPrefs.GetFloat("MusicAudio");
         effectsVolumeData = PlayerPrefs.GetFloat("EffectAudio");

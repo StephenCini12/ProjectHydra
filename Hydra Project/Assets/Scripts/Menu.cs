@@ -17,6 +17,7 @@ public class Menu : MonoBehaviour
     [SerializeField] public FadeTransition FadeObject;
     public AudioPlayer audioPlayerScript;
     int StartingGame = 0;
+    public bool skip = false;
 
     public void PlayGame ()
     {
@@ -98,6 +99,7 @@ public class Menu : MonoBehaviour
         FadeObject.IsFadingBlack = true;
         FadeObject.TriggerFade = true;
         StartingGame = 4;
+        skip = true;
         StartCoroutine(StartG());
     }
     public void ResetData()
@@ -109,6 +111,14 @@ public class Menu : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space) && PersistentData.data.SetStoryFrame == 1 && skip == false)
+        {
+            FadeObject = GameObject.Find("FadeFrame").GetComponent<FadeTransition>();
+            FadeObject.IsFadingBlack = true;
+            FadeObject.TriggerFade = true;
+            StartingGame = 4;
+            StartCoroutine(StartG());
+        }
         //SetUnitTargetPosition(UtilsClass.GetMouseWorldPositionZeroZ());
     }
 

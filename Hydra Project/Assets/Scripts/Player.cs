@@ -136,7 +136,7 @@ public class Player : MonoBehaviour
         {
             //audioPlayerScript = GetComponent<AudioPlayer>(); 
             _RB.AddForce (Vector2.up * _Jump, ForceMode2D.Impulse);
-            _clipping = 0.42f;
+            _clipping = 0.445f;
             audioPlayerScript.PlayJumpSound();
         }
         if(isGrounded == true && Input.GetKeyDown(KeyCode.W) && _lives > 0)

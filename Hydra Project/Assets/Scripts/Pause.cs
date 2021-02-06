@@ -50,14 +50,8 @@ public class Pause : MonoBehaviour
         {
             audioPlayerScript.PlayCollectSound();
             
-            if (isGamePaused)
-            {
-                ResumeGame();
-            }
-            else 
-            {
-                PauseGame();
-            }
+            if (isGamePaused) ResumeGame();
+            else PauseGame();
         }
 
         if(playerScript._lives <= 0 && gameOver == false)
@@ -71,7 +65,7 @@ public class Pause : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.R) && ResetGame == true || Input.GetKeyDown(KeyCode.Space) && ResetGame == true) playAgain();
         if(gameOverMenu.gameObject.transform.position.y > (YY + 0.08f) && Time.timeScale == 0f) gameOverMenu.transform.Translate(Vector3.down * 15 * 0.01f);
-        if(pauseMenu.gameObject.transform.position.y > XX && Time.timeScale == 0f) pauseMenu.transform.Translate(Vector3.down * 15 * 0.01f);
+        if(pauseMenu.gameObject.transform.position.y > (XX + 0.08f) && Time.timeScale == 0f) pauseMenu.transform.Translate(Vector3.down * 15 * 0.01f);
 
     }
 

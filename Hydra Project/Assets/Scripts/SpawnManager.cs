@@ -81,10 +81,8 @@ public class SpawnManager : MonoBehaviour
     {
         if (isSpawner == true && _difficulty > 5f) _difficulty -= Time.deltaTime/Random.Range(30,76);
         if (Projectiles == true) ProjectilesGroup();
-        if (Diamond == true)
-        {
-            if (this.transform.position.y < -6f) Destroy(this.gameObject);
-        }
+        if (Diamond == true) if (this.transform.position.y < -6f) Destroy(this.gameObject);
+
         if (isWarning == true)
         {
             if (rend.enabled == true)

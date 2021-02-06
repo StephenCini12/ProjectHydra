@@ -18,14 +18,8 @@ public class FadeTransition : MonoBehaviour
         IsFadingBlack = false;
         FadeTransitionObject.enabled = true;
 
-        if (IsFadingBlack == true)
-        {
-            FadeTransitionObject.canvasRenderer.SetAlpha(0.0f);
-        }
-        else
-        {
-            FadeTransitionObject.canvasRenderer.SetAlpha(1.0f);
-        }
+        if (IsFadingBlack == true) FadeTransitionObject.canvasRenderer.SetAlpha(0.0f);
+        else FadeTransitionObject.canvasRenderer.SetAlpha(1.0f);
         fadeIn();
     }
 
@@ -47,13 +41,7 @@ public class FadeTransition : MonoBehaviour
 
     public void fadeIn()
     {
-        if (IsFadingBlack == true)
-        {
-            FadeTransitionObject.CrossFadeAlpha(1,0.95f,false);
-        }
-        else
-        {
-            FadeTransitionObject.CrossFadeAlpha(0,0.95f,false);
-        }
+        if (IsFadingBlack == true) FadeTransitionObject.CrossFadeAlpha(1,0.95f,false);
+        else FadeTransitionObject.CrossFadeAlpha(0,0.95f,false);
     }
 }

@@ -1728,6 +1728,7 @@ MonoBehaviour:
   scoreMenu: {fileID: 0}
   FadeObject: {fileID: 0}
   audioPlayerScript: {fileID: 0}
+  skip: 0
 --- !u!114 &730676569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1879,6 +1880,7 @@ MonoBehaviour:
   scoreMenu: {fileID: 0}
   FadeObject: {fileID: 0}
   audioPlayerScript: {fileID: 0}
+  skip: 0
 --- !u!114 &761550846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1900,7 +1902,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.7336948, b: 0.07075471, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1918,7 +1920,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 761550847}
+  m_TargetGraphic: {fileID: 2046217996}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -2784,6 +2786,7 @@ MonoBehaviour:
   scoreMenu: {fileID: 0}
   FadeObject: {fileID: 0}
   audioPlayerScript: {fileID: 0}
+  skip: 0
 --- !u!114 &1185047487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2805,11 +2808,11 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.6156863}
+    m_HighlightedColor: {r: 1, g: 0.7336948, b: 0.07075471, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 3.19
+    m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -2823,7 +2826,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1185047488}
+  m_TargetGraphic: {fileID: 1755320213}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -2946,6 +2949,7 @@ MonoBehaviour:
   scoreMenu: {fileID: 0}
   FadeObject: {fileID: 0}
   audioPlayerScript: {fileID: 0}
+  skip: 0
 --- !u!114 &1310330695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3201,6 +3205,7 @@ MonoBehaviour:
   scoreMenu: {fileID: 0}
   FadeObject: {fileID: 0}
   audioPlayerScript: {fileID: 0}
+  skip: 0
 --- !u!114 &1389528532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3377,6 +3382,7 @@ MonoBehaviour:
   scoreMenu: {fileID: 0}
   FadeObject: {fileID: 0}
   audioPlayerScript: {fileID: 0}
+  skip: 0
 --- !u!114 &1399846818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4138,6 +4144,7 @@ MonoBehaviour:
   scoreMenu: {fileID: 0}
   FadeObject: {fileID: 0}
   audioPlayerScript: {fileID: 0}
+  skip: 0
 --- !u!1 &1704954655
 GameObject:
   m_ObjectHideFlags: 0
@@ -4509,6 +4516,7 @@ MonoBehaviour:
   scoreMenu: {fileID: 905489286}
   FadeObject: {fileID: 853395350}
   audioPlayerScript: {fileID: 1069436378}
+  skip: 0
 --- !u!1 &1802678685
 GameObject:
   m_ObjectHideFlags: 0

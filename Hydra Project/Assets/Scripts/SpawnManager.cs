@@ -227,23 +227,23 @@ public class SpawnManager : MonoBehaviour
     {
         if (Projectiles == true)
         {
-            //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), playerScript.GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), playerScript.GetComponent<Collider2D>());
             if (other.gameObject.CompareTag("Player") && playerScript.IsDamage == false)
             {
-                if (projectileElement != playerScript.PlayerElement && playerScript.IsDamage == false)
+                if (this.projectileElement != playerScript.PlayerElement && playerScript.IsDamage == false)
                 {
                     playerScript.IsDamage = true;
                     //audioPlayerScript.PlayCollectSound();
                     playerScript.Damage();
-                    //Destroy (this.gameObject);
+                    Destroy (this.gameObject, 0.3f);
                 }
-                // if (projectileElement == playerScript.PlayerElement)
-                // {
-                //     playerScript.touchProjectiles = true;
-                    //Destroy (this.gameObject);
-                // }
-                //Destroy (this.gameObject);
+                else if (projectileElement == playerScript.PlayerElement)
+                {
+                    playerScript.touchProjectiles = true;
+                    Destroy (this.gameObject, 0.3f);
+                }
             }
+            Destroy (this.gameObject, 0.3f);
         }
 
         if (Diamond == true)
@@ -251,7 +251,7 @@ public class SpawnManager : MonoBehaviour
             //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), playerScript.GetComponent<Collider2D>());
             if (other.gameObject.CompareTag("Player"))
             {
-                if (diamondElement != playerScript.PlayerElement)
+                if (this.diamondElement != playerScript.PlayerElement)
                 {
                     playerScript.giveDiamondnotsame = true;
                     Destroy (this.gameObject);

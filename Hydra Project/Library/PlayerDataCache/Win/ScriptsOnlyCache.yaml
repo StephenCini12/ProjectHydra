@@ -33,7 +33,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.Outline
-    - UnityEngine.UI.Shadow
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
@@ -73,31 +72,29 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11254}
+      Script: {instanceID: 11256}
     - Class: 114
-      Script: {instanceID: 11334}
+      Script: {instanceID: 11336}
     - Class: 114
-      Script: {instanceID: 11346}
+      Script: {instanceID: 11348}
     - Class: 114
-      Script: {instanceID: 11416}
+      Script: {instanceID: 11418}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 11734}
+      Script: {instanceID: 11736}
     - Class: 114
-      Script: {instanceID: 11778}
+      Script: {instanceID: 11846}
     - Class: 114
-      Script: {instanceID: 11844}
+      Script: {instanceID: 11872}
     - Class: 114
-      Script: {instanceID: 11870}
+      Script: {instanceID: 12232}
     - Class: 114
-      Script: {instanceID: 12230}
+      Script: {instanceID: 12472}
     - Class: 114
-      Script: {instanceID: 12470}
+      Script: {instanceID: 12510}
     - Class: 114
-      Script: {instanceID: 12508}
-    - Class: 114
-      Script: {instanceID: 12550}
+      Script: {instanceID: 12552}
     - Class: 114
       Script: {instanceID: 12674}
     - Class: 114
@@ -156,21 +153,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11254}
+      Script: {instanceID: 11256}
     - Class: 114
-      Script: {instanceID: 11334}
+      Script: {instanceID: 11336}
     - Class: 114
-      Script: {instanceID: 11416}
+      Script: {instanceID: 11418}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 11844}
+      Script: {instanceID: 11846}
     - Class: 114
-      Script: {instanceID: 11870}
+      Script: {instanceID: 11872}
     - Class: 114
-      Script: {instanceID: 12230}
+      Script: {instanceID: 12232}
     - Class: 114
-      Script: {instanceID: 12278}
+      Script: {instanceID: 12280}
     - Class: 114
       Script: {instanceID: 12720}
     - Class: 114
@@ -396,7 +393,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 272560b2186e414544acac334add4195
+      Hash: 3e9307153596f8a50098f07696eea864
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Menu
@@ -704,4 +701,5 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Game.unity
-  playerPath: D:/GitHub/ProjectHydra/Hydra Project/Export/Elemental Hydra/Hydra Project.exe
+  playerPath: D:/Apps/GitHub/ProjectHydra/Hydra Project/Export/Elemental Hydra/Hydra
+    Project.exe

@@ -243,7 +243,7 @@ public class SpawnManager : MonoBehaviour
                     Destroy (this.gameObject, 0.3f);
                 }
             }
-            Destroy (this.gameObject, 0.3f);
+            //Destroy (this.gameObject, 0.3f);
         }
 
         if (Diamond == true)

@@ -80,7 +80,7 @@ public class Pause : MonoBehaviour
 
     public void PauseGame()
     {
-        if (gameOver == false)
+        if (gameOver == false && isGamePaused == false)
         {
             pauseMenu.SetActive(true);
             pauseMenu.gameObject.transform.position = new Vector3(pauseMenu.gameObject.transform.position.x,+12,pauseMenu.gameObject.transform.position.z);
